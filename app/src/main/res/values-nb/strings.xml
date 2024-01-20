@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="install_i2p_android">Installer I2P for Android?</string>
+    <string name="lib_rate_btn_cancel">Avbryt</string>
+    <string name="lib_rate_btn_close">LUKK</string>
+    <string name="lib_rate_btn_go_market">Vurder på Google Play</string>
+    <string name="lib_rate_btn_rate">Vurder</string>
+    <string name="lib_rate_btn_submit">Send inn</string>
+    <string name="lib_rate_dialog_tip">"Vi jobber hardt for å gi en bedre brukeropplevelse.
+Vi setter stor pris på at du gir oss en vurdering."</string>
+    <string name="lib_rate_dislike">Ikke bra</string>
+    <string name="lib_rate_feedback_option_1">Jeg liker ikke designet</string>
+    <string name="lib_rate_feedback_option_2">Den har ikke funksjonene jeg trenger</string>
+    <string name="lib_rate_feedback_option_3">Den er ikke enkelt å bruke</string>
+    <string name="lib_rate_feedback_option_4">Den er for komplisert</string>
+    <string name="lib_rate_feedback_option_6">Oversettelsen er dårlig</string>
+    <string name="lib_rate_feedback_title">Tilbakemeldingen din er nyttig.</string>
+    <string name="lib_rate_five_stars_confirm_tip">"Andre brukere drar fordel av vurderingen din.
+
+Gi en vurdering på Google Play."</string>
+    <string name="lib_rate_five_stars_tip">Det beste vi kan få :)</string>
+    <string name="lib_rate_hate_it">Elendig</string>
+    <string name="lib_rate_it_is_ok">Helt OK</string>
+    <string name="lib_rate_leave_feedback">Gi oss en tilbakemelding.</string>
+    <string name="lib_rate_like_it">Bra</string>
+    <string name="lib_rate_like_you">Vi liker deg også!</string>
+    <string name="lib_rate_love_it">Superbra</string>
+    <string name="lib_rate_oh_no">Å nei!</string>
+    <string name="lib_rate_thanks_feedback">Takk for tilbakemeldingen.</string>
+       <string name="yes">Ja</string>
+    <string name="you_must_have_i2p_android">Du må ha I2P for Android installert og kjørende. Ønsker du å installere det?</string>
+</resources>

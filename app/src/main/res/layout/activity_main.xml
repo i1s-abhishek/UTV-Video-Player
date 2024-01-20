@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+
+    <com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx
+        android:id="@+id/bottom_nav_view"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="#ffffffff"
+        app:itemIconTint="@color/selector_item_nav"
+        app:itemTextColor="@color/selector_item_nav"
+        app:menu="@menu/menu_navigation" />
+
+    <video.downloader.videodownloader.five.view.FixedDrawerLayout
+        android:id="@+id/drawer_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_above="@id/bottom_nav_view"
+        android:fitsSystemWindows="true">
+
+        <LinearLayout
+            android:id="@+id/ui_layout"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical">
+
+            <include layout="@layout/toolbar" />
+
+            <include layout="@layout/browser_content" />
+
+            <include layout="@layout/search_interface" />
+        </LinearLayout>
+
+        <FrameLayout
+            android:id="@+id/left_drawer"
+            android:layout_width="@dimen/navigation_width"
+            android:layout_height="fill_parent"
+            android:layout_gravity="start"
+            android:background="?drawerBackground"
+            android:fitsSystemWindows="true"
+            android:weightSum="1.0" />
+
+        <FrameLayout
+            android:id="@+id/right_drawer"
+            android:layout_width="@dimen/navigation_width"
+            android:layout_height="fill_parent"
+            android:layout_gravity="end"
+            android:background="?drawerBackground"
+            android:fitsSystemWindows="true"
+            android:weightSum="1.0" />
+    </video.downloader.videodownloader.five.view.FixedDrawerLayout>
+
+    <FrameLayout
+        android:id="@+id/help_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/bottom_nav_view"
+        android:background="#ffef851a"
+        android:paddingTop="12.0dip"
+        android:paddingBottom="12.0dip">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="4.0dip"
+            android:layout_marginRight="4.0dip"
+            android:text="@string/how_to_download"
+            android:textAllCaps="true"
+            android:textColor="#ffffffff"
+            android:textSize="14.0sp" />
+
+        <ImageView
+            android:id="@+id/help_close"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end|center"
+            android:layout_marginEnd="12.0dip"
+            app:srcCompat="@mipmap/close" />
+    </FrameLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_download_fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/help_layout"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginEnd="16.0dip"
+        android:layout_marginRight="16.0dip">
+
+        <ImageView
+            android:id="@+id/download_fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/download_anim_0" />
+
+        <ImageView
+            android:id="@+id/download_fab_no_found"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/download_no_found" />
+    </RelativeLayout>
+</RelativeLayout>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@mipmap/bg_dialog_white"
+    android:minWidth="300.0dip"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/title_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="start|center"
+        android:layout_marginLeft="24.0dip"
+        android:layout_marginTop="20.0dip"
+        android:layout_marginRight="24.0dip"
+        android:layout_marginBottom="20.0dip"
+        android:background="#00000000"
+        android:fontFamily="sans-serif-medium"
+        android:gravity="start|center"
+        android:textColor="#ff202020"
+        android:textSize="20.0sp" />
+
+    <TextView
+        android:id="@+id/desc_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="start|center"
+        android:layout_marginLeft="24.0dip"
+        android:layout_marginRight="24.0dip"
+        android:layout_marginBottom="20.0dip"
+        android:background="#00000000"
+        android:fontFamily="sans-serif"
+        android:gravity="start|center"
+        android:textColor="#ff7a7a7a"
+        android:textSize="16.0sp" />
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="48.0dip"
+        android:layout_marginLeft="16.0dip"
+        android:layout_marginRight="16.0dip"
+        android:layout_marginBottom="8.0dip"
+        android:gravity="end|center"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/no_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="36.0dip"
+            android:layout_gravity="center"
+            android:background="@drawable/bg_common_btn_light2"
+            android:fontFamily="sans-serif-medium"
+            android:gravity="center"
+            android:paddingLeft="8.0dip"
+            android:paddingRight="8.0dip"
+            android:text="@string/feedback_not_now"
+            android:textColor="@color/colorAccent"
+            android:textSize="14.0sp" />
+
+        <Button
+            android:id="@+id/yes_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="36.0dip"
+            android:layout_gravity="center"
+            android:background="@drawable/bg_common_btn_light2"
+            android:fontFamily="sans-serif-medium"
+            android:gravity="center"
+            android:minWidth="68.0dip"
+            android:paddingLeft="8.0dip"
+            android:paddingRight="8.0dip"
+            android:text="@string/update"
+            android:textColor="@color/colorAccent"
+            android:textSize="14.0sp" />
+    </LinearLayout>
+</LinearLayout>

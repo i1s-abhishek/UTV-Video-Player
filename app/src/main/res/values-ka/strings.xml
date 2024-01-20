@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="pref_title_premium_upgrade">განაახლეთ პრემიუმ მომხმარებლამდე</string>
+    <string name="pref_cate_premium_upgrade_desc">პრემიუმ განახლება</string>
+    <string name="pref_title_premium_upgrade_in_desc">პრემიუმ განახლება</string>
+    <string name="premium_upgrade_desc">"✔ რეკლამის ამოღება!
+✔ ზოგიერთი ფუნქციის გახსნა!
+✔ მუდმივი განახლების მხარდაჭერა!"</string>
+    <string name="premium_upgrade_monthly_btn_text">თვიური</string>
+    <string name="premium_upgrade_annually_btn_text">წლიური</string>
+    <string name="premium_upgrade_lifetime_btn_text">უვადოდ</string>
+    <string name="premium_upgrade_loading_info">იტვირთება ინფორმაცია...</string>
+    <string name="premium_upgrade_error_msg">"პრობლემაა, გთხოვთ შეამოწმოთ.
+
+- შეამოწმეთ ინტერნეტ კავშირი
+- დაუშვებელია შეძენა თქვენს ქვეყანაში
+- შეამოწმეთ უახლესი ვერსია Play Store-ში
+- გაურკვეველი შეცდომა
+(გთხოვთ დაგვიკავშირდეთ ან დაუკავშირდეთ Play Store გუნდს)"</string>
+    <string name="premium_upgrade_processing">დამუშავება...</string>
+    <string name="premium_upgrade_server_verification_fail_msg">შემოწმება ვერ ხერხდება. გთხოვთ დაგვიკავშირდეთ თქვენი google აქაუნთით რომლითაც შეიძინეთ პროდუქტი.</string>
+    <string name="premium_upgrade_complete_purchase_msg">"პრემიუმ განახლება დასრულდა.
+
+ მადლობას გიხდით შეძენისთვის"</string>
+
+    <string name="toast_msg_detect_premium_upgade">შეძენა დადასტურდა, თქვენ გადაერთეთ პრემიუმ მომხმარებელზე.</string>
+
+</resources>

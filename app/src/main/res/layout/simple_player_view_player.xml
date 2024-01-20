@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@android:color/black">
+    <com.abhishek.inplayer.widget.XVideoView
+        android:id="@id/video_view"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" />
+
+    <View
+        android:id="@+id/night_mode_mask"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" />
+
+    <RelativeLayout
+        android:id="@+id/app_video_box"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:fitsSystemWindows="true"
+        android:orientation="vertical">
+
+        <com.abhishek.xplayer.subtitle.SubtitleTextView
+            android:id="@+id/subtitle_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="10.0dip"
+            android:layout_marginRight="10.0dip"
+            android:layout_marginBottom="20.0dip"
+            android:clickable="false"
+            android:gravity="bottom|center"
+            android:padding="5.0dip"
+            android:shadowColor="#ff000000"
+            android:shadowDx="5.0"
+            android:shadowDy="5.0"
+            android:shadowRadius="10.0"
+            android:textColor="#ffffffff" />
+
+        <LinearLayout
+            android:id="@+id/app_video_replay"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:background="#33000000"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/app_video_status_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/small_problem"
+                android:textColor="@android:color/white"
+                android:textSize="14.0dip" />
+
+            <ImageView
+                android:id="@+id/app_video_replay_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="8.0dip"
+                android:src="@mipmap/simple_player_circle_outline_white_36dp" />
+        </LinearLayout>
+
+        <include layout="@layout/simple_player_topbar" />
+
+        <include
+            layout="@layout/simple_player_controlbar"
+            android:layout_width="fill_parent"
+            android:layout_height="157.0dip"
+            android:layout_alignParentBottom="true" />
+
+        <FrameLayout
+            android:id="@+id/ad_container"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:visibility="gone" />
+
+        <include layout="@layout/simple_player_touch_gestures" />
+
+        <include layout="@layout/layout_player_thumb" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/app_video_locked"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="6.0dip"
+            android:layout_marginBottom="10.5dip"
+            android:background="@drawable/bg_common_btn_light"
+            android:padding="5.0dip"
+            android:visibility="gone"
+            app:srcCompat="@drawable/ic_unlock" />
+
+        <ImageView
+            android:id="@+id/play_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="8.0dip"
+            android:src="@mipmap/simple_player_center_play"
+            android:visibility="gone" />
+
+        <include layout="@layout/simple_player_list" />
+
+        <include
+            layout="@layout/layout_subtitle_sync"
+            android:visibility="gone" />
+
+        <ViewStub
+            android:id="@+id/layout_subtitle_sync_stub"
+            android:layout_width="86.0dip"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10.0dip"
+            android:layout="@layout/layout_subtitle_sync" />
+
+        <androidx.coordinatorlayout.widget.CoordinatorLayout
+            android:id="@+id/coordinatorLayout"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/app_video_loading"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <ProgressBar
+            android:layout_width="50.0dip"
+            android:layout_height="50.0dip"
+            android:indeterminateBehavior="repeat"
+            android:indeterminateOnly="true" />
+
+        <TextView
+            android:id="@+id/app_video_speed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4.0dip"
+            android:gravity="center"
+            android:shadowColor="#ff000000"
+            android:shadowDx="5.0"
+            android:shadowDy="5.0"
+            android:shadowRadius="10.0"
+            android:textColor="#ffffffff"
+            android:visibility="gone" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/center_toast"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:clickable="false"
+        android:shadowColor="#ff000000"
+        android:shadowDx="1.0"
+        android:shadowDy="1.0"
+        android:shadowRadius="1.0"
+        android:textColor="#ffffffff" />
+</FrameLayout>

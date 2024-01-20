@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="?homeItemColor"
+    android:orientation="vertical"
+    android:tag="@string/home_item_bg">
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="8.0dip"
+        android:background="?homeDividerColor"
+        android:tag="@string/home_item_divider" />
+
+    <RelativeLayout
+        android:id="@+id/directory_btn"
+        android:layout_width="fill_parent"
+        android:layout_height="53.0dip"
+        android:background="?android:selectableItemBackground"
+        android:gravity="center_vertical"
+        android:paddingLeft="19.0dip"
+        android:tag="@string/home_item_bg">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@id/icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:tag="@string/img_tag"
+            app:srcCompat="@mipmap/ic_directory_search" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="16.0dip"
+            android:layout_toRightOf="@id/icon"
+            android:gravity="center_vertical"
+            android:tag="@string/setting_text_title"
+            android:text="@string/directories"
+            android:textColor="?homeTextColor"
+            android:textSize="17.0sp" />
+    </RelativeLayout>
+</LinearLayout>

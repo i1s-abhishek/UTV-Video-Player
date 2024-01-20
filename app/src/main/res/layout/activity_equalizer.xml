@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.percentlayout.widget.PercentRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/activity_equalizer"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/equalizer_pager_bg"
+    android:fitsSystemWindows="true">
+
+    <include
+        layout="@layout/widget_toolbar"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" />
+
+    <LinearLayout
+        android:id="@+id/rl_bottom_area"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="#ff29292b"
+        android:orientation="horizontal"
+        app:layout_heightPercent="30.700005%">
+
+        <androidx.percentlayout.widget.PercentRelativeLayout
+            android:layout_width="0.0dip"
+            android:layout_height="fill_parent"
+            android:layout_weight="1.0"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_reverb"
+                style="@style/text_white_med"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16.0dip"
+                android:layout_marginTop="10.0dip"
+                android:text="@string/reverb"
+                android:textColor="@color/equalizer_text_title"
+                android:textSize="16.0sp" />
+
+            <com.abhishek.xplayer.utils.widget.ArcSeekbar
+                android:id="@+id/as_bass"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_reverb"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="8.0dip" />
+
+            <TextView
+                android:id="@+id/tv_bass"
+                style="@style/text_white_med"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/as_bass"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="5.0dip"
+                android:gravity="center"
+                android:text="@string/bass_boost"
+                android:textColor="@color/equalizer_text_title"
+                android:textSize="14.0sp" />
+        </androidx.percentlayout.widget.PercentRelativeLayout>
+
+        <androidx.percentlayout.widget.PercentRelativeLayout
+            android:layout_width="0.0dip"
+            android:layout_height="fill_parent"
+            android:layout_weight="1.0"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/ver_hint"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10.0dip"
+                android:layout_marginRight="10.0dip"
+                android:gravity="center|right"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/sp_preset_reverb"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:gravity="right"
+                    android:lines="1"
+                    android:textColor="@color/progressColor"
+                    android:textSize="16.0dip" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/pull_down"
+                    android:layout_width="25.0dip"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/ic_pulldown" />
+            </LinearLayout>
+
+            <com.abhishek.xplayer.utils.widget.ArcSeekbar
+                android:id="@+id/as_vir"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/ver_hint"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="8.0dip" />
+
+            <TextView
+                android:id="@+id/tv_vir"
+                style="@style/text_white_med"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/as_vir"
+                android:layout_marginTop="5.0dip"
+                android:gravity="center"
+                android:text="@string/virtualizer"
+                android:textColor="@color/equalizer_text_title"
+                android:textSize="14.0sp" />
+        </androidx.percentlayout.widget.PercentRelativeLayout>
+    </LinearLayout>
+
+    <HorizontalScrollView
+        android:id="@+id/hsv_equalizer_title"
+        android:layout_width="fill_parent"
+        android:layout_height="66.0dip"
+        android:layout_above="@id/rl_bottom_area"
+        android:background="@color/equalizer_pager_bg"
+        android:scrollbars="none"
+        app:layout_heightPercent="8.000004%">
+
+        <RadioGroup
+            android:id="@+id/rg_equalizer_title"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:orientation="horizontal" />
+    </HorizontalScrollView>
+
+    <include
+        android:id="@+id/ll_fragment_equalizer"
+        layout="@layout/fragment_equalizer"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_above="@id/hsv_equalizer_title"
+        android:layout_below="@id/toolbar"
+        app:layout_heightPercent="79.99999%" />
+
+    <View
+        android:id="@+id/v_cover"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_below="@id/toolbar"
+        android:alpha="0.66"
+        android:background="@color/equalizer_cover"
+        android:clickable="true"
+        android:visibility="gone" />
+</androidx.percentlayout.widget.PercentRelativeLayout>

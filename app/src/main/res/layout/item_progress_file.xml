@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/item_layout"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:paddingTop="8.0dip"
+    android:paddingBottom="8.0dip">
+
+    <RelativeLayout
+        android:id="@+id/icon_layout"
+        android:layout_width="72.0dip"
+        android:layout_height="72.0dip"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="16.0dip"
+        android:layout_marginRight="16.0dip"
+        android:background="@color/thumb_backg_color">
+
+        <ImageView
+            android:id="@+id/flag"
+            android:layout_width="36.0dip"
+            android:layout_height="36.0dip"
+            android:layout_centerInParent="true"
+            android:tint="#ffffffff" />
+
+        <ImageView
+            android:id="@id/thumb"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:scaleType="centerCrop" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8.0dip"
+        android:layout_marginRight="8.0dip"
+        android:layout_toEndOf="@id/icon_layout"
+        android:layout_toRightOf="@id/icon_layout">
+
+        <CheckBox
+            android:id="@id/checkbox"
+            style="?checkboxStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginEnd="4.0dip"
+            android:layout_marginRight="4.0dip"
+            android:clickable="false"
+            android:focusable="false"
+            android:scaleX="0.9"
+            android:scaleY="0.9"
+            android:visibility="gone" />
+
+        <ImageView
+            android:id="@+id/delete"
+            style="?checkboxStyle"
+            android:layout_width="18.0dip"
+            android:layout_height="18.0dip"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginEnd="4.0dip"
+            android:layout_marginRight="4.0dip"
+            android:tint="@color/tab_un_select"
+            app:srcCompat="@drawable/ic_action_delete" />
+
+        <TextView
+            android:id="@+id/file_name"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8.0dip"
+            android:layout_marginRight="8.0dip"
+            android:layout_toStartOf="@id/delete"
+            android:layout_toLeftOf="@id/delete"
+            android:fontFamily="sans-serif-medium"
+            android:maxLines="1"
+            android:minLines="1"
+            android:textColor="@color/title_color"
+            android:textSize="14.0sp" />
+
+        <ProgressBar
+            android:id="@+id/number_progress_bar"
+            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="6.0dip"
+            android:layout_below="@id/file_name"
+            android:layout_marginTop="10.0dip"
+            android:layout_marginEnd="8.0dip"
+            android:layout_marginRight="8.0dip"
+            android:progressDrawable="@drawable/progress_bar" />
+
+        <TextView
+            android:id="@+id/size"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/number_progress_bar"
+            android:layout_marginTop="8.0dip"
+            android:layout_marginEnd="8.0dip"
+            android:layout_marginRight="8.0dip"
+            android:includeFontPadding="false"
+            android:textColor="@color/sub_title_color"
+            android:textSize="12.0sp" />
+
+        <TextView
+            android:id="@+id/speed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/size"
+            android:textColor="@color/sub_title_color"
+            android:textSize="12.0sp" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="8.0dip"
+        android:layout_marginRight="8.0dip"
+        android:layout_toEndOf="@id/icon_layout"
+        android:layout_toRightOf="@id/icon_layout"
+        android:gravity="end|center"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="4.0dip"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/website"
+                style="?checkboxStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="12.0dip"
+                android:layout_marginRight="12.0dip"
+                android:padding="4.0dip"
+                android:tint="@color/accent_color"
+                app:srcCompat="@drawable/ic_webpage" />
+
+            <ImageView
+                android:id="@+id/download"
+                style="?checkboxStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="4.0dip"
+                android:tint="@color/accent_color"
+                app:srcCompat="@drawable/ic_file_download_black_24dp" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="2.0dip" />
+    </LinearLayout>
+</RelativeLayout>

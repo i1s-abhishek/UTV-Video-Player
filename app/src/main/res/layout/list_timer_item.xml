@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/text1"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:paddingLeft="20.0dip"
+    android:paddingTop="8.0dip"
+    android:paddingBottom="8.0dip"
+    android:text="15 minutes"
+    android:textColor="#ccffffff"
+    android:textSize="15.0sp" />

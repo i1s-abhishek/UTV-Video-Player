@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <color name="navigation_bar_color">#ff202021</color>
+    <color name="equalizer_pager_bg">#ff202021</color>
+    <color name="equalizer_cover">#ff1f1f1f</color>
+    <color name="equalizer_text_title">#ffffffff</color>
+    <color name="progressColor">@color/md_orange_300</color>
+    <color name="md_orange_300">#ffffb74d</color>
+    <color name="bassBg">#ff29292b</color>
+    <color name="ripple_color_dark">#7fffffff</color>
+
+    <color name="transparent_color">#00000000</color>
+    <color name="colorAccent">@color/md_orange_400</color>
+    <color name="md_orange_400">#ffffa726</color>
+    <color name="green_text_color">#ffff8000</color>
+
+    <color name="btn_pressed_light_color">#19ffffff</color>
+    <color name="play_list_selected_color">#f31a1a1a</color>
+    <color name="arcBgColor">#ff1f1e1f</color>
+    <color name="arcLineBgColor">#ff292726</color>
+    <color name="divider_glay">#ffebebeb</color>
+    <color name="listview_divider_color">#40555555</color>
+    <color name="progressBgColor">#ff4b4b4b</color>
+    <color name="refresh_color_1">@color/md_orange_700</color>
+    <color name="refresh_color_2">@color/md_orange_500</color>
+    <color name="refresh_color_3">@color/md_orange_300</color>
+    <color name="md_orange_500">#ffff9800</color>
+    <color name="md_orange_700">#fff57c00</color>
+    <color name="dark_theme_home_sub_text_color">#66ffffff</color>
+    <color name="colorPrimary">#ffff904e</color>
+
+    <color name="progressColorAround">@color/md_orange_800</color>
+    <color name="md_orange_800">#ffef6c00</color>
+    <color name="title_color">#ff333333</color>
+    <color name="sub_title_color">#ff999999</color>
+    <color name="setting_background">#fff3f4f4</color>
+    <color name="primary_color_dark">#ff424242</color>
+    <color name="accent_color">@color/colorAccent</color>
+    <color name="tab_un_select">#ff9e9ea1</color>
+    <color name="thumb_backg_color">#ffa3a5a9</color>
+    <color name="transparent">#00000000</color>
+    <color name="primary_color">@color/colorPrimary</color>
+    <color name="secondary_color">@color/colorPrimaryDark</color>
+    <color name="colorPrimaryDark">#fff6782d</color>
+    <color name="toast_start">#ff389f4a</color>
+    <color name="toast_error">#ffe53935</color>
+    <color name="toast_finish">@color/colorPrimary</color>
+    <color name="error_red">#fff44336</color>
+    <color name="icon_light_theme">#8a000000</color>
+    <color name="icon_dark_theme">#ffffffff</color>
+    <color name="divider_light">#1f000000</color>
+    <color name="gray_dark">#ff222222</color>
+    <color name="folder_path">#fff0f0f0</color>
+    <color name="colorAccentHighlight">@color/md_orange_200</color>
+    <color name="md_orange_200">#ffffcc80</color>
+    <color name="icon_movie">#ffa3a3a3</color>
+
+    <color name="lib_md_text_gray">#8a000000</color>
+    <color name="lib_btn_color">#ff009688</color>
+    <color name="lib_no_color">#00000000</color>
+    <color name="funny_particle_background">#d8ffffff</color>
+    <color name="md_orange_600">#fffb8c00</color>
+    <color name="hint_text">#ffbdbdbd</color>
+    <color name="dark_theme_home_textColor">@color/dark_theme_text_color</color>
+    <color name="dark_theme_text_color">#ffe4e4e4</color>
+    <color name="dark_theme_sub_text_color">#8affffff</color>
+    <color name="colorPrimary_dark">#ff212121</color>
+    <color name="colorPrimaryDark_dark">#ff111111</color>
+    <color name="dark_theme_home_bg_color">@color/dark_theme_bg_color</color>
+    <color name="dark_theme_home_divider_color">@color/dark_theme_home_bg_color</color>
+    <color name="dark_theme_home_item_color">#11ffffff</color>
+    <color name="dark_theme_bg_color">#ff2a2a2b</color>
+    <color name="dark_theme_ripple_color">#ff202021</color>
+    <color name="dark_theme_divider_color">#11f6f6f9</color>
+    <color name="dark_theme_video_sub_text_color">@color/dark_theme_home_sub_text_color</color>
+    <color name="dark_theme_video_textColor">@color/dark_theme_text_color</color>
+    <color name="dark_theme_video_title_color">@color/dark_theme_home_sub_text_color</color>
+    <color name="normal_theme_home_bg_color">@color/normal_theme_home_divider_color</color>
+    <color name="normal_theme_home_divider_color">@color/normal_theme_divider_color</color>
+    <color name="normal_theme_divider_color">#fff6f6f9</color>
+    <color name="normal_theme_home_item_color">#ffffffff</color>
+    <color name="normal_theme_home_sub_text_color">#4d151515</color>
+    <color name="normal_theme_home_textColor">@color/normal_theme_text_color</color>
+    <color name="normal_theme_text_color">#ff333333</color>
+    <color name="white_btn_clicled_color">#ffe1e1e1</color>
+    <color name="normal_theme_bg_color">#ffffffff</color>
+    <color name="normal_theme_sub_text_color">#ffa0a0a0</color>
+    <color name="normal_theme_video_sub_text_color">#80202021</color>
+    <color name="normal_theme_video_textColor">#e6333333</color>
+    <color name="normal_theme_video_title_color">#c0333333</color>
+    <color name="secondary_color_settings_dark">#ff2e2e2e</color>
+    <color name="divider_dark">#1fffffff</color>
+    <color name="drawer_background_dark">#ff424242</color>
+    <color name="selected_dark">#0fffffff</color>
+    <color name="selected_light">#0f000000</color>
+    <color name="drawer_background">#ffffffff</color>
+    <color name="lib_white">#ffffffff</color>
+    <color name="main_menu_icon">#ffa3a5a9</color>
+    <color name="custom_video_size_dialog_btn_text_color">@color/colorAccent</color>
+    <color name="progressLineColor">#ff33322f</color>
+    <color name="icon_dark_theme_disabled">#8affffff</color>
+    <color name="icon_light_theme_disabled">#40000000</color>
+
+
+    <color name="lib_rate_button_bg_color">#fff5a623</color>
+    <color name="lib_rate_button_text_color">#ffffffff</color>
+    <color name="lib_rate_dialog_bg_color">#ffffffff</color>
+    <color name="lib_rate_dialog_bg_color_dark">#ff1e1e1e</color>
+    <color name="lib_rate_dialog_button_disable_color">#ffbdbdbd</color>
+    <color name="lib_rate_dialog_button_enable_color">#ff009688</color>
+    <color name="lib_rate_dialog_button_enable_color_dark">@color/lib_rate_button_bg_color</color>
+    <color name="lib_rate_dialog_five_star_tip_color">#ffeb9200</color>
+    <color name="lib_rate_dialog_message_text_color">#ff4a4a4a</color>
+    <color name="lib_rate_dialog_message_text_color_dark">#ffffffff</color>
+    <color name="lib_rate_theme_color">#ff009688</color>
+    <color name="lib_rate_text_color">#8a000000</color>
+    <color name="lib_rate_no_color">#00000000</color>
+    <color name="gdpr_dialog_accentColor">#ff009688</color>
+
+
+    <color name="lightGray">#ffcccccc</color>
+    <color name="holo_color">#ff33b5e5</color>
+    <color name="main_title_bar_color">@color/colorAccent</color>
+    <color name="app_list_desc_text_color">@color/colorAccent</color>
+
+</resources>

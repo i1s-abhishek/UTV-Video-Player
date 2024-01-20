@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/toolbar_layout"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="?colorPrimary"
+    android:elevation="2.0dip"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:id="@+id/tabs_toolbar_container"
+        android:layout_width="fill_parent"
+        android:layout_height="30.0dip" />
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@id/toolbar"
+        android:layout_width="fill_parent"
+        android:layout_height="?actionBarSize"
+        android:elevation="4.0dip"
+        android:paddingLeft="0.0dip"
+        android:paddingTop="2.0dip"
+        android:paddingRight="0.0dip"
+        android:paddingBottom="0.0dip"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        custom:contentInsetEnd="0.0dip"
+        custom:contentInsetStart="0.0dip"
+        custom:popupTheme="?toolBarPopupMenuStyle" />
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="?progressBackgroundColor">
+
+        <com.anthonycr.progress.AnimatedProgressBar
+            android:id="@+id/progress_view"
+            android:layout_width="fill_parent"
+            android:layout_height="2.0dip"
+            android:background="@android:color/transparent"
+            custom:bidirectionalAnimate="false"
+            custom:progressColor="@color/colorAccentHighlight" />
+    </LinearLayout>
+</LinearLayout>

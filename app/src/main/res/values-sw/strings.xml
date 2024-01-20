@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="pref_title_premium_upgrade">Boresha kwa kiwango cha Premium User</string>
+    <string name="pref_cate_premium_upgrade_desc">Boresha Kwa Premium</string>
+    <string name="pref_title_premium_upgrade_in_desc">Boresha Kwa Premium</string>
+    <string name="premium_upgrade_desc">"✔ Toa Matangazo!
+✔ Wezesha vipengee vinginevyo!
+✔ Wezeshwa Uboresho Wakati Wote!"</string>
+    <string name="premium_upgrade_monthly_btn_text">Kila mwezi</string>
+    <string name="premium_upgrade_annually_btn_text">Kila mwaka</string>
+    <string name="premium_upgrade_lifetime_btn_text">Daima</string>
+    <string name="premium_upgrade_loading_info">inazua maaridhio...</string>
+    <string name="premium_upgrade_error_msg">"Tatizo, tafadhali kagua yafuatayo...
+
+- kagua mtandao
+- ununuzi haujakubaliwa nchini mwako
+- kagua muundo wa kisasa wa Play Store
+- hitilafu isiyotambulika
+ (tafadhali wasiliana nasi au kikundi cha Play Store)"</string>
+    <string name="premium_upgrade_processing">maandalizi...</string>
+    <string name="premium_upgrade_server_verification_fail_msg">Thibitisho imefeli. Tafadhali wasiliana nasi kupitia akaunti yako ya google uliyonunua.</string>
+    <string name="premium_upgrade_complete_purchase_msg">"Uboresho wa Premium umekamilika.
+
+ Shukran kwa ununuzi wako."</string>
+    <string name="toast_msg_detect_premium_upgade">Ununuzi umeidhinishwa, umebadilisha kwa premium user.</string>
+    <string name="premium_menu_title">Premium</string>
+</resources>

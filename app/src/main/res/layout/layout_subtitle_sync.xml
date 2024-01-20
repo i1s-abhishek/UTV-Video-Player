@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/adjust_subtitle_layout"
+    android:layout_width="86.0dip"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_adjust"
+    android:clickable="true"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/adjust_close"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:layout_marginTop="2.0dip"
+        android:background="@drawable/bg_common_btn_light"
+        android:padding="8.0dip"
+        app:srcCompat="@drawable/ic_close" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/adjust_reduce"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="-5.0dip"
+        android:background="@drawable/bg_common_btn_light"
+        android:padding="5.0dip"
+        app:srcCompat="@drawable/ic_reduce" />
+
+    <EditText
+        android:id="@+id/adjust_text"
+        android:layout_width="50.0dip"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5.0dip"
+        android:fontFamily="sans-serif-medium"
+        android:gravity="center"
+        android:inputType="numberDecimal|numberSigned"
+        android:maxLines="1"
+        android:singleLine="true"
+        android:text="0.0"
+        android:textColor="@android:color/white"
+        android:textSize="15.0sp" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/adjust_add"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5.0dip"
+        android:layout_marginBottom="11.0dip"
+        android:background="@drawable/bg_common_btn_light"
+        android:padding="5.0dip"
+        app:srcCompat="@drawable/ic_add" />
+</LinearLayout>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:gravity="center"
+    android:paddingLeft="20.0dip"
+    android:paddingRight="20.0dip">
+
+    <TableRow>
+
+        <TextView
+            style="@style/propertyStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.0"
+            android:text="@string/contains" />
+
+        <TextView
+            android:id="@+id/value_contains"
+            style="@style/propertyStyle"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10.0dip"
+            android:layout_weight="1.0"
+            android:text="" />
+    </TableRow>
+
+    <TableRow>
+
+        <TextView
+            style="@style/propertyStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.0"
+            android:text="@string/total_size" />
+
+        <TextView
+            android:id="@+id/value_size"
+            style="@style/propertyStyle"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10.0dip"
+            android:layout_weight="1.0"
+            android:text="" />
+    </TableRow>
+</TableLayout>

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/container_all"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingTop="0.0dip">
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="@style/CastPlayProgressBarAppTheme"
+        android:layout_width="fill_parent"
+        android:layout_height="3.0dip"
+        android:max="100" />
+
+    <RelativeLayout
+        android:id="@+id/container_current"
+        android:layout_width="fill_parent"
+        android:layout_height="64.0dip"
+        android:background="#ff202021">
+
+        <ImageView
+            android:id="@id/icon"
+            android:layout_width="64.0dip"
+            android:layout_height="64.0dip"
+            android:layout_alignParentLeft="true"
+            android:scaleType="centerCrop" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/next"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="5.0dip"
+            android:background="@drawable/bg_common_btn_light"
+            android:padding="10.0dip"
+            app:srcCompat="@drawable/ic_next_video_bottom" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/play"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="5.0dip"
+            android:layout_toLeftOf="@id/next"
+            android:background="@drawable/bg_common_btn_light"
+            android:padding="10.0dip"
+            app:srcCompat="@drawable/ic_play_audio" />
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10.0dip"
+            android:layout_toLeftOf="@id/play"
+            android:layout_toRightOf="@id/icon"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/name"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:fontFamily="sans-serif-medium"
+                android:maxLines="1"
+                android:textColor="@color/progressColor"
+                android:textSize="15.0sp" />
+
+            <TextView
+                android:id="@+id/time"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:textColor="#deffffff"
+                android:textSize="15.0sp" />
+        </LinearLayout>
+    </RelativeLayout>
+</LinearLayout>

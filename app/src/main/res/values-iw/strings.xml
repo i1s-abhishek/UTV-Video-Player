@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="lib_rate_btn_cancel">ביטול</string>
+    <string name="lib_rate_btn_close">סגירה</string>
+    <string name="lib_rate_btn_go_market">דירוג ב-Google play</string>
+    <string name="lib_rate_btn_rate">דירוג</string>
+    <string name="lib_rate_btn_submit">שליחה</string>
+    <string name="lib_rate_dialog_tip">"אנו עובדים קשה לשיפור חווית המשתמש.
+נודה לך מאד אם תוכלי לדרג אותנו."</string>
+    <string name="lib_rate_dislike">לא מוצא חן בעיניך</string>
+    <string name="lib_rate_feedback_option_1">אינני מרוצה מהעיצוב</string>
+    <string name="lib_rate_feedback_option_2">הפונקציות שאני צריכה לא קיימות</string>
+    <string name="lib_rate_feedback_option_3">לא קל לשימוש</string>
+    <string name="lib_rate_feedback_option_4">מסובך מדי</string>
+    <string name="lib_rate_feedback_option_6">התרגום ברמה נמוכה</string>
+    <string name="lib_rate_feedback_title">המשוב שלך מועיל.</string>
+    <string name="lib_rate_five_stars_confirm_tip">"משתמשים אחרים יפיקו תועלת מהביקורת שלך.
+
+נא השאירי ביקורת ב-Google Play."</string>
+    <string name="lib_rate_five_stars_tip">הכי טוב שנוכל לקבל :)</string>
+    <string name="lib_rate_hate_it">שונא את זה</string>
+    <string name="lib_rate_it_is_ok">זה בסדר</string>
+    <string name="lib_rate_leave_feedback">אנא השאירו לנו משוב.</string>
+    <string name="lib_rate_like_it">אוהב את זה</string>
+    <string name="lib_rate_like_you">אנחנו גם אוהבים אותך!</string>
+    <string name="lib_rate_love_it">אוהב את זה</string>
+    <string name="lib_rate_oh_no">אוי לא!</string>
+    <string name="lib_rate_thanks_feedback">תודה על המשוב שלך.</string>
+</resources>

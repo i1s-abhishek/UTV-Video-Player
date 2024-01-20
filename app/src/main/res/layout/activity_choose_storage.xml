@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@id/toolbar"
+        android:layout_width="fill_parent"
+        android:layout_height="?actionBarSize"
+        android:background="?toolbarSettingsBackground"
+        android:minHeight="?actionBarSize"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        custom:popupTheme="?toolBarPopupMenuStyle"
+        custom:title="@string/select_download_path" />
+
+    <RelativeLayout
+        android:id="@+id/rl_phone"
+        android:layout_width="fill_parent"
+        android:layout_height="68.0dip"
+        android:background="?android:selectableItemBackground">
+
+        <ImageView
+            android:id="@+id/iv_phone"
+            android:layout_width="24.0dip"
+            android:layout_height="24.0dip"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="16.0dip"
+            android:layout_marginEnd="16.0dip"
+            custom:srcCompat="@drawable/ic_phone_light_blue_24dp" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toEndOf="@id/iv_phone"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/phone"
+                android:textColor="@color/title_color"
+                android:textSize="16.0sp" />
+
+            <TextView
+                android:id="@+id/tv_phone_space"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2.0dip"
+                android:textColor="@color/sub_title_color"
+                android:textSize="12.0sp" />
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="24.0dip"
+            android:layout_height="24.0dip"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="16.0dip"
+            android:layout_marginEnd="16.0dip"
+            custom:srcCompat="@drawable/ic_off_black_24dp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_sdcard"
+        android:layout_width="fill_parent"
+        android:layout_height="68.0dip"
+        android:background="?android:selectableItemBackground">
+
+        <ImageView
+            android:id="@+id/iv_sdcard"
+            android:layout_width="24.0dip"
+            android:layout_height="24.0dip"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="16.0dip"
+            android:layout_marginEnd="16.0dip"
+            custom:srcCompat="@drawable/ic_sdcard_blue_24dp" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toEndOf="@id/iv_sdcard"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/sd_card"
+                android:textColor="@color/title_color"
+                android:textSize="16.0sp" />
+
+            <TextView
+                android:id="@+id/tv_sdcard_space"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2.0dip"
+                android:textColor="@color/sub_title_color"
+                android:textSize="12.0sp" />
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="24.0dip"
+            android:layout_height="24.0dip"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="16.0dip"
+            android:layout_marginEnd="16.0dip"
+            custom:srcCompat="@drawable/ic_off_black_24dp" />
+    </RelativeLayout>
+</LinearLayout>

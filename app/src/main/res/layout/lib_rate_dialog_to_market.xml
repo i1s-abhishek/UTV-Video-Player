@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/lib_rate_dialog_bg"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_24"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:paddingLeft="@dimen/dp_24"
+        android:paddingRight="@dimen/dp_24">
+
+        <TextView
+            android:id="@+id/lib_rate_confirm_tip"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@string/lib_rate_roboto_regular"
+            android:text="@string/lib_rate_five_stars_confirm_tip"
+            android:textColor="@color/lib_rate_text_color"
+            android:textSize="@dimen/sp_16" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_20"
+            android:src="@mipmap/lib_rate_tip" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_24"
+        android:layout_marginLeft="@dimen/dp_24"
+        android:layout_marginTop="@dimen/dp_24"
+        android:layout_marginEnd="@dimen/dp_8"
+        android:layout_marginRight="@dimen/dp_8"
+        android:gravity="end|center"
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/dp_8">
+
+        <Button
+            android:id="@+id/lib_rate_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="?selectableItemBackground"
+            android:fontFamily="@string/lib_rate_roboto_medium"
+            android:gravity="end|center"
+            android:minWidth="@dimen/dp_64"
+            android:minHeight="@dimen/dp_48"
+            android:paddingLeft="@dimen/dp_12"
+            android:paddingRight="@dimen/dp_12"
+            android:text="@string/lib_rate_btn_go_market"
+            android:textAllCaps="true"
+            android:textColor="@color/lib_rate_dialog_button_enable_color"
+            android:textSize="@dimen/sp_14" />
+
+        <Button
+            android:id="@+id/btn_cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="?selectableItemBackground"
+            android:fontFamily="@string/lib_rate_roboto_medium"
+            android:gravity="center"
+            android:minWidth="@dimen/dp_64"
+            android:minHeight="@dimen/dp_48"
+            android:paddingLeft="@dimen/dp_12"
+            android:paddingRight="@dimen/dp_12"
+            android:text="@string/lib_rate_btn_cancel"
+            android:textAllCaps="true"
+            android:textColor="@color/lib_rate_dialog_button_enable_color"
+            android:textSize="@dimen/sp_14" />
+    </LinearLayout>
+</LinearLayout>

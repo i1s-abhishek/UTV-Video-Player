@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp">
+
+        <LinearLayout
+            android:id="@+id/observer_desc_layout"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="0.0dip"
+                android:layout_marginTop="20.0dip"
+                android:layout_marginBottom="20.0dip"
+                android:layout_weight="1.0"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:visibility="visible">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/pref_title_premium_upgrade_in_desc"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="18.0sp" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="15.0dip"
+                    android:src="@mipmap/ic_preminum_upgrade" />
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="35.0dip"
+                    android:layout_marginTop="5.0dip"
+                    android:layout_marginRight="35.0dip"
+                    android:gravity="center"
+                    android:text="@string/premium_upgrade_desc_"
+                    android:textColor="#ff888888"
+                    android:textSize="15.0sp" />
+            </LinearLayout>
+        </LinearLayout>
+
+
+        <Button
+            android:id="@+id/premium_upgrade_monthly_btn"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/btn_maincolor_with_theme_effect"
+            android:text="monthly"
+            android:textColor="#ffffffff"
+            android:visibility="visible" />
+
+        <Button
+            android:id="@+id/premium_upgrade_annually_btn"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10.0dip"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/btn_maincolor_with_theme_effect"
+            android:text="Annually"
+            android:textColor="#ffffffff"
+            android:visibility="visible" />
+
+        <Button
+            android:id="@+id/premium_upgrade_lifetime_btn"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10.0dip"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="20.0dip"
+            android:background="@drawable/btn_maincolor_with_theme_effect"
+            android:text="LifeTime"
+            android:textColor="#ffffffff"
+            android:visibility="visible" />
+
+        <Button
+            android:id="@+id/premium_upgrade_old_paid_btn"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20.0dip"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="20.0dip"
+            android:background="@drawable/btn_maincolor_with_theme_effect"
+            android:text="@string/check_old_paid_user_text"
+            android:textColor="#ffffffff"
+            android:visibility="gone" />
+    </LinearLayout>
+</ScrollView>

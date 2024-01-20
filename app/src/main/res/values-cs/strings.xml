@@ -1,0 +1,348 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="VideoView_error_text_unknown">Něco je s tímto videem špatně.</string>
+    <string name="add_video">Video byla přidána</string>
+    <string name="add_videos">Videa byla přidána</string>
+    <string name="allow">Dovolit</string>
+    <string name="app_name">UTV Video přehrávač</string>
+    <string name="auto">Auto</string>
+    <string name="auto_rotate">Automatické otáčení</string>
+    <string name="background_play">Přehrávání na pozadí</string>
+    <string name="background_play_off">Přehrávání na pozadí VYP.</string>
+    <string name="background_play_on">Přehrávání na pozadí ZAP.</string>
+    <string name="bass_boost">Zesílení basů</string>
+    <string name="brightness">Jas:</string>
+    <string name="brightness_simple">Jas</string>
+    <string name="cancel">Zrušit</string>
+    <string name="cant_load_video">Nahrání videa selhalo.</string>
+    <string name="change_language_title">Zvolte jazyk</string>
+    <string name="color">Barva</string>
+    <string name="contact_us">Kontaktujte nás</string>
+    <string name="contains">Obsahuje</string>
+    <string name="continue_text">Pokračovat</string>
+    <string name="count_media_file">%d Mediálního souboru</string>
+    <string name="count_media_files">%d Mediálních souborů</string>
+    <string name="count_sub_folder">%d Podsložky</string>
+    <string name="count_sub_folders">%d Podsložky</string>
+    <string name="custom">Vlastní</string>
+    <string name="dark_theme">Tmavý motiv</string>
+    <string name="date">Datum</string>
+    <string name="delete">Vymazat</string>
+    <string name="delete_dialog_desc">Video ve složce bude trvale odstraněno.</string>
+    <string name="delete_dialog_title">Odstranit složku ze zařízení?</string>
+    <string name="delete_failed">Odstranění selhalo.</string>
+    <string name="delete_failed_cant_write">Kvůli omezení systému Android nemůžeme odstranit soubory z SD karty. Musíte je smazat manuálně v galerii.</string>
+    <string name="delete_success">Úspěšně odstraněno.</string>
+    <string name="delete_video_dialog_desc">Video bude trvale odstraněno.</string>
+    <string name="delete_video_dialog_title">Odstranit video ze zařízení?</string>
+    <string name="developed_by_xdplayer">Vyvinuto UTV Video Player.</string>
+    <string name="directories">Adresáře</string>
+    <string name="directory_empty">Adresář je prázdný</string>
+    <string name="dismiss">Odložit</string>
+    <string name="done">Hotovo</string>
+    <string name="downloads">@string/action_download</string>
+    <string name="email_auto">Zadejte automaticky e-mail</string>
+    <string name="email_error">E-mail nesouhlasí, zkuste to znovu.</string>
+    <string name="email_format_error">Neplatná e-mailová adresa</string>
+    <string name="email_input">Přidejte e-mail pro případ, že zapomenete PIN.</string>
+    <string name="email_input_again">Zadejte svůj e-mail znovu.</string>
+    <string name="email_input_forget">Zadejte svoji e-mailovou adresu pro získání PIN.</string>
+    <string name="email_sent_desc">Podívejte se také do složek s nevyžádanou poštou.</string>
+    <string name="email_sent_title">PIN byl odeslán na váš e-mail</string>
+    <string name="email_wrong_email">Nelze odeslat e-mail na vaši adresu</string>
+    <string name="email_wrong_email_desc">Laskavě nás kontaktujte.</string>
+    <string name="email_wrong_net">Na síti je nějaká závada</string>
+    <string name="email_wrong_net_desc">Zkuste to znovu.</string>
+    <string name="email_wrong_server">Na serveru je nějaká závada</string>
+    <string name="email_wrong_server_desc">Odešleme vám e-mail ručně. Zkontrolujte si e-mail později.</string>
+    <string name="empty_video">Nenalezeno žádné video.</string>
+    <string name="empty_video_import">V soukromé složce můžete sledovat video pouze vy. Importovat video nyní.</string>
+    <string name="equalizer">Ekvalizér</string>
+    <string name="exit_tip">Opětovným stiskem skončíte</string>
+    <string name="feedback">Zpětná vazba</string>
+    <string name="feedback_and_suggestion_hint">Zpětná vazba a návrh</string>
+    <string name="feedback_not_now">TEĎ NE</string>
+    <string name="feedback_subject">Zpětná vazba UTV Video Player</string>
+    <string name="feedback_submit">PŘEDLOŽIT</string>
+    <string name="file">Soubor</string>
+    <string name="folder_up">Nadřazená složka</string>
+    <string name="format">Formát</string>
+    <string name="free_download">STAŽENÍ ZDARMA</string>
+    <string name="gallery">Galerie</string>
+    <string name="gdpr_consent">"We never stop trying to provide a higher quality user experience in every detail. The privacy policy is updated to adapt to the EU General Data Protection Regulation (GDPR). You can read it in “Settings” - “Privacy policy”.
+
+Please click “Continue” to agree to the policy and use this app. If you don’t want personal data to be collected by the advertising providers, please go to “setting” - “Privacy Policy” page and Click “I don’t agree”."</string>
+    <string name="help">Nápověda</string>
+    <string name="hide">Skrýt</string>
+    <string name="hide_dialog_desc">Skrytá složka nebude skenována.</string>
+    <string name="hide_dialog_title">Skrýt složku ze seznamu skenování?</string>
+    <string name="hide_success_desc">Můžete to změnit v nastaveních.</string>
+    <string name="hide_success_title">Úspěšně skryto.</string>
+    <string name="hide_tips">Skrýt ze seznamu skenování</string>
+    <string name="install_i2p_android">Instalovat I2P Android?</string>
+    <string name="internal_sd">Interní úložiště</string>
+    <string name="landscape">Na šířku</string>
+    <string name="landscape_locked">Na šířku zamknuto</string>
+    <string name="language">Jazyk</string>
+    <string name="large_hall">Velký sál</string>
+    <string name="large_room">Velký pokoj</string>
+    <string name="layout_style">Styl rozvržení</string>
+    <string name="layout_style_grid_toast">Zobrazení mřížky</string>
+    <string name="layout_style_list_toast">Zobrazení seznamu</string>
+    <string name="layout_style_title_toast">Celé zobrazení titulu</string>
+    <string name="legal">Licence</string>
+    <string name="length">Délka</string>
+    <string name="lib_rate_btn_cancel">Zrušit</string>
+    <string name="lib_rate_btn_close">ZAVŘÍT</string>
+    <string name="lib_rate_btn_go_market">Ohodnotit na Google play</string>
+    <string name="lib_rate_btn_rate">Ohodnotit</string>
+    <string name="lib_rate_btn_submit">Poslat</string>
+    <string name="lib_rate_dialog_tip">"Neustále usilujeme o lepší uživatelské zážitky.
+Byli bychom velmi rádi, pokud nás můžete ohodnotit."</string>
+    <string name="lib_rate_dislike">Špatné</string>
+    <string name="lib_rate_feedback_option_1">Nelíbí se mi design</string>
+    <string name="lib_rate_feedback_option_2">Nemá to funkce, které potřebuji</string>
+    <string name="lib_rate_feedback_option_3">Používání není snadné</string>
+    <string name="lib_rate_feedback_option_4">Je to příliš složité</string>
+    <string name="lib_rate_feedback_option_6">Překlad je špatný</string>
+    <string name="lib_rate_feedback_title">Vaše zpětná vazba je užitečná.</string>
+    <string name="lib_rate_five_stars_confirm_tip">"Ostatní uživatelé budou využívat vaše hodnocení.
+
+Nechejte prosím vaše hodnocení na Google Play."</string>
+    <string name="lib_rate_five_stars_tip">To nejlepší, co můžeme dostat :)</string>
+    <string name="lib_rate_hate_it">Velmi špatné</string>
+    <string name="lib_rate_it_is_ok">Ujde to</string>
+    <string name="lib_rate_leave_feedback">Zanechte nám prosím nějakou zpětnou vazbu.</string>
+    <string name="lib_rate_like_it">Velmi dobré</string>
+    <string name="lib_rate_like_you">Taky vás máme rádi!</string>
+    <string name="lib_rate_love_it">Vynikající</string>
+    <string name="lib_rate_oh_no">Ale ne!</string>
+    <string name="lib_rate_thanks_feedback">Díky za zpětnou vazbu.</string>
+    <string name="locate_video">Přejít k videu</string>
+    <string name="location">Umístění</string>
+    <string name="lock">Zamknout</string>
+    <string name="lock_failed">Zamknutí selhalo.</string>
+    <string name="lock_sd_cant_write">Kvůli omezení systému Android nemůžeme zamknout soubory na SD kartě. Zkuste to znovu.</string>
+    <string name="lock_storage_full">Z důvodu nedostatku místa interního úložiště musíte uvolnit úložiště v telefonu.</string>
+    <string name="lock_tips">Zamknout do soukromé složky</string>
+    <string name="lock_video_desc">Videa budou přesunuta do soukromé složky.</string>
+    <string name="lock_video_desc2">Sledovat je můžete pouze vy.</string>
+    <string name="lock_video_success">%d Video zamknuto.</string>
+    <string name="lock_video_success_desc">Můžete je sledovat v soukromé složce.</string>
+    <string name="lock_video_success_failed">%1$d Video zamknuto, %2$d Video selhalo.</string>
+    <string name="lock_video_title">Zamknout %d video?</string>
+    <string name="lock_videos_title">Zamknout videa: %d ?</string>
+    <string name="locked">Zamčeno</string>
+    <string name="manage_scan_list">Spravovat seznam videí</string>
+    <string name="manage_scan_list_desc">Povolit nebo zakázat hledaní ve vybrané cestě</string>
+    <string name="media">Média</string>
+    <string name="medium_hall">Střední sál</string>
+    <string name="medium_room">Střední pokoj</string>
+    <string name="minutes">Minut</string>
+    <string name="modify_pin">Změnit PIN</string>
+    <string name="modify_pin_again">Potvrďte nový PIN</string>
+    <string name="modify_pin_current">Zadejte aktuální PIN</string>
+    <string name="modify_pin_error">Kódy PIN nesouhlasí, zkuste to znovu.</string>
+    <string name="modify_pin_new">Zadejte nový PIN</string>
+    <string name="modify_pin_success">PIN úspěšně změněn.</string>
+    <string name="mute">Ztišit</string>
+    <string name="mute_off">Zvuk zapnut</string>
+    <string name="mute_on">Zvuk vypnutý</string>
+    <string name="n_selected">%d vybraný</string>
+    <string name="n_video">%d video</string>
+    <string name="n_videos">%d videa</string>
+    <string name="never_remind">Nepřipomínat</string>
+    <string name="next">Další</string>
+    <string name="night_off">Normální mód</string>
+    <string name="night_on">Noční režim</string>
+    <string name="no">Ne</string>
+    <string name="no_next_video">Žádné další video.</string>
+    <string name="no_previous_video">Žádné předchozí video.</string>
+    <string name="none">Žádná</string>
+    <string name="not_support">Nepodporované zařízení.</string>
+    <string name="notification_new_desc">Klepněte pro zobrazení.</string>
+    <string name="notification_new_title">Nalezeno nové video</string>
+    <string name="off">Vypnuto</string>
+    <string name="ok">OK</string>
+    <string name="on">Na</string>
+    <string name="open_setting">Otevřít Nastavení</string>
+    <string name="others">Ostatní</string>
+    <string name="permission_desc">"1.Otevřete Nastavení
+2.Klepněte na Oprávnění
+3.Zapněte ukládání"</string>
+    <string name="permission_title">Aby mohl UTV Video Player přehrávat videa, umožněte mu přístup k videím na svém zařízení.</string>
+    <string name="pin_enter">Zadejte PIN</string>
+    <string name="pin_error">Špatný PIN, zkuste to znovu.</string>
+    <string name="pin_error_dialog">Podívejte se do poznámek, pravděpodobně tam máte PIN zapsaný.</string>
+    <string name="pin_forget">Zapomenutý PIN</string>
+    <string name="pin_text">Váš PIN je %s</string>
+    <string name="pip_play">Pop-up přehrávání</string>
+    <string name="pip_play_notification">Přehrávání ve vyskakovacím okně.</string>
+    <string name="pip_play_permission_tips">K přehrávání videa ve vyskakovacím okně potřebuje UTV Video Player povolení Zobrazení přes jiné aplikace.</string>
+    <string name="plate">Talíř</string>
+    <string name="policy">Zásady ochrany osobních údajů</string>
+    <string name="portrait">Na výšku</string>
+    <string name="portrait_locked">Na výšku zamknuto</string>
+    <string name="private_videos">Soukromá videa</string>
+    <string name="properties">Vlastnosti</string>
+    <string name="rate_desc">Mohli byste nám dát pěkné hodnocení? Opravdu to pomůže.</string>
+    <string name="rate_enjoy_use">Vychutnejte si používání %s?</string>
+    <string name="rate_feedback_message">Mohli byste nám dát nějakou zpětnou vazbu?</string>
+    <string name="rate_not_really">Spíš ne</string>
+    <string name="rate_yes">Ano!</string>
+    <string name="ratio_fill">Vyplnit</string>
+    <string name="ratio_fit">Přizpůsobit</string>
+    <string name="ratio_original">Originál</string>
+    <string name="ratio_stretch">Roztáhnout</string>
+    <string name="recent_added">Nově přidáno</string>
+    <string name="refresh">Obnovit</string>
+    <string name="reject">Ne, díky</string>
+    <string name="remember_ratio">Zapamatovat si poměr stran</string>
+    <string name="remember_ratio_desc">Uchová se poměr stran pro všechna videa.</string>
+    <string name="remember_subtitle_style">Zapamatovat přizpůsobení titulků</string>
+    <string name="remember_subtitle_style_desc">Zapamatovat si velikost, barvu a umístění titulků pro všechna videa.</string>
+    <string name="rename">Přejmenovat</string>
+    <string name="rename_failed">Přejmenování selhalo</string>
+    <string name="rename_in_use">Tento název se již používá.</string>
+    <string name="rename_invalid_char">Nesmí obsahovat %s</string>
+    <string name="repeat_loop">Smyčka všeho</string>
+    <string name="repeat_mode_hint">Klepnutím přepnete mezi Opakovat aktuální, Smyčka všeho, Náhodně vše a Popořadě.</string>
+    <string name="repeat_order">Popořadě</string>
+    <string name="repeat_repeat">Opakovat aktuální</string>
+    <string name="repeat_shuffle">Náhodně vše</string>
+    <string name="resolution">Rezoluce</string>
+    <string name="resume">Pokračovat</string>
+    <string name="resume_auto">Pokračovat v přehrávání od místa, kde jste skončili.</string>
+    <string name="retrieve">Získat</string>
+    <string name="reverb">Dozvuk</string>
+    <string name="rotate">Otočit</string>
+    <string name="sd_tips">Vyberte &lt;b>root directory&lt;/b> na externí kartě SD &lt;br/>&lt;b>(%s)&lt;/b> pro udělení oprávnění k funkci..</string>
+    <string name="search">Vyhledávání</string>
+    <string name="search_history">Dějiny</string>
+    <string name="search_no_result">Žádný výsledek.</string>
+    <string name="seek_progress">Hledání pokroku</string>
+    <string name="select">Vybrat</string>
+    <string name="select_subtitle">Vyberte položku Titulky</string>
+    <string name="send_feedback">Poslat zpětnou vazbu</string>
+    <string name="service_unavailable">Služba nedostupná</string>
+    <string name="set_email">Nastavení e-mailu</string>
+    <string name="set_pin">Nastavit PIN</string>
+    <string name="setting_about">O programu</string>
+    <string name="setting_feedback_desc">Nahlásněte chyby a řekněte nám, co se má zlepšit</string>
+    <string name="setting_general">Všeobecné</string>
+    <string name="setting_notify_new">Oznámit nová videa</string>
+    <string name="setting_play_next">Přehrávat další video</string>
+    <string name="setting_play_next_desc">Automaticky přehraje další video, jakmile aktuální video skončí. Účinné v režimu Popořadě.</string>
+    <string name="setting_playback">Přehrávání</string>
+    <string name="setting_remember_bright">Zapamatovat jas</string>
+    <string name="setting_remember_bright_desc">Zapamatovat si nastavení jasu pro všechna videa</string>
+    <string name="settings">Nastavení</string>
+    <string name="share">Sdílet</string>
+    <string name="show">Ukázat</string>
+    <string name="show_hidden_file">Rozpoznávat skryté soubory</string>
+    <string name="show_hidden_file_desc">Rozpoznávat skryté soubory začínající „.“ (tečka). Skenování může trvat déle.</string>
+    <string name="shuffle_all">Náhodně jen audio</string>
+    <string name="size">Velikost</string>
+    <string name="sleep_timer">Časovač vypnutí</string>
+    <string name="small_problem">Přehrávání selhalo, zkuste to znovu.</string>
+    <string name="small_room">Malý pokoj</string>
+    <string name="sort_by">Seřazeno podle</string>
+    <string name="sort_by_date_toast">Od nové po staré</string>
+    <string name="sort_by_date_toast_desc">Od starých k novým</string>
+    <string name="sort_by_length_toast">Od dlouhých po krátké</string>
+    <string name="sort_by_length_toast_desc">Od krátkých po dlouhé</string>
+    <string name="sort_by_name">Název</string>
+    <string name="sort_by_name_toast">Od Z do A</string>
+    <string name="sort_by_name_toast_desc">Od Z do A</string>
+    <string name="sort_by_size_toast">Od velkých po malé</string>
+    <string name="sort_by_size_toast_desc">Od malých k velkým</string>
+    <string name="start">Začít</string>
+    <string name="start_i2p_android">Otevřít I2P Android?</string>
+    <string name="start_over">Začít znovu</string>
+    <string name="subtitle">Titulky</string>
+    <string name="subtitle_adjust">Seřízení synchronizace</string>
+    <string name="subtitle_download">Stažení</string>
+    <string name="subtitle_download_failed">Stahování titulků selhalo</string>
+    <string name="subtitle_downloaded">Titulky staženy</string>
+    <string name="subtitle_downloading">Stahování titulků…</string>
+    <string name="subtitle_load_failed">Nahrávání titulků selhalo</string>
+    <string name="subtitle_not_found">Titulky nenalezeny</string>
+    <string name="subtitle_open_from">Otevřít z</string>
+    <string name="subtitle_personality">Osobnost titulků</string>
+    <string name="subtitle_search_language">Jazyk: %s</string>
+    <string name="subtitle_search_result">Výsledek hledání</string>
+    <string name="subtitle_search_title">Vyhledat titulky na opensubtitle.org.</string>
+    <string name="subtitle_searching">Vyhledávání…</string>
+    <string name="subtitle_turn_off">Vypnout</string>
+    <string name="subtitle_turn_on">Zapnout</string>
+    <string name="timer">Časovač</string>
+    <string name="timer_stop_end">Zastavit při skončení aktuálního videa</string>
+    <string name="total_size">Celková velikost</string>
+    <string name="unlock">Odemknout</string>
+    <string name="unlock_failed">Odemknutí selhalo.</string>
+    <string name="unlock_video_desc">Videa budou veřejně přístupná.</string>
+    <string name="unlock_video_desc2">Můžete je sledovat z knihovny.</string>
+    <string name="unlock_video_success">%d Video odemčeno.</string>
+    <string name="unlock_video_title">Odemknout %d video?</string>
+    <string name="unlock_videos_title">Odemknout videa: %d ?</string>
+    <string name="version">Verze: %s</string>
+    <string name="video">Video</string>
+    <string name="video_downloader">Stahování</string>
+    <string name="video_hider_ad">Uchovávejte videa a fotografie v bezpečí.</string>
+    <string name="video_hider_pro">Skrýt Videa Pro</string>
+    <string name="virtualizer">Virtualizer</string>
+    <string name="volume">Hlasitost</string>
+    <string name="volume_boost">Zesílení hlasitosti</string>
+    <string name="wrong_app_version">Vypadá to, že jste nainstalovali špatnou verzi UTV Video Player.</string>
+    <string name="yes">>Ano</string>
+    <string name="you_must_have_i2p_android">Musíte mít nainstalovaný a zapnutý I2P Android. Přejete si jej nainstalovat?</string>
+
+
+    <string name="pref_title_premium_upgrade">Povyšte se na Premium</string>
+    <string name="pref_cate_premium_upgrade_desc">Premium Upgrade</string>
+    <string name="pref_title_premium_upgrade_in_desc">Premium Upgrade</string>
+    <string name="premium_upgrade_desc">"✔ Odstraní reklamy!
+✔ Odemkne nějaké možnosti!
+✔ Pokračující aktualizace aplikace!"</string>
+    <string name="premium_upgrade_monthly_btn_text">Měsíčně</string>
+    <string name="premium_upgrade_annually_btn_text">každoročně</string>
+    <string name="premium_upgrade_lifetime_btn_text">Trvale</string>
+    <string name="premium_upgrade_loading_info">načítání informací ...</string>
+    <string name="premium_upgrade_error_msg">"Existuje problém, zkontrolujte to..
+
+- zkontrolujte internetové připojení
+- zda je podporován nákup ve vaší zemi
+- zkontrolovat nejnovější verzi Play Store
+- unkown error
+(kontaktujte nás nebo Play Store tým)"</string>
+    <string name="premium_upgrade_processing">Zpracování ...</string>
+    <string name="premium_upgrade_server_verification_fail_msg">Ověření se nezdařilo. Prosím kontaktujte nás s vaším účtem Google, přes který kupujete.</string>
+    <string name="premium_upgrade_complete_purchase_msg">"Premium upgrade je kompletní.
+
+děkujeme za Váš nákup."</string>
+    <string name="toast_msg_detect_premium_upgade">Váš Nákup Premium je potvrzen,nyní můžete přepnout.</string>
+
+    <string name="remove">>Odebrat</string>
+    <string name="remove_ad">Odstranit reklamy</string>
+    <string name="remove_ad_failed">Zakoupení selhalo, zkusit znovu?</string>
+    <string name="remove_ad_forever">Odstranit navždy reklamy</string>
+    <string name="remove_ad_success">Odstranění reklam úspěšné.</string>
+    <string name="remove_ads_desc">%s na celou dobu životnosti</string>
+    <string name="remove_all_ads">Odstranit všechny reklamy trvale</string>
+    <string name="restore">OBNOVIT</string>
+    <string name="restore_failed">Obnovení selhalo!</string>
+    <string name="restore_purchase">Obnovení nákupu</string>
+    <string name="restore_success">Obnovení úspěšné</string>
+
+
+
+
+
+
+
+
+
+
+
+
+</resources>

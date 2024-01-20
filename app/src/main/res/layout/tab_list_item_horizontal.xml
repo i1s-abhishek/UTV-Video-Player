@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/tab_item_background"
+    android:layout_width="175.0dip"
+    android:layout_height="fill_parent"
+    android:clickable="false"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:paddingLeft="10.0dip"
+    android:paddingRight="10.0dip"
+    android:weightSum="1.0">
+
+    <ImageView
+        android:id="@id/faviconTab"
+        android:layout_width="20.0dip"
+        android:layout_height="20.0dip"
+        android:layout_marginLeft="7.0dip"
+        android:layout_marginRight="7.0dip"
+        android:contentDescription="Favicon"
+        android:gravity="center_vertical" />
+
+    <TextView
+        android:id="@id/textTab"
+        android:layout_width="0.0dip"
+        android:layout_height="wrap_content"
+        android:layout_weight="1.0"
+        android:ellipsize="end"
+        android:fontFamily="sans-serif"
+        android:gravity="center_vertical"
+        android:maxLines="1"
+        android:minHeight="?android:listPreferredItemHeightSmall"
+        android:singleLine="true"
+        android:textAppearance="?android:textAppearanceSmall" />
+
+    <FrameLayout
+        android:id="@+id/deleteAction"
+        android:layout_width="36.0dip"
+        android:layout_height="fill_parent"
+        android:layout_gravity="center_vertical"
+        android:background="?actionBarItemBackground"
+        android:gravity="center">
+
+        <ImageView
+            android:id="@id/deleteButton"
+            android:layout_width="20.0dip"
+            android:layout_height="20.0dip"
+            android:layout_gravity="center"
+            android:contentDescription="@string/close_tab"
+            app:srcCompat="@drawable/ic_action_delete" />
+    </FrameLayout>
+</LinearLayout>

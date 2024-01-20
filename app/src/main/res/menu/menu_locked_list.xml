@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <group android:id="@+id/group_select_mode">
+        <item
+            android:id="@+id/unlock"
+            android:icon="@drawable/ic_unlock_folder"
+            android:title="@string/unlock"
+            app:showAsAction="ifRoom" />
+        <item
+            android:id="@+id/delete"
+            android:icon="@drawable/ic_delete"
+            android:title="@string/delete"
+            app:showAsAction="ifRoom" />
+        <item
+            android:id="@+id/info"
+            android:title="@string/properties"
+            app:showAsAction="never" />
+    </group>
+    <group android:id="@+id/group_normal">
+        <item
+            android:id="@+id/style"
+            android:icon="@drawable/ic_layout_list"
+            android:title="Layout Style"
+            app:showAsAction="ifRoom" />
+        <item
+            android:id="@+id/select"
+            android:title="@string/select" />
+        <item
+            android:id="@+id/modify_pin"
+            android:title="@string/modify_pin" />
+        <item
+            android:id="@+id/sort"
+            android:title="@string/sort_by" />
+    </group>
+</menu>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="continue_text">Nastavi</string>
+    <string name="gdpr_consent">"We never stop trying to provide a higher quality user experience in every detail. The privacy policy is updated to adapt to the EU General Data Protection Regulation (GDPR). You can read it in “Settings” - “Privacy policy”.
+
+Please click “Continue” to agree to the policy and use this app. If you don’t want personal data to be collected by the advertising providers, please go to “setting” - “Privacy Policy” page and Click “I don’t agree”."</string>
+    <string name="lib_rate_btn_cancel">Prekid</string>
+    <string name="lib_rate_btn_close">ZATVORI</string>
+    <string name="lib_rate_btn_go_market">Ocijeni na Google Play</string>
+    <string name="lib_rate_btn_rate">Ocijeni</string>
+    <string name="lib_rate_btn_submit">Pošalji</string>
+    <string name="lib_rate_dialog_tip">"Uistinu se trudimo poboljšati korisničko iskustvo.
+Puno bi nam značilo kada biste nas ocijenili."</string>
+    <string name="lib_rate_dislike">Nije mi se svidjelo</string>
+    <string name="lib_rate_feedback_option_1">Ne sviđa mi se dizajn</string>
+    <string name="lib_rate_feedback_option_2">Nema funkcija koje mi trebaju</string>
+    <string name="lib_rate_feedback_option_3">Nije jednostavna za upotrebu</string>
+    <string name="lib_rate_feedback_option_4">Prekomplicirana je</string>
+    <string name="lib_rate_feedback_option_6">Prijevod je loš</string>
+    <string name="lib_rate_feedback_title">Vaše su povratne informacije korisne.</string>
+    <string name="lib_rate_five_stars_confirm_tip">"Vaša će recenzija pomoći drugim korisnicima.
+
+Molimo, napišite recenziju u trgovini Google Play."</string>
+    <string name="lib_rate_five_stars_tip">Najbolja ocjena za nas :)</string>
+    <string name="lib_rate_hate_it">Bilo je grozno</string>
+    <string name="lib_rate_it_is_ok">U redu je</string>
+    <string name="lib_rate_leave_feedback">Napišite nam svoje povratne informacije.</string>
+    <string name="lib_rate_like_it">Svidjelo mi se</string>
+    <string name="lib_rate_like_you">I mi volimo vas!</string>
+    <string name="lib_rate_love_it">Bilo je super</string>
+    <string name="lib_rate_oh_no">O ne!</string>
+    <string name="lib_rate_thanks_feedback">Hvala vam za povratne informacije.</string>
+
+
+    <string name="pref_title_premium_upgrade">Nadogradite na Premium korisnika</string>
+    <string name="pref_cate_premium_upgrade_desc">Premium nadogradnja</string>
+    <string name="pref_title_premium_upgrade_in_desc">Premium nadogradnja</string>
+    <string name="premium_upgrade_desc">"✔ Makni reklame!
+✔ Otključaj neke mogućnosti!
+✔ Kontinuirana podrška ažuriranja!"</string>
+    <string name="premium_upgrade_monthly_btn_text">Mjesečno</string>
+    <string name="premium_upgrade_annually_btn_text">Godišnje</string>
+    <string name="premium_upgrade_lifetime_btn_text">Doživotno</string>
+    <string name="premium_upgrade_loading_info">Izlistavanje informacija...</string>
+    <string name="premium_upgrade_error_msg">"U slučaju problema, provjerite sljedeće.
+
+- povezivanje na internet
+- nepodržana kupovina u Vašoj zemli
+- provjerite posljednja ažuriranja u Play Store
+- nepoznata greška
+(kontaktirajte nas ili Play Store ekipu)"</string>
+    <string name="premium_upgrade_processing">procesiranje...</string>
+    <string name="premium_upgrade_server_verification_fail_msg">Neuspješna verifikacija. Kontaktirajte nas koristeći Google račun koji ste koristili prilikom kupovine.</string>
+    <string name="premium_upgrade_complete_purchase_msg">"Premium nadogradnja je potpuna.
+
+Hvala Vam na kupovini"</string>
+    <string name="toast_msg_detect_premium_upgade">Kupovina je potvrđena, postali ste Premium korisnik.</string>
+    <string name="premium_menu_title">Premium</string>
+
+</resources>

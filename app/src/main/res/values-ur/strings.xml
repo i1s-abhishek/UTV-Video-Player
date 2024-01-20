@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="lib_rate_btn_cancel">منسوخ کریں</string>
+    <string name="lib_rate_btn_close">بند کریں</string>
+    <string name="lib_rate_btn_go_market">Google play پر ریٹنگ کریں</string>
+    <string name="lib_rate_btn_rate">ریٹنگ کریں</string>
+    <string name="lib_rate_btn_submit">جمع کریں</string>
+    <string name="lib_rate_dialog_tip">"ہم ایک بہتر صارف تجربے کے لیے سخت محنت کر رہے ہیں
+ہم آپ کی ریٹنگ کے لیے بہت شکر گزار ہوں گے۔"</string>
+    <string name="lib_rate_dislike">یہ ناپسندیدگی</string>
+    <string name="lib_rate_feedback_option_1">مجھے ڈیزائن پسند نہیں۔</string>
+    <string name="lib_rate_feedback_option_2">اس میں میری ضرورت کے فنکشنز نہیں ہیں۔</string>
+    <string name="lib_rate_feedback_option_3">یہ استعمال میں آسان نہیں۔</string>
+    <string name="lib_rate_feedback_option_4">یہ بہت پیچیدہ ہے۔</string>
+    <string name="lib_rate_feedback_option_6">ترجمہ ناقص ہے۔</string>
+    <string name="lib_rate_feedback_title">آپ کی فیڈ بیک مفید ہے۔</string>
+    <string name="lib_rate_five_stars_confirm_tip">"دیگر صارفین آپ کے ریویو سے فائدہ اٹھائیں گے۔
+
+براہِ کرم اپنا ریویو Google Play پر چھوڑیں۔"</string>
+    <string name="lib_rate_five_stars_tip">ہماری بہترین ریٹنگ :)</string>
+    <string name="lib_rate_hate_it">اس سے نفرت</string>
+    <string name="lib_rate_it_is_ok">یہ ٹھیک ہے</string>
+    <string name="lib_rate_leave_feedback">براہ کرم ہمیں کچھ فیڈبیک دیں۔</string>
+    <string name="lib_rate_like_it">پسند ہے</string>
+    <string name="lib_rate_like_you">ہم بھی آپ کو پسند کرتے ہیں!</string>
+    <string name="lib_rate_love_it">اس سے محبت</string>
+    <string name="lib_rate_oh_no">اوہ، نہیں!</string>
+    <string name="lib_rate_thanks_feedback">آپ کی فیڈبیک کا شکریہ۔</string>
+
+    <string name="remove">>ہٹائیں</string>
+    <string name="remove_ad">اشتہارات ہٹائیں</string>
+    <string name="remove_ad_failed">خریداری میں ناکامی، دوبارہ کوشش کریں؟</string>
+    <string name="remove_ad_forever">ہمیشہ کے لیے اشتہارات ہٹائیں</string>
+    <string name="remove_ad_success">کامیابی سے اشتہارات ہٹائیں۔</string>
+    <string name="remove_ads_desc">%s زندگی بھر کے لیے</string>
+    <string name="remove_all_ads">فوری طور پر اشتہارات ہٹائیں</string>
+    <string name="restore">بحال کریں</string>
+    <string name="restore_failed">بحالی میں ناکامی!</string>
+    <string name="restore_purchase">خریداری بحال کریں</string>
+    <string name="restore_success">کامیابی سے بحال کریں</string>
+</resources>

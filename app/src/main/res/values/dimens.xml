@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="play_tool_more_width">40.0dip</dimen>
+    <dimen name="play_tool_width">60.0dip</dimen>
+    <dimen name="play_seek_thumb_layout_width">168.0dip</dimen>
+    <dimen name="play_seek_thumb_margin_large">110.0dip</dimen>
+    <dimen name="margin_video_next">30.0dip</dimen>
+    <dimen name="thumb_middle_w">68.0dip</dimen>
+    <dimen name="thumb_middle_h">62.0dip</dimen>
+
+    <dimen name="arc_seekbar_bg_width">23.0dip</dimen>
+    <dimen name="arc_seekbar_circle_line_bg_width">2.0dip</dimen>
+    <dimen name="arc_seekbar_progress_dot_radius">4.5dip</dimen>
+    <dimen name="arc_seekbar_dot_radius">1.5dip</dimen>
+    <dimen name="arc_seekbar_circle_bg_radius">55.0dip</dimen>
+    <dimen name="arc_seekbar_cicle_line_bg_radius">42.0dip</dimen>
+    <dimen name="arc_seekbar_dot_circle_ring_radius">48.0dip</dimen>
+    <dimen name="popupmenu_width">180.0dip</dimen>
+    <dimen name="email_margin_top">10.0dip</dimen>
+    <dimen name="email_margin_height">70.0dip</dimen>
+    <dimen name="email_margin">32.0dip</dimen>
+    <dimen name="email_margin_top_small">5.0dip</dimen>
+    <dimen name="password_size">244.0dip</dimen>
+    <dimen name="thumb_large_h">77.0dip</dimen>
+    <dimen name="thumb_large_w">85.0dip</dimen>
+    <dimen name="new_icon_width">22.0dip</dimen>
+
+    <dimen name="fab_margin">8.0dip</dimen>
+    <dimen name="thumb_small_h">37.0dip</dimen>
+    <dimen name="thumb_small_w">40.0dip</dimen>
+    <dimen name="extra_padding">16.0dip</dimen>
+    <dimen name="default_padding">8.0dip</dimen>
+    <dimen name="dialog_padding">24.0dip</dimen>
+    <dimen name="dialog_max_size">350.0dip</dimen>
+    <dimen name="navigation_width">260.0dip</dimen>
+    <dimen name="search_bar_height">48.0dip</dimen>
+    <dimen name="pause_ad_width">300.0dip</dimen>
+    <dimen name="native_ad_detail_text_size">10.0sp</dimen>
+    <dimen name="native_ad_title_text_size">14.0sp</dimen>
+    <dimen name="native_ad_sign_margin">8.0dip</dimen>
+    <dimen name="arc_seekbar_width">110.0dip</dimen>
+    <dimen name="eq_circle_width">1.2999878dip</dimen>
+    <dimen name="eq_circle_radius">5.5dip</dimen>
+    <dimen name="eq_line_width">8.0dip</dimen>
+    <dimen name="eq_progress_width">8.0dip</dimen>
+    <dimen name="eq_progress_bg_width">2.0dip</dimen>
+
+
+
+    <dimen name="dp_2">2dip</dimen>
+    <dimen name="dp_12">12.0dip</dimen>
+    <dimen name="dp_8">8.0dip</dimen>
+    <dimen name="sp_19">19.0sp</dimen>
+    <dimen name="sp_10">10sp</dimen>
+    <dimen name="dp_72">72.0dip</dimen>
+    <dimen name="dp_24">24.0dip</dimen>
+    <dimen name="sp_18">18sp</dimen>
+    <dimen name="dp_32">32.0dip</dimen>
+    <dimen name="dp_18">18dip</dimen>
+    <dimen name="dp_48">48.0dip</dimen>
+    <dimen name="sp_14">14sp</dimen>
+    <dimen name="dp_42">42dip</dimen>
+    <dimen name="dp_30">30dip</dimen>
+    <dimen name="sp_16">16.0sp</dimen>
+    <dimen name="dp_20">20dip</dimen>
+    <dimen name="dp_64">64.0dip</dimen>
+    <dimen name="dp_4">4dip</dimen>
+</resources>

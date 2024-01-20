@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="lib_rate_btn_cancel">Откажи</string>
+    <string name="lib_rate_btn_close">ЗАТВОРИ</string>
+    <string name="lib_rate_btn_go_market">Оцени на Google play</string>
+    <string name="lib_rate_btn_rate">Оцени</string>
+    <string name="lib_rate_btn_submit">Поднеси</string>
+    <string name="lib_rate_dialog_tip">"Работиме напорно за да го подобриме искуството на корисниците.
+Неизмерно ќе ни значи ако ни дадете оценка."</string>
+    <string name="lib_rate_dislike">Не ми сe допадна</string>
+    <string name="lib_rate_feedback_option_1">Не ми се допаѓа дизајнот</string>
+    <string name="lib_rate_feedback_option_2">Ги нема функциите кои ми се потребни</string>
+    <string name="lib_rate_feedback_option_3">Не е лесно за користење</string>
+    <string name="lib_rate_feedback_option_4">Премногу е комплицирано</string>
+    <string name="lib_rate_feedback_option_6">Преводот е лош</string>
+    <string name="lib_rate_feedback_title">Повратната информација е корисна.</string>
+    <string name="lib_rate_five_stars_confirm_tip">"Критиката ќе им користи и на другите корисници.
+
+ Напишете критика на Google Play."</string>
+    <string name="lib_rate_five_stars_tip">Најдоброто што може да го добиеме :)</string>
+    <string name="lib_rate_hate_it">Воопшто не ми сe допадна</string>
+    <string name="lib_rate_it_is_ok">Во рeд e</string>
+    <string name="lib_rate_leave_feedback">Дајте ни критика.</string>
+    <string name="lib_rate_like_it">Ми сe допадна</string>
+    <string name="lib_rate_like_you">И вие ни се допаѓате!</string>
+    <string name="lib_rate_love_it">Ми сe допадна</string>
+    <string name="lib_rate_oh_no">О, не!</string>
+    <string name="lib_rate_thanks_feedback">Благодариме за критиката.</string>
+</resources>

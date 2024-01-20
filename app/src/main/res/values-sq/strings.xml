@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="install_i2p_android">Të instalohet I2P Android?</string>
+    <string name="lib_rate_btn_cancel">Anulloje</string>
+    <string name="lib_rate_btn_close">CLOSE</string>
+    <string name="lib_rate_btn_go_market">Normë në Google play</string>
+    <string name="lib_rate_btn_rate">Normë</string>
+    <string name="lib_rate_btn_submit">Paraqes</string>
+    <string name="lib_rate_dialog_tip">"Ne jemi duke punuar shumë për një përvojë më të mirë të përdoruesit.
+Ne do të vlerësojmë shumë nëse ju mund të na vlersuar."</string>
+    <string name="lib_rate_dislike">Nuk e pëlqejnë atë</string>
+    <string name="lib_rate_feedback_option_1">Nuk më pëlqen dizajnin</string>
+    <string name="lib_rate_feedback_option_2">Ajo nuk Funksionet kam nevojë</string>
+    <string name="lib_rate_feedback_option_3">"Kjo nuk është e lehtë për t'u përdorur"</string>
+    <string name="lib_rate_feedback_option_4">Është e komplikuar shumë</string>
+    <string name="lib_rate_feedback_option_6">Përkthimi është i varfër</string>
+    <string name="lib_rate_feedback_title">Your feedback është e dobishme.</string>
+    <string name="lib_rate_five_stars_confirm_tip">"Përdoruesit e tjerë do të përfitojnë nga komentin tuaj.
+
+Ju lutemi të lënë komentin tuaj në Google Luaj."</string>
+    <string name="lib_rate_five_stars_tip">Më të mirë ne mund të merrni :)</string>
+    <string name="lib_rate_hate_it">E urrej</string>
+    <string name="lib_rate_it_is_ok">Eshte ne rregull</string>
+    <string name="lib_rate_leave_feedback">Ju lutemi na lini disa reagime.</string>
+    <string name="lib_rate_like_it">Me pelqen</string>
+    <string name="lib_rate_like_you">Edhe ne si juve!</string>
+    <string name="lib_rate_love_it">Duan atë</string>
+    <string name="lib_rate_oh_no">O jo!</string>
+    <string name="lib_rate_thanks_feedback">Faleminderit për reagimet tuaja.</string>
+    <string name="no">Jo</string>
+
+    <string name="start_i2p_android">Të niset I2P Android?</string>
+    <string name="would_you_like_to_start_i2p_android">Duket se I2P Android s’është në funksionim, Doni të niset?</string>
+    <string name="yes">>Po</string>
+    <string name="you_must_have_i2p_android">Duhet ta keni I2P Android të instaluar dhe në xhirim e sipër. Doni të instalohet?</string>
+</resources>

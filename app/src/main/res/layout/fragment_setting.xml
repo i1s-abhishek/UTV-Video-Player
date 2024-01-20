@@ -1,0 +1,515 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="?settingBgColor">
+
+    <ScrollView
+        android:id="@+id/scrollContent"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/title_general"
+                style="@style/SettingTextCategory"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="21.0dip"
+                android:text="@string/setting_general" />
+
+            <RelativeLayout
+                android:id="@+id/dark_theme"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="?android:selectableItemBackground"
+                android:paddingLeft="16.0dip"
+                android:paddingTop="18.0dip"
+                android:paddingRight="16.0dip"
+                android:paddingBottom="18.0dip">
+
+                <Switch
+                    android:id="@+id/dark_theme_switch"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:checked="false"
+                    android:switchMinWidth="40.0dip"
+                    android:textOff=""
+                    android:textOn="" />
+
+                <TextView
+                    android:id="@+id/dark_theme_tv"
+                    style="@style/SettingTextTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginRight="8.0dip"
+                    android:layout_toLeftOf="@id/dark_theme_switch"
+                    android:text="@string/dark_theme" />
+
+                <TextView
+                    android:id="@+id/dark_theme_tv_desc"
+                    style="@style/SettingTextDesc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/dark_theme_tv"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginRight="8.0dip"
+                    android:layout_toLeftOf="@id/dark_theme_switch"
+                    android:text="@string/off" />
+            </RelativeLayout>
+
+            <View style="@style/dividerStyle" />
+
+            <RelativeLayout
+                android:id="@+id/language"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="?android:selectableItemBackground"
+                android:padding="16.0dip">
+
+                <TextView
+                    android:id="@+id/language_tv"
+                    style="@style/SettingTextTitle"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/language" />
+
+                <TextView
+                    android:id="@+id/language_tv_desc"
+                    style="@style/SettingTextDesc"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/language_tv"
+                    android:text="@string/auto" />
+            </RelativeLayout>
+
+            <View style="@style/dividerStyle" />
+
+            <TextView
+                style="@style/SettingTextCategory"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/media" />
+
+            <RelativeLayout
+                android:id="@+id/notify_new"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="?android:selectableItemBackground"
+                android:padding="16.0dip">
+
+                <Switch
+                    android:id="@+id/notify_new_switch"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:checked="true"
+                    android:switchMinWidth="40.0dip"
+                    android:textOff=""
+                    android:textOn="" />
+
+                <TextView
+                    android:id="@+id/notify_new_tv"
+                    style="@style/SettingTextTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginRight="8.0dip"
+                    android:layout_toLeftOf="@id/notify_new_switch"
+                    android:text="@string/setting_notify_new" />
+
+                <TextView
+                    android:id="@+id/notify_new_tv_desc"
+                    style="@style/SettingTextDesc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/notify_new_tv"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginRight="8.0dip"
+                    android:layout_toLeftOf="@id/notify_new_switch"
+                    android:text="@string/setting_play_next_desc" />
+            </RelativeLayout>
+
+            <View
+                android:id="@+id/notify_new_line"
+                style="@style/dividerStyle" />
+
+            <RelativeLayout
+                android:id="@+id/manage_scan_list"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="?android:selectableItemBackground"
+                android:padding="16.0dip">
+
+                <TextView
+                    android:id="@+id/manage_scan_list_tv"
+                    style="@style/SettingTextTitle"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/manage_scan_list" />
+
+                <TextView
+                    android:id="@+id/manage_scan_list_tv_desc"
+                    style="@style/SettingTextDesc"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/manage_scan_list_tv"
+                    android:text="@string/manage_scan_list_desc" />
+            </RelativeLayout>
+
+            <View style="@style/dividerStyle" />
+
+            <RelativeLayout
+                android:id="@+id/show_hidden_file"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="?android:selectableItemBackground"
+                android:padding="16.0dip">
+
+                <Switch
+                    android:id="@+id/show_hidden_file_switch"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:checked="false"
+                    android:switchMinWidth="40.0dip"
+                    android:textOff=""
+                    android:textOn="" />
+
+                <TextView
+                    android:id="@+id/show_hidden_file_tv"
+                    style="@style/SettingTextTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginRight="8.0dip"
+                    android:layout_toLeftOf="@id/show_hidden_file_switch"
+                    android:text="@string/show_hidden_file" />
+
+                <TextView
+                    style="@style/SettingTextDesc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/show_hidden_file_tv"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginRight="8.0dip"
+                    android:layout_toLeftOf="@id/show_hidden_file_switch"
+                    android:text="@string/show_hidden_file_desc" />
+            </RelativeLayout>
+
+            <View style="@style/dividerStyle" />
+
+            <TextView
+                android:id="@+id/title_playback"
+                style="@style/SettingTextCategory"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/setting_playback" />
+
+            <RelativeLayout
+                android:id="@+id/remember_bright"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="?android:selectableItemBackground"
+                android:padding="16.0dip">
+
+                <Switch
+                    android:id="@+id/remember_bright_switch"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:checked="false"
+                    android:switchMinWidth="40.0dip"
+                    android:textOff=""
+                    android:textOn="" />
+
+                <TextView
+                    android:id="@+id/remember_bright_tv"
+                    style="@style/SettingTextTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginRight="8.0dip"
+                    android:layout_toLeftOf="@id/remember_bright_switch"
+                    android:text="@string/setting_remember_bright" />
+
+                <TextView
+                    android:id="@+id/remember_bright_tv_desc"
+                    style="@style/SettingTextDesc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/remember_bright_tv"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginRight="8.0dip"
+                    android:layout_toLeftOf="@id/remember_bright_switch"
+                    android:text="@string/setting_remember_bright_desc" />
+            </RelativeLayout>
+
+            <View style="@style/dividerStyle" />
+
+            <RelativeLayout
+                android:id="@+id/remember_subtitle"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="?android:selectableItemBackground"
+                android:padding="16.0dip">
+
+                <Switch
+                    android:id="@+id/remember_subtitle_switch"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:checked="false"
+                    android:switchMinWidth="40.0dip"
+                    android:textOff=""
+                    android:textOn="" />
+
+                <TextView
+                    android:id="@+id/remember_subtitle_tv"
+                    style="@style/SettingTextTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginRight="8.0dip"
+                    android:layout_toLeftOf="@id/remember_subtitle_switch"
+                    android:text="@string/remember_subtitle_style" />
+
+                <TextView
+                    style="@style/SettingTextDesc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/remember_subtitle_tv"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginRight="8.0dip"
+                    android:layout_toLeftOf="@id/remember_subtitle_switch"
+                    android:text="@string/remember_subtitle_style_desc" />
+            </RelativeLayout>
+
+            <View style="@style/dividerStyle" />
+
+            <RelativeLayout
+                android:id="@+id/remember_ratio"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="?android:selectableItemBackground"
+                android:padding="16.0dip">
+
+                <Switch
+                    android:id="@+id/remember_ratio_switch"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:checked="false"
+                    android:switchMinWidth="40.0dip"
+                    android:textOff=""
+                    android:textOn="" />
+
+                <TextView
+                    android:id="@+id/remember_ratio_tv"
+                    style="@style/SettingTextTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginRight="8.0dip"
+                    android:layout_toLeftOf="@id/remember_ratio_switch"
+                    android:text="@string/remember_ratio" />
+
+                <TextView
+                    style="@style/SettingTextDesc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/remember_ratio_tv"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginRight="8.0dip"
+                    android:layout_toLeftOf="@id/remember_ratio_switch"
+                    android:text="@string/remember_ratio_desc" />
+            </RelativeLayout>
+
+            <View style="@style/dividerStyle" />
+
+            <RelativeLayout
+                android:id="@+id/play_next"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="?android:selectableItemBackground"
+                android:padding="16.0dip">
+
+                <Switch
+                    android:id="@+id/play_next_switch"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:checked="true"
+                    android:switchMinWidth="40.0dip"
+                    android:textOff=""
+                    android:textOn="" />
+
+                <TextView
+                    android:id="@+id/play_next_tv"
+                    style="@style/SettingTextTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginRight="8.0dip"
+                    android:layout_toLeftOf="@id/play_next_switch"
+                    android:text="@string/setting_play_next" />
+
+                <TextView
+                    android:id="@+id/play_next_tv_desc"
+                    style="@style/SettingTextDesc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/play_next_tv"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginRight="8.0dip"
+                    android:layout_toLeftOf="@id/play_next_switch"
+                    android:text="@string/setting_play_next_desc" />
+            </RelativeLayout>
+
+            <View style="@style/dividerStyle" />
+
+            <RelativeLayout
+                android:id="@+id/play_resume"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="?android:selectableItemBackground"
+                android:padding="16.0dip">
+
+                <Switch
+                    android:id="@+id/play_resume_switch"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:checked="true"
+                    android:switchMinWidth="40.0dip"
+                    android:textOff=""
+                    android:textOn="" />
+
+                <TextView
+                    android:id="@+id/play_resume_tv"
+                    style="@style/SettingTextTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginRight="8.0dip"
+                    android:layout_toLeftOf="@id/play_resume_switch"
+                    android:text="@string/resume" />
+
+                <TextView
+                    android:id="@+id/play_resume_tv_desc"
+                    style="@style/SettingTextDesc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/play_resume_tv"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginRight="8.0dip"
+                    android:layout_toLeftOf="@id/play_resume_switch"
+                    android:text="@string/resume_auto" />
+            </RelativeLayout>
+
+            <View style="@style/dividerStyle" />
+
+            <TextView
+                android:id="@+id/title_help"
+                style="@style/SettingTextCategory"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/help" />
+
+            <RelativeLayout
+                android:id="@+id/feedback"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="?android:selectableItemBackground"
+                android:padding="16.0dip">
+
+                <TextView
+                    android:id="@+id/feedback_tv"
+                    style="@style/SettingTextTitle"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/feedback" />
+
+                <TextView
+                    android:id="@+id/feedback_tv_desc"
+                    style="@style/SettingTextDesc"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/feedback_tv"
+                    android:text="@string/setting_feedback_desc" />
+            </RelativeLayout>
+
+            <View style="@style/dividerStyle" />
+
+            <TextView
+                android:id="@+id/title_about"
+                style="@style/SettingTextCategory"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/setting_about" />
+
+            <RelativeLayout
+                android:id="@+id/policy"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="?android:selectableItemBackground"
+                android:padding="16.0dip">
+
+                <TextView
+                    android:id="@+id/policy_tv"
+                    style="@style/SettingTextTitle"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/policy" />
+            </RelativeLayout>
+
+            <View style="@style/dividerStyle" />
+
+            <RelativeLayout
+                android:id="@+id/legal"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="?android:selectableItemBackground"
+                android:padding="16.0dip">
+
+                <TextView
+                    android:id="@+id/legal_tv"
+                    style="@style/SettingTextTitle"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/legal" />
+            </RelativeLayout>
+
+            <View style="@style/dividerStyle" />
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="?android:selectableItemBackground"
+                android:padding="16.0dip">
+
+                <TextView
+                    android:id="@+id/version"
+                    style="@style/SettingTextTitle"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/version" />
+            </RelativeLayout>
+        </LinearLayout>
+    </ScrollView>
+</FrameLayout>

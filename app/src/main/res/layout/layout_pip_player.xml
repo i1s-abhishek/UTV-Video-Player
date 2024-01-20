@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#ff000000">
+
+    <com.abhishek.inplayer.widget.XVideoView
+        android:id="@+id/video_view"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_gravity="center" />
+
+    <TextView
+        android:id="@id/subtitle_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center"
+        android:layout_marginLeft="8.0dip"
+        android:layout_marginRight="8.0dip"
+        android:layout_marginBottom="8.0dip"
+        android:clickable="false"
+        android:gravity="bottom|center"
+        android:padding="5.0dip"
+        android:shadowColor="#ff000000"
+        android:shadowDx="5.0"
+        android:shadowDy="5.0"
+        android:shadowRadius="10.0"
+        android:textColor="#ffffffff"
+        android:textSize="12.0sp" />
+
+    <RelativeLayout
+        android:id="@+id/play_control_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:visibility="gone">
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="40.0dip"
+            android:background="@drawable/play_shadow_top" />
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="40.0dip"
+            android:layout_alignParentBottom="true"
+            android:background="@drawable/play_shadow_bottom" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/pip_play"
+            android:layout_width="40.0dip"
+            android:layout_height="40.0dip"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:foreground="@drawable/bg_common_btn_light"
+            android:padding="8.0dip"
+            android:scaleType="center"
+            app:srcCompat="@drawable/ic_pause_audio" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/pip_back"
+            android:layout_width="40.0dip"
+            android:layout_height="40.0dip"
+            android:foreground="@drawable/bg_common_btn_light"
+            android:padding="8.0dip"
+            app:srcCompat="@mipmap/ic_pip_back" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/pip_toggle_size"
+            android:layout_width="40.0dip"
+            android:layout_height="40.0dip"
+            android:layout_toRightOf="@id/pip_back"
+            android:foreground="@drawable/bg_common_btn_light"
+            android:padding="8.0dip"
+            app:srcCompat="@mipmap/ic_pip_s" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/pip_close"
+            android:layout_width="40.0dip"
+            android:layout_height="40.0dip"
+            android:layout_alignParentRight="true"
+            android:foreground="@drawable/bg_common_btn_light"
+            android:padding="8.0dip"
+            app:srcCompat="@mipmap/close" />
+    </RelativeLayout>
+</FrameLayout>

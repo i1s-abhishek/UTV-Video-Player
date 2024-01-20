@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="?homeBgColor">
+
+    <RelativeLayout
+        android:id="@+id/vir_toolbar"
+        android:layout_width="fill_parent"
+        android:layout_height="?actionBarSize"
+        android:background="@color/colorPrimary">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/back_search"
+            android:layout_width="25.0dip"
+            android:layout_height="25.0dip"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="15.0dip"
+            app:srcCompat="@drawable/ic_back" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/close_search"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10.0dip"
+            android:clickable="true"
+            app:srcCompat="@mipmap/close" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/search_keyword"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="30.0dip"
+            android:layout_marginRight="10.0dip"
+            android:layout_toLeftOf="@id/close_search"
+            android:layout_toRightOf="@id/back_search"
+            android:background="@null"
+            android:backgroundTint="#ffffffff"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:foregroundTint="#ffffffff"
+            android:hint="@string/search"
+            android:imeOptions="actionSearch|flagNoExtractUi"
+            android:inputType="text"
+            android:lines="1"
+            android:singleLine="true"
+            android:textColor="#ffffffff"
+            android:textColorHint="#55ffffff"
+            android:textSize="20.0sp" />
+    </RelativeLayout>
+
+    <ListView
+        android:id="@+id/search_result"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_below="@id/vir_toolbar"
+        android:divider="@null"
+        android:scrollbars="none" />
+
+    <TextView
+        android:id="@+id/empty_result_hint"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/vir_toolbar"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="148.0dip"
+        android:alpha="0.87"
+        android:tag="@string/subtitle_tag"
+        android:text="@string/search_no_result"
+        android:textColor="?homeSubTextColor"
+        android:textSize="16.0sp"
+        android:visibility="gone" />
+</RelativeLayout>

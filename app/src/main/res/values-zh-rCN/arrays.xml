@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="proxy_choices_array">
+        <item>无</item>
+        <item>Orbot</item>
+        <item>I2P</item>
+        <item>手动</item>
+    </string-array>
+</resources>

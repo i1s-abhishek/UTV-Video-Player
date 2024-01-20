@@ -1,0 +1,559 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@id/toolbar"
+        android:layout_width="fill_parent"
+        android:layout_height="?actionBarSize"
+        android:background="?toolbarSettingsBackground"
+        android:elevation="4.0dip"
+        android:minHeight="?actionBarSize"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        custom:popupTheme="?toolBarPopupMenuStyle"
+        custom:title="@string/settings" />
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16.0dip"
+                android:layout_marginTop="16.0dip"
+                android:layout_marginEnd="16.0dip"
+                android:text="@string/action_download"
+                android:textColor="@color/accent_color"
+                android:textSize="14.0sp" />
+
+            <RelativeLayout
+                android:id="@+id/rl_download_location"
+                android:layout_width="fill_parent"
+                android:layout_height="72.0dip"
+                android:background="?android:selectableItemBackground">
+
+                <ImageView
+                    android:id="@+id/iv_set_location"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="16.0dip"
+                    android:tint="@color/accent_color"
+                    custom:srcCompat="@drawable/ic_settings_black_24dp" />
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="16.0dip"
+                    android:layout_marginEnd="16.0dip"
+                    android:layout_toStartOf="@id/iv_set_location"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:maxLines="2"
+                        android:text="@string/title_download_location"
+                        android:textColor="@color/title_color"
+                        android:textSize="16.0sp" />
+
+                    <TextView
+                        android:id="@+id/tv_download_location"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2.0dip"
+                        android:maxLines="2"
+                        android:textColor="@color/sub_title_color"
+                        android:textSize="12.0sp" />
+                </LinearLayout>
+            </RelativeLayout>
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1.0dip"
+                android:layout_marginStart="16.0dip"
+                android:layout_marginEnd="16.0dip"
+                android:background="@color/divider_light" />
+
+            <RelativeLayout
+                android:id="@+id/rl_active_downloads"
+                android:layout_width="fill_parent"
+                android:layout_height="52.0dip"
+                android:background="?android:selectableItemBackground"
+                android:visibility="gone">
+
+                <ImageView
+                    android:id="@+id/iv_active_downloads"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="16.0dip"
+                    custom:srcCompat="@drawable/vector_ic_drop_down_arrow" />
+
+                <TextView
+                    android:id="@+id/tv_active_downloads"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="8.0dip"
+                    android:layout_toStartOf="@id/iv_active_downloads"
+                    android:text="3"
+                    android:textColor="@color/accent_color"
+                    android:textSize="14.0sp" />
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="16.0dip"
+                    android:layout_marginEnd="16.0dip"
+                    android:layout_toStartOf="@id/tv_active_downloads"
+                    android:maxLines="2"
+                    android:text="@string/max_number_of_downloads"
+                    android:textColor="@color/title_color"
+                    android:textSize="16.0sp" />
+            </RelativeLayout>
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1.0dip"
+                android:layout_marginStart="16.0dip"
+                android:layout_marginEnd="16.0dip"
+                android:background="@color/divider_light"
+                android:visibility="gone" />
+
+            <RelativeLayout
+                android:id="@+id/rl_download_wifi"
+                android:layout_width="fill_parent"
+                android:layout_height="52.0dip"
+                android:background="?android:selectableItemBackground">
+
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/sc_wifi"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="16.0dip"
+                    android:checked="false"
+                    android:clickable="false"
+                    android:focusable="false" />
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="16.0dip"
+                    android:layout_marginEnd="16.0dip"
+                    android:layout_toStartOf="@id/sc_wifi"
+                    android:maxLines="2"
+                    android:text="@string/download_wifi_only"
+                    android:textColor="@color/title_color"
+                    android:textSize="16.0sp" />
+            </RelativeLayout>
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1.0dip"
+                android:layout_marginStart="16.0dip"
+                android:layout_marginEnd="16.0dip"
+                android:background="@color/divider_light" />
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16.0dip"
+                android:layout_marginTop="16.0dip"
+                android:layout_marginEnd="16.0dip"
+                android:text="@string/browser"
+                android:textColor="@color/accent_color"
+                android:textSize="14.0sp" />
+
+            <LinearLayout
+                android:id="@+id/ll_home_page"
+                android:layout_width="fill_parent"
+                android:layout_height="72.0dip"
+                android:background="?android:selectableItemBackground"
+                android:gravity="center_vertical"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16.0dip"
+                    android:layout_marginEnd="16.0dip"
+                    android:text="@string/home"
+                    android:textColor="@color/title_color"
+                    android:textSize="16.0sp" />
+
+                <TextView
+                    android:id="@+id/tv_home_page"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16.0dip"
+                    android:layout_marginTop="2.0dip"
+                    android:layout_marginEnd="16.0dip"
+                    android:textColor="@color/sub_title_color"
+                    android:textSize="12.0sp" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1.0dip"
+                android:layout_marginStart="16.0dip"
+                android:layout_marginEnd="16.0dip"
+                android:background="@color/divider_light" />
+
+            <RelativeLayout
+                android:id="@+id/rl_ad_block"
+                android:layout_width="fill_parent"
+                android:layout_height="72.0dip"
+                android:background="?android:selectableItemBackground">
+
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/sc_ad_block"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="16.0dip"
+                    android:checked="true"
+                    android:clickable="false"
+                    android:focusable="false" />
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="16.0dip"
+                    android:layout_marginEnd="16.0dip"
+                    android:layout_toStartOf="@id/sc_ad_block"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/block_ads"
+                        android:textColor="@color/title_color"
+                        android:textSize="16.0sp" />
+
+                    <TextView
+                        android:id="@+id/tv_ad_block"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2.0dip"
+                        android:text="@string/on"
+                        android:textColor="@color/sub_title_color"
+                        android:textSize="12.0sp" />
+                </LinearLayout>
+            </RelativeLayout>
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1.0dip"
+                android:layout_marginStart="16.0dip"
+                android:layout_marginEnd="16.0dip"
+                android:background="@color/divider_light" />
+
+            <RelativeLayout
+                android:id="@+id/rl_save_password"
+                android:layout_width="fill_parent"
+                android:layout_height="72.0dip"
+                android:background="?android:selectableItemBackground">
+
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/tb_save_password"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="16.0dip"
+                    android:checked="true"
+                    android:clickable="false"
+                    android:focusable="false" />
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="16.0dip"
+                    android:layout_marginEnd="16.0dip"
+                    android:layout_toStartOf="@id/tb_save_password"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tv_save_password"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/password"
+                        android:textColor="@color/title_color"
+                        android:textSize="16.0sp" />
+
+                    <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2.0dip"
+                        android:text="@string/recommended"
+                        android:textColor="@color/sub_title_color"
+                        android:textSize="12.0sp" />
+                </LinearLayout>
+            </RelativeLayout>
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1.0dip"
+                android:layout_marginStart="16.0dip"
+                android:layout_marginEnd="16.0dip"
+                android:background="@color/divider_light" />
+
+            <LinearLayout
+                android:id="@+id/rl_search_engine"
+                android:layout_width="fill_parent"
+                android:layout_height="72.0dip"
+                android:background="?android:selectableItemBackground"
+                android:gravity="center_vertical"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16.0dip"
+                    android:layout_marginEnd="16.0dip"
+                    android:text="@string/search"
+                    android:textColor="@color/title_color"
+                    android:textSize="16.0sp" />
+
+                <TextView
+                    android:id="@+id/tv_search_engine"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16.0dip"
+                    android:layout_marginTop="2.0dip"
+                    android:layout_marginEnd="16.0dip"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:textColor="@color/sub_title_color"
+                    android:textSize="12.0sp" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1.0dip"
+                android:layout_marginStart="16.0dip"
+                android:layout_marginEnd="16.0dip"
+                android:background="@color/divider_light" />
+
+            <TextView
+                android:id="@+id/rl_clear_cache"
+                android:layout_width="fill_parent"
+                android:layout_height="52.0dip"
+                android:background="?android:selectableItemBackground"
+                android:gravity="center_vertical"
+                android:paddingStart="16.0dip"
+                android:paddingEnd="16.0dip"
+                android:text="@string/clear_cache"
+                android:textColor="@color/title_color"
+                android:textSize="16.0sp" />
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1.0dip"
+                android:layout_marginStart="16.0dip"
+                android:layout_marginEnd="16.0dip"
+                android:background="@color/divider_light" />
+
+            <TextView
+                android:id="@+id/rl_clear_history"
+                android:layout_width="fill_parent"
+                android:layout_height="52.0dip"
+                android:background="?android:selectableItemBackground"
+                android:gravity="center_vertical"
+                android:paddingStart="16.0dip"
+                android:paddingEnd="16.0dip"
+                android:text="@string/clear_history"
+                android:textColor="@color/title_color"
+                android:textSize="16.0sp" />
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1.0dip"
+                android:layout_marginStart="16.0dip"
+                android:layout_marginEnd="16.0dip"
+                android:background="@color/divider_light" />
+
+            <TextView
+                android:id="@+id/rl_clear_cookies"
+                android:layout_width="fill_parent"
+                android:layout_height="52.0dip"
+                android:background="?android:selectableItemBackground"
+                android:gravity="center_vertical"
+                android:paddingStart="16.0dip"
+                android:paddingEnd="16.0dip"
+                android:text="@string/title_clear_cookies"
+                android:textColor="@color/title_color"
+                android:textSize="16.0sp" />
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1.0dip"
+                android:layout_marginStart="16.0dip"
+                android:layout_marginEnd="16.0dip"
+                android:background="@color/divider_light" />
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16.0dip"
+                android:layout_marginTop="16.0dip"
+                android:layout_marginEnd="16.0dip"
+                android:text="@string/settings_general"
+                android:textColor="@color/accent_color"
+                android:textSize="14.0sp" />
+
+            <RelativeLayout
+                android:id="@+id/rl_sync_gallery"
+                android:layout_width="fill_parent"
+                android:layout_height="72.0dip"
+                android:background="?android:selectableItemBackground">
+
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/sc_sync_gallery"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="16.0dip"
+                    android:checked="false"
+                    android:clickable="false"
+                    android:focusable="false" />
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="16.0dip"
+                    android:layout_marginEnd="16.0dip"
+                    android:layout_toStartOf="@id/sc_sync_gallery"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tv_gallery"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/sync_to_gallery"
+                        android:textColor="@color/title_color"
+                        android:textSize="16.0sp" />
+
+                    <TextView
+                        android:id="@+id/tv_sync_gallery"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2.0dip"
+                        android:text="@string/off"
+                        android:textColor="@color/sub_title_color"
+                        android:textSize="12.0sp" />
+                </LinearLayout>
+            </RelativeLayout>
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1.0dip"
+                android:layout_marginStart="16.0dip"
+                android:layout_marginEnd="16.0dip"
+                android:background="@color/divider_light" />
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16.0dip"
+                android:layout_marginTop="16.0dip"
+                android:layout_marginEnd="16.0dip"
+                android:text="@string/help"
+                android:textColor="@color/accent_color"
+                android:textSize="14.0sp" />
+
+            <TextView
+                android:id="@+id/tv_howto_download"
+                android:layout_width="fill_parent"
+                android:layout_height="52.0dip"
+                android:background="?android:selectableItemBackground"
+                android:gravity="center_vertical"
+                android:paddingStart="16.0dip"
+                android:paddingEnd="16.0dip"
+                android:text="@string/how_to_download"
+                android:textColor="@color/title_color"
+                android:textSize="16.0sp" />
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1.0dip"
+                android:layout_marginStart="16.0dip"
+                android:layout_marginEnd="16.0dip"
+                android:background="@color/divider_light" />
+
+            <TextView
+                android:id="@+id/tv_feedback"
+                android:layout_width="fill_parent"
+                android:layout_height="52.0dip"
+                android:background="?android:selectableItemBackground"
+                android:gravity="center_vertical"
+                android:paddingStart="16.0dip"
+                android:paddingEnd="16.0dip"
+                android:text="@string/feedback"
+                android:textColor="@color/title_color"
+                android:textSize="16.0sp" />
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1.0dip"
+                android:layout_marginStart="16.0dip"
+                android:layout_marginEnd="16.0dip"
+                android:background="@color/divider_light" />
+
+            <TextView
+                android:id="@+id/tv_privacy_policy"
+                android:layout_width="fill_parent"
+                android:layout_height="52.0dip"
+                android:background="?android:selectableItemBackground"
+                android:gravity="center_vertical"
+                android:paddingStart="16.0dip"
+                android:paddingEnd="16.0dip"
+                android:text="@string/privacy_policy"
+                android:textColor="@color/title_color"
+                android:textSize="16.0sp" />
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1.0dip"
+                android:layout_marginStart="16.0dip"
+                android:layout_marginEnd="16.0dip"
+                android:background="@color/divider_light" />
+
+            <TextView
+                android:id="@+id/tv_version"
+                android:layout_width="fill_parent"
+                android:layout_height="52.0dip"
+                android:background="?android:selectableItemBackground"
+                android:gravity="center_vertical"
+                android:paddingStart="16.0dip"
+                android:paddingEnd="16.0dip"
+                android:text="@string/version"
+                android:textColor="@color/title_color"
+                android:textSize="16.0sp" />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

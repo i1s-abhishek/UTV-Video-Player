@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="pref_title_premium_upgrade">প্রিমিয়াম ইউজারে আপগ্রেড করুন</string>
+    <string name="pref_cate_premium_upgrade_desc">প্রিমিয়াম আপগ্রেড</string>
+    <string name="pref_title_premium_upgrade_in_desc">প্রিমিয়াম আপগ্রেড</string>
+    <string name="premium_upgrade_desc">"✔ এডভার্টিসমেন্ট মুক্ত!
+✔কিছু বিশেষ ফিচার আনলক হবে!
+✔ অবিরত হালনাগাদ সমর্থন!"</string>
+    <string name="premium_upgrade_monthly_btn_text">মাসিক</string>
+    <string name="premium_upgrade_annually_btn_text">বাৎসরিক</string>
+    <string name="premium_upgrade_lifetime_btn_text">আজীবন</string>
+    <string name="premium_upgrade_loading_info">তথ্যাদি লোডিং হচ্ছে...</string>
+    <string name="premium_upgrade_error_msg">"There are problem, please check these.
+
+- check internet connection
+- unsupported purchase in your country
+- check the latest version of Play Store
+- unkown error
+(please contact us or Play Store team)"</string>
+    <string name="premium_upgrade_processing">পক্রিয়া চলছে...</string>
+    <string name="premium_upgrade_server_verification_fail_msg">ভেরিফিকেশন ব্যার্থ, দয়া করে আপনার গুগোল একাউন্ট এর মাধ্যমে চেষ্টা করুন.</string>
+    <string name="premium_upgrade_complete_purchase_msg">"প্রিমিয়াম আপগ্রেড সম্পন্ন.
+
+ক্রয়ের জন্য ধন্যবাদ"</string>
+    <string name="toast_msg_detect_premium_upgade">ক্রয়পক্রিয়া সম্পাদিত হয়েছে, আপনি সফলভাবে প্রিমিয়াম ইউজারে পরিনত হয়েছেন.</string>
+    <string name="premium_menu_title">প্রিমিয়াম</string>
+</resources>

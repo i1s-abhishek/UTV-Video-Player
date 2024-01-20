@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animation-list android:oneshot="false"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:duration="100" android:drawable="@mipmap/ani_lighthouse01" />
+    <item android:duration="100" android:drawable="@mipmap/ani_lighthouse02" />
+    <item android:duration="100" android:drawable="@mipmap/ani_lighthouse03" />
+    <item android:duration="100" android:drawable="@mipmap/ani_lighthouse04" />
+    <item android:duration="100" android:drawable="@mipmap/ani_lighthouse05" />
+    <item android:duration="100" android:drawable="@mipmap/ani_lighthouse06" />
+    <item android:duration="100" android:drawable="@mipmap/ani_lighthouse07" />
+    <item android:duration="100" android:drawable="@mipmap/ani_lighthouse08" />
+    <item android:duration="100" android:drawable="@mipmap/ani_lighthouse09" />
+    <item android:duration="100" android:drawable="@mipmap/ani_lighthouse10" />
+    <item android:duration="100" android:drawable="@mipmap/ani_lighthouse11" />
+    <item android:duration="100" android:drawable="@mipmap/ani_lighthouse12" />
+    <item android:duration="100" android:drawable="@mipmap/ani_lighthouse13" />
+    <item android:duration="100" android:drawable="@mipmap/ani_lighthouse14" />
+    <item android:duration="100" android:drawable="@mipmap/ani_lighthouse15" />
+</animation-list>

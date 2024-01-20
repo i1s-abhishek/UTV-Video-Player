@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#ff2a2a2b"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/email_margin_top"
+        android:gravity="center"
+        android:minHeight="@dimen/email_margin_height"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/current_pin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16.0dip"
+            android:text="@string/pin_text"
+            android:textColor="#80ffffff"
+            android:textSize="15.0sp"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/email_tips"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/email_margin"
+            android:layout_marginRight="@dimen/email_margin"
+            android:gravity="center"
+            android:textColor="#dfffffff"
+            android:textSize="17.0sp" />
+    </LinearLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/email_text_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="36.0dip"
+        android:layout_marginTop="8.0dip"
+        android:layout_marginRight="36.0dip">
+
+        <com.abhishek.xplayer.utils.widget.ClearEditText
+            android:id="@+id/email_text"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:drawableRight="@mipmap/close"
+            android:imeOptions="actionDone"
+            android:inputType="textEmailAddress"
+            android:textColor="#ffe3e3e3"
+            android:textSize="17.0sp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/contact_us"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/email_margin_top_small"
+        android:background="@drawable/btn_black_selector"
+        android:paddingLeft="10.0dip"
+        android:paddingTop="5.0dip"
+        android:paddingRight="10.0dip"
+        android:paddingBottom="5.0dip"
+        android:text="@string/contact_us"
+        android:textAllCaps="true"
+        android:textColor="@color/green_text_color"
+        android:textSize="16.0sp"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/get_email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/email_margin_top_small"
+        android:background="@drawable/btn_black_selector"
+        android:paddingLeft="10.0dip"
+        android:paddingTop="5.0dip"
+        android:paddingRight="10.0dip"
+        android:paddingBottom="5.0dip"
+        android:text="@string/email_auto"
+        android:textAllCaps="true"
+        android:textColor="@color/colorAccent"
+        android:textSize="16.0sp"
+        android:visibility="gone" />
+</LinearLayout>

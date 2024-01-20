@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:clickable="true">
+
+    <com.cc.promote.effects.ParticlesView
+        android:id="@+id/effects_view"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="@color/funny_particle_background" />
+
+    <ImageView
+        android:id="@+id/close_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end|center|top"
+        android:layout_marginTop="24.0dip"
+        android:layout_marginEnd="24.0dip"
+        android:layout_marginRight="24.0dip"
+        android:src="@mipmap/ad_close"
+        android:visibility="gone" />
+
+    <RelativeLayout
+        android:id="@+id/funny_ad_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center">
+
+        <androidx.cardview.widget.CardView
+            android:id="@id/native_ad_layout"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8.0dip"
+            android:clickable="true"
+            android:focusableInTouchMode="true"
+            android:maxHeight="320.0dip"
+            android:minHeight="250.0dip"
+            android:visibility="gone"
+            app:cardBackgroundColor="@android:color/white"
+            app:cardCornerRadius="2.0dip"
+            app:cardElevation="4.0dip" />
+    </RelativeLayout>
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/refresh_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center|right"
+        android:layout_marginRight="64.0dip"
+        android:visibility="gone"
+        app:srcCompat="@drawable/ic_ad_refresh" />
+</FrameLayout>

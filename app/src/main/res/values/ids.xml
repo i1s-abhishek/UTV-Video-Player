@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="tagID_int" type="id" />
+    <item name="subtitle_turn_off" type="id" />
+    <item name="subtitle_turn_on" type="id" />
+    <item name="tagID_path" type="id" />
+    <item name="tagID_boolean" type="id" />
+    <item name="tagID_ad_icon_listener" type="id" />
+    <item name="tagID_ad_anim_on" type="id" />
+    <item name="tagID_self_list_ad_flag" type="id" />
+
+</resources>

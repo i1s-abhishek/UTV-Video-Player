@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:layout_weight="1.0">
+
+    <TextView
+        android:id="@+id/tv_freq_max"
+        style="@style/text_white_reg"
+        android:layout_marginTop="30.0dip"
+        android:paddingTop="5.0dip"
+        android:text="15" />
+
+    <TextView
+        android:id="@+id/tv_freq_min"
+        style="@style/text_white_reg"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="45.0dip"
+        android:paddingBottom="5.0dip"
+        android:text="-15" />
+
+    <TextView
+        android:id="@+id/tv_freq_mid"
+        style="@style/text_white_reg"
+        android:layout_above="@id/tv_freq_min"
+        android:layout_below="@id/tv_freq_max"
+        android:text="0" />
+
+    <com.abhishek.xplayer.utils.widget.EqualizerView
+        android:id="@+id/equalizer_view"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_alignTop="@id/tv_freq_max"
+        android:layout_marginLeft="10.0dip"
+        android:layout_marginRight="10.0dip"
+        android:layout_toRightOf="@id/tv_freq_min"
+        android:paddingLeft="5.0dip"
+        android:paddingRight="18.0dip" />
+</RelativeLayout>

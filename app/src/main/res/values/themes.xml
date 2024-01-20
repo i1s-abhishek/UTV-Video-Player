@@ -1,0 +1,412 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="@style/Theme.AppCompat.Light.NoActionBar">
+        <item name="android:colorForeground">#ff8d8d8d</item>
+        <item name="android:colorAccent">@color/colorAccent</item>
+        <item name="alertDialogTheme">@style/Theme_AppCompat_Light_Dialog_Alert_Self</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+    </style>
+    <style name="SplashTheme" parent="@style/Theme.AppCompat.NoActionBar">
+        <item name="android:windowBackground">@drawable/background_splash_main</item>
+        <item name="colorPrimaryDark">#ffffffff</item>
+    </style>
+    <style name="MainPageTheme" parent="@style/AppTheme" />
+    <style name="PlayerTheme" parent="@style/Theme.AppCompat.NoActionBar">
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorPrimary">#ff202021</item>
+        <item name="colorPrimaryDark">#ff202021</item>
+        <item name="homeTextColor">@color/dark_theme_home_textColor</item>
+        <item name="settingSubTextColor">@color/dark_theme_sub_text_color</item>
+        <item name="settingTextColor">@color/dark_theme_text_color</item>
+    </style>
+    <style name="Theme_AppCompat_Translucent" parent="@style/Theme.AppCompat.NoActionBar">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowAnimationStyle">@android:style/Animation</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:colorBackgroundCacheHint">@null</item>
+    </style>
+    <style name="Theme_LightTheme" parent="@style/Theme_BaseLightTheme">
+        <item name="android:windowTranslucentStatus">false</item>
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+        <item name="listBackground">?listChoiceBackgroundIndicator</item>
+        <item name="progressBackgroundColor">@color/transparent</item>
+        <item name="searchBackground">@drawable/card_bg</item>
+    </style>
+
+    <style name="Theme_SettingsTheme" parent="@style/Theme_LightTheme">
+        <item name="android:windowBackground">@null</item>
+        <item name="toolbarSettingsBackground">@color/primary_color</item>
+    </style>
+    <style name="Theme_DarkTheme" parent="@style/Theme_BaseDarkTheme">
+        <item name="android:windowTranslucentStatus">false</item>
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+        <item name="android:statusBarColor">@color/secondary_color</item>
+        <item name="listBackground">?listChoiceBackgroundIndicator</item>
+        <item name="progressBackgroundColor">@color/transparent</item>
+        <item name="searchBackground">@drawable/card_bg</item>
+    </style>
+    <style name="NoTitleTheme" parent="@style/Theme.AppCompat.NoActionBar">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowAnimationStyle">@null</item>
+        <item name="android:windowFullscreen">true</item>
+    </style>
+    <style name="no_webview" parent="@style/Theme_LightTheme">
+        <item name="android:windowBackground">@null</item>
+        <item name="toolbarSettingsBackground">@color/primary_color</item>
+    </style>
+    <style name="no_video_resource_title" parent="@style/Theme_BaseLightTheme">
+        <item name="android:windowTranslucentStatus">false</item>
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+        <item name="listBackground">?listChoiceBackgroundIndicator</item>
+        <item name="progressBackgroundColor">@color/transparent</item>
+        <item name="searchBackground">@drawable/card_bg</item>
+    </style>
+    <style name="Theme_AppCompat_Light_NoActionBar_FullScreen" parent="@style/Theme.AppCompat.Light">
+        <item name="android:windowFullscreen">true</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+    <style name="dialogActivityTheme" parent="@style/Theme.AppCompat.Light.Dialog.Alert">
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:backgroundDimEnabled">true</item>
+        <item name="colorAccent">@color/accent_color</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+    <style name="text_white_reg">
+        <item name="android:textSize">12.0sp</item>
+        <item name="android:textColor">@color/equalizer_text_title</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginLeft">12.0dip</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:ems">3</item>
+        <item name="android:fontFamily">sans-serif</item>
+    </style>
+    <style name="text_white_med">
+        <item name="android:textColor">#ffffffff</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+    </style>
+    <style name="arcSeekLand">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_centerInParent">true</item>
+    </style>
+    <style name="spinnerStyle" parent="@style/Widget.AppCompat.DropDownItem.Spinner" />
+    <style name="titleStyle">
+        <item name="android:textSize">20.0sp</item>
+    </style>
+
+    <style name="PlayerSeekBarAppTheme">
+        <item name="android:paddingLeft">10.0dip</item>
+        <item name="android:paddingRight">10.0dip</item>
+        <item name="android:maxHeight">3.0dip</item>
+        <item name="android:indeterminateOnly">false</item>
+        <item name="android:indeterminateDrawable">@drawable/player_progress_horizontal</item>
+        <item name="android:progressDrawable">@drawable/player_progress_horizontal</item>
+        <item name="android:minHeight">3.0dip</item>
+        <item name="android:thumb">@mipmap/ic_seekbar_thumb</item>
+    </style>
+    <style name="SoundProgressBarVertical">
+        <item name="android:focusable">false</item>
+        <item name="android:maxWidth">6.0dip</item>
+        <item name="android:indeterminateOnly">false</item>
+        <item name="android:indeterminateDrawable">@drawable/sound_progress</item>
+        <item name="android:progressDrawable">@drawable/sound_progress</item>
+        <item name="android:minWidth">6.0dip</item>
+        <item name="android:thumb">@null</item>
+    </style>
+
+    <style name="propertyStyle" parent="@style/TextAppearance.AppCompat.Small">
+        <item name="android:textColor">?homeTextColor</item>
+    </style>
+
+    <style name="DarkTheme" parent="@style/NormalTheme">
+        <item name="android:textColorSecondary">@color/colorAccent</item>
+        <item name="android:popupMenuStyle">@style/popupDark_normalPop</item>
+        <item name="android:textAppearanceLargePopupMenu">@style/large</item>
+        <item name="android:textAppearanceSmallPopupMenu">@style/small</item>
+        <item name="android:navigationBarColor">@color/navigation_bar_color</item>
+        <item name="colorPrimary">@color/colorPrimary_dark</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark_dark</item>
+        <item name="homeBgColor">@color/dark_theme_home_bg_color</item>
+        <item name="homeDividerColor">@color/dark_theme_home_divider_color</item>
+        <item name="homeItemColor">@color/dark_theme_home_item_color</item>
+        <item name="homeSubTextColor">@color/dark_theme_home_sub_text_color</item>
+        <item name="homeTextColor">@color/dark_theme_home_textColor</item>
+        <item name="imgAlpha">@string/alpha_semitrans</item>
+        <item name="itemBgSelector">@drawable/item_bg_selector_dark</item>
+        <item name="popupMenuStyle">@style/popupDark_normalPop</item>
+        <item name="pressItemBg">@color/dark_theme_ripple_color</item>
+        <item name="settingBgColor">@color/dark_theme_bg_color</item>
+        <item name="settingDividerColor">@color/dark_theme_divider_color</item>
+        <item name="settingSubTextColor">@color/dark_theme_sub_text_color</item>
+        <item name="settingTextColor">@color/dark_theme_text_color</item>
+        <item name="textAppearanceLargePopupMenu">@style/large</item>
+        <item name="textAppearanceSmallPopupMenu">@style/small</item>
+        <item name="threeDot">@drawable/ic_more</item>
+        <item name="toolBarPopupMenuStyle">@style/popupDark</item>
+        <item name="videoListAdColor">#ff2e2e2e</item>
+        <item name="videoSubTextColor">@color/dark_theme_video_sub_text_color</item>
+        <item name="videoTextColor">@color/dark_theme_video_textColor</item>
+        <item name="videoTitleColor">@color/dark_theme_video_title_color</item>
+    </style>
+    <style name="NormalTheme" parent="@style/MainPageTheme">
+        <item name="android:popupMenuStyle">@style/popupNormal_normalPop</item>
+        <item name="android:textAppearanceLargePopupMenu">@style/large_normal</item>
+        <item name="android:textAppearanceSmallPopupMenu">@style/small_normal</item>
+        <item name="homeBgColor">@color/normal_theme_home_bg_color</item>
+        <item name="homeDividerColor">@color/normal_theme_home_divider_color</item>
+        <item name="homeItemColor">@color/normal_theme_home_item_color</item>
+        <item name="homeSubTextColor">@color/normal_theme_home_sub_text_color</item>
+        <item name="homeTextColor">@color/normal_theme_home_textColor</item>
+        <item name="imgAlpha">@string/alpha_opac</item>
+        <item name="itemBgSelector">@drawable/item_bg_selector_normal</item>
+        <item name="popupMenuStyle">@style/popupNormal_normalPop</item>
+        <item name="pressItemBg">@color/white_btn_clicled_color</item>
+        <item name="settingBgColor">@color/normal_theme_bg_color</item>
+        <item name="settingDividerColor">@color/normal_theme_divider_color</item>
+        <item name="settingSubTextColor">@color/normal_theme_sub_text_color</item>
+        <item name="settingTextColor">@color/normal_theme_text_color</item>
+        <item name="threeDot">@drawable/ic_more_item</item>
+        <item name="toolBarPopupMenuStyle">@style/popupNormal</item>
+        <item name="videoListAdColor">#fff2f2f2</item>
+        <item name="videoSubTextColor">@color/normal_theme_video_sub_text_color</item>
+        <item name="videoTextColor">@color/normal_theme_video_textColor</item>
+        <item name="videoTitleColor">@color/normal_theme_video_title_color</item>
+    </style>
+    <style name="CastPlayProgressBarAppTheme">
+        <item name="android:paddingLeft">0.0dip</item>
+        <item name="android:paddingRight">0.0dip</item>
+        <item name="android:focusable">false</item>
+        <item name="android:maxHeight">10.0dip</item>
+        <item name="android:indeterminateOnly">false</item>
+        <item name="android:indeterminateDrawable">@drawable/cast_play_progress</item>
+        <item name="android:progressDrawable">@drawable/cast_play_progress</item>
+        <item name="android:minHeight">10.0dip</item>
+        <item name="android:thumb">@null</item>
+    </style>
+    <style name="MyAlertStyle" parent="@style/Theme.AppCompat.Dialog.Alert">
+        <item name="android:background">@color/dark_theme_bg_color</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+    <style name="dividerStyle">
+        <item name="android:tag">@string/setting_divider</item>
+        <item name="android:background">?settingDividerColor</item>
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">1.0dip</item>
+        <item name="android:layout_marginLeft">16.0dip</item>
+        <item name="android:layout_marginRight">16.0dip</item>
+    </style>
+
+    <style name="SettingTextCategory">
+        <item name="android:textSize">14.0sp</item>
+        <item name="android:textColor">@color/colorAccent</item>
+        <item name="android:layout_marginLeft">16.0dip</item>
+        <item name="android:layout_marginTop">18.0dip</item>
+        <item name="android:layout_marginRight">16.0dip</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:singleLine">true</item>
+    </style>
+    <style name="SettingTextDesc">
+        <item name="android:textSize">13.0sp</item>
+        <item name="android:textColor">?settingSubTextColor</item>
+        <item name="android:tag">@string/setting_subtext_title</item>
+        <item name="android:paddingTop">3.0dip</item>
+        <item name="android:singleLine">false</item>
+    </style>
+    <style name="SettingTextTitle">
+        <item name="android:textSize">17.0sp</item>
+        <item name="android:textColor">?settingTextColor</item>
+        <item name="android:tag">@string/setting_text_title</item>
+    </style>
+    <style name="TitleTagStyle">
+        <item name="android:tag">@string/title_tag</item>
+    </style>
+    <style name="SubTitleTagStyle" parent="@style/TitleTagStyle">
+        <item name="android:tag">@string/subtitle_tag</item>
+    </style>
+    <style name="PlayProgressSeekBarAppTheme">
+        <item name="android:paddingLeft">1.0dip</item>
+        <item name="android:paddingRight">1.0dip</item>
+        <item name="android:focusable">true</item>
+        <item name="android:maxHeight">10.0dip</item>
+        <item name="android:indeterminateOnly">false</item>
+        <item name="android:indeterminateDrawable">@drawable/play_progress</item>
+        <item name="android:progressDrawable">@drawable/play_progress</item>
+        <item name="android:minHeight">10.0dip</item>
+        <item name="android:thumb">@null</item>
+    </style>
+    <style name="ThreeDotTag">
+        <item name="android:tag">@string/three_dot_tag</item>
+    </style>
+    <style name="PlayProgressSeekBarAppThemeGrid">
+        <item name="android:paddingLeft">1.0dip</item>
+        <item name="android:paddingRight">1.0dip</item>
+        <item name="android:focusable">true</item>
+        <item name="android:maxHeight">5.0dip</item>
+        <item name="android:indeterminateOnly">false</item>
+        <item name="android:indeterminateDrawable">@drawable/play_progress</item>
+        <item name="android:progressDrawable">@drawable/play_progress</item>
+        <item name="android:minHeight">5.0dip</item>
+        <item name="android:thumb">@null</item>
+    </style>
+    <style name="toolbar_theme" parent="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+        <item name="android:textColorPrimary">@android:color/white</item>
+    </style>
+    <style name="boldText">
+        <item name="android:textStyle">bold</item>
+        <item name="android:fontFamily">sans-serif</item>
+    </style>
+    <style name="normalText">
+        <item name="android:textStyle">normal</item>
+        <item name="android:fontFamily">sans-serif</item>
+    </style>
+
+    <style name="Theme_BlackTheme" parent="@style/Theme_BaseBlackTheme">
+        <item name="android:windowTranslucentStatus">false</item>
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+        <item name="android:statusBarColor">@color/black</item>
+        <item name="listBackground">?listBackground</item>
+        <item name="progressBackgroundColor">@color/transparent</item>
+        <item name="searchBackground">@drawable/card_bg</item>
+    </style>
+
+    <style name="Theme_SettingsTheme_Black" parent="@style/Theme_BlackTheme">
+        <item name="android:windowBackground">@null</item>
+        <item name="toolbarSettingsBackground">@color/black</item>
+    </style>
+    <style name="Theme_SettingsTheme_Dark" parent="@style/Theme_DarkTheme">
+        <item name="android:windowBackground">@null</item>
+        <item name="colorPrimaryDark">@color/secondary_color_settings_dark</item>
+        <item name="toolbarSettingsBackground">@color/primary_color_dark</item>
+    </style>
+
+    <style name="lib_v7_alert_dialog_theme" parent="@style/Theme.AppCompat.Light.Dialog.Alert">
+        <item name="android:windowTitleStyle">@style/lib_V7DialogTitle</item>
+        <item name="buttonStyle">@style/lib_ButtonStyle</item>
+        <item name="colorAccent">@color/lib_btn_color</item>
+    </style>
+
+    <style name="Theme_AppCompat_Light_Dialog_Alert_Self" parent="@style/Theme.AppCompat.Light.Dialog.Alert">
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+    <style name="Theme_BaseDarkTheme" parent="@style/Theme.AppCompat">
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="actionOverflowButtonStyle">@style/overFlowButtonStyle</item>
+        <item name="alertDialogTheme">@style/AppCompatDialogStyle_Dark</item>
+        <item name="colorAccent">@color/accent_color</item>
+        <item name="colorPrimary">@color/primary_color_dark</item>
+        <item name="colorPrimaryDark">@color/transparent</item>
+        <item name="dividerColor">@color/divider_dark</item>
+        <item name="drawerBackground">@color/drawer_background_dark</item>
+        <item name="selectedBackground">@color/selected_dark</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+    <style name="Theme_BaseLightTheme" parent="@style/Theme.AppCompat.Light">
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowAnimationStyle">@null</item>
+        <item name="actionOverflowButtonStyle">@style/overFlowButtonStyle</item>
+        <item name="alertDialogTheme">@style/AppCompatDialogStyle_Light</item>
+        <item name="colorAccent">@color/accent_color</item>
+        <item name="colorPrimary">@color/primary_color</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="dividerColor">@color/divider_light</item>
+        <item name="drawerBackground">@color/drawer_background</item>
+        <item name="selectedBackground">@color/selected_light</item>
+        <item name="toolBarPopupMenuStyle">@style/popupNormal</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+    <style name="popupDark_normalPop" parent="@style/popupNormal_normalPop">
+        <item name="android:textColor">@color/dark_theme_home_textColor</item>
+        <item name="android:popupBackground">@drawable/bg_popmenu_black</item>
+    </style>
+    <style name="large" parent="@style/TextAppearance.AppCompat.Widget.PopupMenu.Large">
+        <item name="android:textColor">@color/dark_theme_home_textColor</item>
+    </style>
+    <style name="small" parent="@style/TextAppearance.AppCompat.Widget.PopupMenu.Small">
+        <item name="android:textColor">@color/dark_theme_home_textColor</item>
+    </style>
+    <style name="popupDark" parent="@style/popupNormal">
+        <item name="android:colorBackground">@color/dark_theme_home_bg_color</item>
+        <item name="android:textColor">@color/dark_theme_text_color</item>
+    </style>
+    <style name="popupNormal_normalPop" parent="@style/Widget.AppCompat.PopupMenu">
+        <item name="android:textColor">@color/normal_theme_home_textColor</item>
+        <item name="android:popupBackground">@drawable/bg_popmenu_white</item>
+    </style>
+    <style name="large_normal" parent="@style/TextAppearance.AppCompat.Widget.PopupMenu.Large">
+        <item name="android:textColor">@color/normal_theme_home_textColor</item>
+    </style>
+    <style name="small_normal" parent="@style/TextAppearance.AppCompat.Widget.PopupMenu.Small">
+        <item name="android:textColor">@color/normal_theme_home_textColor</item>
+    </style>
+    <style name="popupNormal" parent="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+        <item name="android:colorBackground">@color/normal_theme_home_bg_color</item>
+        <item name="android:textColor">@color/normal_theme_home_textColor</item>
+        <item name="android:colorControlNormal">@color/normal_theme_home_textColor</item>
+    </style>
+
+    <style name="Theme_BaseBlackTheme" parent="@style/Theme.AppCompat">
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="actionOverflowButtonStyle">@style/overFlowButtonStyle</item>
+        <item name="alertDialogTheme">@style/AppCompatDialogStyle_Black</item>
+        <item name="colorAccent">@color/accent_color</item>
+        <item name="colorPrimary">@color/black</item>
+        <item name="colorPrimaryDark">@color/black</item>
+        <item name="dividerColor">@color/black</item>
+        <item name="drawerBackground">@color/black</item>
+        <item name="selectedBackground">@color/selected_dark</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+    <style name="lib_ButtonStyle" parent="@android:style/Widget">
+        <item name="android:textAppearance">?android:textAppearanceButton</item>
+        <item name="android:textSize">14.0sp</item>
+        <item name="android:textColor">?android:textColorPrimary</item>
+        <item name="android:gravity">center</item>
+        <item name="android:background">@drawable/abc_btn_default_mtrl_shape</item>
+        <item name="android:focusable">true</item>
+        <item name="android:clickable">true</item>
+        <item name="android:minWidth">88.0dip</item>
+        <item name="android:minHeight">48.0dip</item>
+        <item name="android:fontFamily">@string/lib_rate_roboto_medium</item>
+        <item name="textAllCaps">true</item>
+    </style>
+    <style name="lib_V7DialogTitle">
+        <item name="android:textSize">20.0sp</item>
+        <item name="android:textColor">?android:textColorPrimary</item>
+        <item name="android:fontFamily">@string/lib_rate_roboto_medium</item>
+        <item name="textAllCaps">false</item>
+    </style>
+    <style name="overFlowButtonStyle" parent="@style/Widget.AppCompat.ActionButton.Overflow">
+        <item name="android:padding">0.0dip</item>
+        <item name="android:minWidth">48.0dip</item>
+    </style>
+    <style name="AppCompatDialogStyle_Dark" parent="@style/Theme.AppCompat.Dialog.Alert">
+        <item name="colorAccent">@color/accent_color</item>
+    </style>
+    <style name="AppCompatDialogStyle_Light" parent="@style/Theme.AppCompat.Light.Dialog.Alert">
+        <item name="colorAccent">@color/accent_color</item>
+    </style>
+
+    <style name="AppCompatDialogStyle_Black" parent="@style/Theme.AppCompat.Dialog.Alert">
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+
+    <style name="Premium_upgrade_theme" parent="@style/Theme.AppCompat.Light.Dialog.MinWidth">
+        <item name="windowNoTitle">true</item>
+    </style>
+    <style name="v7_alert_dialog_theme" parent="@style/Theme.AppCompat.Light.Dialog.Alert">
+        <item name="colorAccent">@color/colorPrimary</item>
+    </style>
+</resources>

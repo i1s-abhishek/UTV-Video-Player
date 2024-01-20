@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/download_drawer_layout"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="#00000000"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/bottom_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/download"
+            android:layout_width="fill_parent"
+            android:layout_height="50.0dip"
+            android:background="#fff4f4f4"
+            android:gravity="center"
+            android:text="@string/action_download"
+            android:textAllCaps="true"
+            android:textColor="@color/accent_color"
+            android:textSize="14.0sp"
+            android:textStyle="bold" />
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="12.0dip"
+            android:background="#ffffffff" />
+
+        <LinearLayout
+            android:id="@+id/native_ad_layout"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/bottom_layout"
+        android:background="#ffffffff"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:id="@+id/title_layout"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/select"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="12.0dip"
+                android:layout_marginLeft="12.0dip"
+                android:fontFamily="sans-serif-medium"
+                android:text="@string/select"
+                android:textColor="@color/title_color"
+                android:textSize="16.0sp" />
+
+            <Button
+                android:id="@+id/check_all"
+                style="?buttonBarPositiveButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginTop="4.0dip"
+                android:layout_marginEnd="2.0dip"
+                android:layout_marginRight="2.0dip"
+                android:layout_marginBottom="4.0dip"
+                android:fontFamily="sans-serif-medium"
+                android:gravity="center"
+                android:text="@string/select_all"
+                android:textColor="@color/accent_color" />
+        </RelativeLayout>
+
+        <ListView
+            android:id="@+id/download_list"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:divider="#ffe5e5e5"
+            android:dividerHeight="0.5dip" />
+    </LinearLayout>
+</RelativeLayout>

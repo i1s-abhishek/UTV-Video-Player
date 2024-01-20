@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/search_container"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:layout_marginLeft="2.0dip"
+    android:layout_marginTop="6.0dip"
+    android:layout_marginRight="2.0dip"
+    android:layout_marginBottom="6.0dip"
+    android:layout_weight="1.0"
+    android:background="?searchBackground"
+    android:clipChildren="false"
+    android:clipToPadding="false"
+    android:descendantFocusability="beforeDescendants"
+    android:elevation="2.0dip"
+    android:focusableInTouchMode="true"
+    android:gravity="center">
+
+    <video.downloader.videodownloader.view.SearchView
+        android:id="@+id/search"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="@null"
+        android:gravity="center|left"
+        android:hint="@string/search_hint"
+        android:imeOptions="actionGo"
+        android:inputType="textUri"
+        android:paddingLeft="8.0dip"
+        android:paddingTop="1.0dip"
+        android:paddingRight="5.0dip"
+        android:paddingBottom="1.0dip"
+        android:singleLine="true"
+        android:textColor="@color/gray_dark"
+        android:textColorHint="@color/hint_text"
+        android:textCursorDrawable="@null"
+        android:theme="@style/AppTheme" />
+</LinearLayout>

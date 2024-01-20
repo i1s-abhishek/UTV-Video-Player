@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="#ffffffff"
+    android:orientation="vertical"
+    android:visibility="visible">
+
+    <com.abhishek.xplayer.ad.AdCoverLayout
+        android:id="@+id/ad_cover_container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <com.abhishek.xplayer.ad.FunnyAdCoverImageView
+            android:id="@+id/admob_native_cover"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:background="#ff343434"
+            android:contentDescription="@null"
+            android:scaleType="fitCenter" />
+
+        <FrameLayout
+            android:id="@+id/media_view_container"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" />
+
+        <ImageView
+            android:id="@+id/admob_native_mopub_privacy_icon"
+            android:layout_width="25.0dip"
+            android:layout_height="25.0dip"
+            android:layout_gravity="end|center|top"
+            android:scaleType="centerInside" />
+    </com.abhishek.xplayer.ad.AdCoverLayout>
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16.0dip"
+        android:layout_marginTop="10.0dip"
+        android:layout_marginRight="16.0dip">
+
+        <ImageView
+            android:id="@+id/admob_native_icon"
+            android:layout_width="48.0dip"
+            android:layout_height="48.0dip"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="12.0dip"
+            android:contentDescription="@null"
+            android:scaleType="fitXY"
+            android:visibility="visible" />
+
+        <LinearLayout
+            android:id="@+id/title_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@id/admob_native_icon">
+
+            <TextView
+                android:id="@+id/admob_native_title"
+                android:layout_width="0.0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.0"
+                android:ellipsize="end"
+                android:gravity="center_vertical"
+                android:maxLines="2"
+                android:textColor="#ff272727"
+                android:textSize="15.0sp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/ad_sponsed"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="8.0dip"
+                android:scaleType="center"
+                android:src="@mipmap/sign_ad_black" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@id/admob_native_desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/title_layout"
+            android:layout_marginTop="2.0dip"
+            android:layout_toEndOf="@id/admob_native_icon"
+            android:ellipsize="end"
+            android:gravity="start|center"
+            android:maxLines="2"
+            android:textColor="#ff828282"
+            android:textSize="11.0sp" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/admob_native_btn"
+        android:layout_width="fill_parent"
+        android:layout_height="40.0dip"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginLeft="16.0dip"
+        android:layout_marginTop="10.0dip"
+        android:layout_marginRight="16.0dip"
+        android:layout_marginBottom="22.0dip"
+        android:background="@drawable/bg_native_ad_action_btn"
+        android:fontFamily="sans-serif"
+        android:gravity="center"
+        android:textColor="#ffffffff"
+        android:textSize="13.0sp"
+        android:textStyle="bold" />
+</LinearLayout>

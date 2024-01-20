@@ -1,0 +1,18 @@
+{
+  "version": 2,
+  "artifactType": {
+    "type": "APK",
+    "kind": "Directory"
+  },
+  "applicationId": "hdplayer.vlcplayer.videoplayer",
+  "variantName": "processReleaseResources",
+  "elements": [
+    {
+      "type": "SINGLE",
+      "filters": [],
+      "versionCode": 37,
+      "versionName": "2.4.6",
+      "outputFile": "app-release.apk"
+    }
+  ]
+}

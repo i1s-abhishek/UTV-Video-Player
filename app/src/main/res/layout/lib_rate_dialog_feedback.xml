@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/lib_rate_dialog_bg">
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/feedback_tip"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dp_24"
+                android:layout_marginTop="@dimen/dp_24"
+                android:layout_marginRight="@dimen/dp_24"
+                android:layout_marginBottom="@dimen/dp_8"
+                android:fontFamily="@string/lib_rate_roboto_regular"
+                android:text="@string/lib_rate_feedback_title"
+                android:textColor="@color/lib_rate_text_color"
+                android:textSize="@dimen/sp_16" />
+
+            <LinearLayout
+                android:id="@+id/feedback_option_layout"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/feedback_tip"
+                android:layout_marginLeft="@dimen/dp_24"
+                android:layout_marginRight="@dimen/dp_24"
+                android:orientation="vertical">
+
+                <CheckBox
+                    android:id="@+id/feedback_option_1"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/lib_rate_no_color"
+                    android:button="@drawable/lib_rate_checkbox"
+                    android:fontFamily="@string/lib_rate_roboto_regular"
+                    android:minHeight="@dimen/dp_48"
+                    android:paddingStart="@dimen/dp_12"
+                    android:paddingLeft="@dimen/dp_12"
+                    android:text="@string/lib_rate_feedback_option_1"
+                    android:textColor="@color/lib_rate_text_color"
+                    android:textSize="@dimen/sp_16" />
+
+                <CheckBox
+                    android:id="@+id/feedback_option_2"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/lib_rate_no_color"
+                    android:button="@drawable/lib_rate_checkbox"
+                    android:fontFamily="@string/lib_rate_roboto_regular"
+                    android:minHeight="@dimen/dp_48"
+                    android:paddingStart="@dimen/dp_12"
+                    android:paddingLeft="@dimen/dp_12"
+                    android:text="@string/lib_rate_feedback_option_2"
+                    android:textColor="@color/lib_rate_text_color"
+                    android:textSize="@dimen/sp_16" />
+
+                <CheckBox
+                    android:id="@+id/feedback_option_3"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/lib_rate_no_color"
+                    android:button="@drawable/lib_rate_checkbox"
+                    android:fontFamily="@string/lib_rate_roboto_regular"
+                    android:minHeight="@dimen/dp_48"
+                    android:paddingStart="@dimen/dp_12"
+                    android:paddingLeft="@dimen/dp_12"
+                    android:text="@string/lib_rate_feedback_option_3"
+                    android:textColor="@color/lib_rate_text_color"
+                    android:textSize="@dimen/sp_16" />
+
+                <CheckBox
+                    android:id="@+id/feedback_option_4"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/lib_rate_no_color"
+                    android:button="@drawable/lib_rate_checkbox"
+                    android:fontFamily="@string/lib_rate_roboto_regular"
+                    android:minHeight="@dimen/dp_48"
+                    android:paddingStart="@dimen/dp_12"
+                    android:paddingLeft="@dimen/dp_12"
+                    android:text="@string/lib_rate_feedback_option_4"
+                    android:textColor="@color/lib_rate_text_color"
+                    android:textSize="@dimen/sp_16" />
+
+                <CheckBox
+                    android:id="@+id/feedback_option_5"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/lib_rate_no_color"
+                    android:button="@drawable/lib_rate_checkbox"
+                    android:fontFamily="@string/lib_rate_roboto_regular"
+                    android:minHeight="@dimen/dp_48"
+                    android:paddingStart="@dimen/dp_12"
+                    android:paddingLeft="@dimen/dp_12"
+                    android:text="@string/lib_rate_feedback_option_6"
+                    android:textColor="@color/lib_rate_text_color"
+                    android:textSize="@dimen/sp_16" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/feedback_option_layout"
+                android:layout_marginStart="@dimen/dp_24"
+                android:layout_marginLeft="@dimen/dp_24"
+                android:layout_marginTop="@dimen/dp_20"
+                android:layout_marginEnd="@dimen/dp_8"
+                android:layout_marginRight="@dimen/dp_8"
+                android:gravity="end|center"
+                android:orientation="horizontal"
+                android:paddingBottom="@dimen/dp_8">
+
+                <Button
+                    android:id="@+id/btn_cancel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="?selectableItemBackground"
+                    android:fontFamily="@string/lib_rate_roboto_medium"
+                    android:gravity="center"
+                    android:minWidth="@dimen/dp_64"
+                    android:minHeight="@dimen/dp_48"
+                    android:paddingLeft="@dimen/dp_12"
+                    android:paddingRight="@dimen/dp_12"
+                    android:text="@string/lib_rate_btn_cancel"
+                    android:textAllCaps="true"
+                    android:textColor="@color/lib_rate_dialog_button_enable_color"
+                    android:textSize="@dimen/sp_14" />
+
+                <Button
+                    android:id="@+id/btn_submit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="?selectableItemBackground"
+                    android:fontFamily="@string/lib_rate_roboto_medium"
+                    android:gravity="center"
+                    android:minWidth="@dimen/dp_64"
+                    android:minHeight="@dimen/dp_48"
+                    android:paddingLeft="@dimen/dp_12"
+                    android:paddingRight="@dimen/dp_12"
+                    android:text="@string/lib_rate_btn_submit"
+                    android:textAllCaps="true"
+                    android:textColor="@color/lib_rate_dialog_button_enable_color"
+                    android:textSize="@dimen/sp_14" />
+            </LinearLayout>
+        </RelativeLayout>
+    </ScrollView>
+</RelativeLayout>

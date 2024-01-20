@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/act_bg"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="?homeBgColor"
+    android:orientation="vertical"
+    android:tag="@string/home_act_bg">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="?colorPrimary"
+        android:elevation="4.0dip"
+        android:minHeight="?actionBarSize"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:popupTheme="?toolBarPopupMenuStyle" >
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/btn_app_wall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center|right"
+            android:layout_marginRight="4.0dip"
+            android:background="@drawable/bg_common_btn_light2"
+            android:padding="8.0dip"
+            android:visibility="gone"
+            app:srcCompat="@drawable/light_house" />
+    </androidx.appcompat.widget.Toolbar>
+    <LinearLayout
+        android:id="@+id/layout_bottom"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical" />
+
+    <FrameLayout
+        android:id="@+id/body"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_above="@id/layout_bottom"
+        android:layout_below="@id/toolbar" />
+</RelativeLayout>

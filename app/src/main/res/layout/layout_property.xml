@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center">
+
+    <TableLayout
+        android:id="@+id/property_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="24.0dip"
+        android:paddingRight="24.0dip">
+
+        <TableRow android:layout_marginTop="16.0dip">
+
+            <TextView
+                style="@style/propertyStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.0"
+                android:text="@string/file" />
+
+            <TextView
+                android:id="@+id/value_name"
+                style="@style/propertyStyle"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10.0dip"
+                android:layout_weight="1.0"
+                android:text="" />
+        </TableRow>
+
+        <TableRow android:layout_marginTop="10.0dip">
+
+            <TextView
+                style="@style/propertyStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.0"
+                android:text="@string/location" />
+
+            <TextView
+                android:id="@+id/value_location"
+                style="@style/propertyStyle"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10.0dip"
+                android:layout_weight="1.0"
+                android:text="" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/size_layout"
+            android:layout_marginTop="10.0dip">
+
+            <TextView
+                style="@style/propertyStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.0"
+                android:text="@string/size" />
+
+            <TextView
+                android:id="@+id/value_size"
+                style="@style/propertyStyle"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10.0dip"
+                android:layout_weight="1.0"
+                android:text="" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/date_layout"
+            android:layout_marginTop="10.0dip">
+
+            <TextView
+                style="@style/propertyStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.0"
+                android:text="@string/date" />
+
+            <TextView
+                android:id="@+id/value_date"
+                style="@style/propertyStyle"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10.0dip"
+                android:layout_weight="1.0"
+                android:text="" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/format_layout"
+            android:layout_marginTop="10.0dip">
+
+            <TextView
+                style="@style/propertyStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.0"
+                android:text="@string/format" />
+
+            <TextView
+                android:id="@+id/value_format"
+                style="@style/propertyStyle"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10.0dip"
+                android:layout_weight="1.0"
+                android:text="" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/resolution_layout"
+            android:layout_marginTop="10.0dip">
+
+            <TextView
+                style="@style/propertyStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.0"
+                android:text="@string/resolution" />
+
+            <TextView
+                android:id="@+id/value_resolution"
+                style="@style/propertyStyle"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10.0dip"
+                android:layout_weight="1.0"
+                android:text="" />
+        </TableRow>
+
+        <TableRow android:layout_marginTop="10.0dip">
+
+            <TextView
+                style="@style/propertyStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.0"
+                android:text="@string/length" />
+
+            <TextView
+                android:id="@+id/value_length"
+                style="@style/propertyStyle"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10.0dip"
+                android:layout_weight="1.0"
+                android:text="" />
+        </TableRow>
+    </TableLayout>
+</ScrollView>

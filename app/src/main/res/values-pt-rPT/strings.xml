@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="lib_rate_btn_cancel">Cancelar</string>
+    <string name="lib_rate_btn_close">FECHAR</string>
+    <string name="lib_rate_btn_go_market">Avaliar no google play</string>
+    <string name="lib_rate_btn_rate">Avaliaçāo</string>
+    <string name="lib_rate_btn_submit">Enviar</string>
+    <string name="lib_rate_dialog_tip">"Estamos a trabalhar no sentido de melhorar a experiência do utilizador.
+Agradecíamos que nos avaliasse."</string>
+    <string name="lib_rate_dislike">Não gostei</string>
+    <string name="lib_rate_feedback_option_1">Não gosto do design</string>
+    <string name="lib_rate_feedback_option_2">Não tem as funcionalidades de que preciso</string>
+    <string name="lib_rate_feedback_option_3">Não é fácil de utilizar</string>
+    <string name="lib_rate_feedback_option_4">É muito complicado</string>
+    <string name="lib_rate_feedback_option_6">A tradução é de baixa qualidade</string>
+    <string name="lib_rate_feedback_title">A sua avaliação é útil.</string>
+    <string name="lib_rate_five_stars_confirm_tip">"A sua avaliação beneficia os outros utilizadores.
+
+Por favor, deixe uma avaliação no Google Play."</string>
+    <string name="lib_rate_five_stars_tip">O melhor que conseguimos :)</string>
+    <string name="lib_rate_hate_it">Detestei</string>
+    <string name="lib_rate_it_is_ok">Razoável</string>
+    <string name="lib_rate_leave_feedback">Dê-nos a sua opinião.</string>
+    <string name="lib_rate_like_it">Gostei</string>
+    <string name="lib_rate_like_you">Também gostamos de si!</string>
+    <string name="lib_rate_love_it">Adorei</string>
+    <string name="lib_rate_oh_no">Oh, não!</string>
+    <string name="lib_rate_thanks_feedback">Obrigado pela sua opinião.</string>
+</resources>

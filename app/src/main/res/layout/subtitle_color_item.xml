@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="fill_parent"
+    android:orientation="horizontal">
+
+    <FrameLayout
+        android:id="@+id/layout"
+        android:layout_width="38.0dip"
+        android:layout_height="38.0dip"
+        android:layout_gravity="center_vertical"
+        android:background="@drawable/btn_black_selector"
+        android:foreground="@drawable/item_border">
+
+        <ImageView
+            android:id="@+id/item"
+            android:layout_width="26.0dip"
+            android:layout_height="26.0dip"
+            android:layout_gravity="center" />
+    </FrameLayout>
+</FrameLayout>

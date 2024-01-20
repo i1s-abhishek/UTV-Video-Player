@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="#ffffffff">
+
+    <ImageView
+        android:id="@id/admob_native_icon"
+        android:layout_width="46.0dip"
+        android:layout_height="46.0dip"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:layout_margin="2.0dip"
+        android:scaleType="centerCrop" />
+
+    <TextView
+        android:id="@id/admob_native_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="fill_parent"
+        android:layout_alignParentRight="true"
+        android:background="#ff54ab25"
+        android:gravity="center"
+        android:paddingLeft="8.0dip"
+        android:paddingRight="8.0dip"
+        android:textColor="#ffffffff"
+        android:textSize="@dimen/native_ad_title_text_size"
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_marginLeft="8.0dip"
+        android:layout_marginRight="10.0dip"
+        android:layout_toLeftOf="@id/admob_native_btn"
+        android:layout_toRightOf="@id/admob_native_icon"
+        android:gravity="center_vertical"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@id/admob_native_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.0"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:textColor="#ff000000"
+                android:textSize="@dimen/native_ad_title_text_size" />
+
+            <ImageView
+                android:id="@+id/admob_native_ad_sign"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="@dimen/native_ad_sign_margin"
+                android:scaleType="center"
+                android:visibility="gone" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@id/admob_native_desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:textColor="#ff4e5665"
+            android:textSize="@dimen/native_ad_detail_text_size" />
+    </LinearLayout>
+</RelativeLayout>

@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/download_drawer_layout"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="#00000000"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/bottom_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical">
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="24.0dip"
+            android:background="#ffffffff" />
+
+        <LinearLayout
+            android:id="@id/native_ad_layout"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/bottom_layout"
+        android:background="#ffffffff"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@id/title"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="12.0dip"
+            android:layout_marginTop="12.0dip"
+            android:layout_marginRight="12.0dip"
+            android:maxLines="1"
+            android:singleLine="true"
+            android:textColor="@color/title_color"
+            android:textSize="16.0sp" />
+
+        <TextView
+            android:id="@+id/video_length"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12.0dip"
+            android:singleLine="true"
+            android:textColor="@color/sub_title_color"
+            android:textSize="12.0sp" />
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="12.0dip" />
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="0.5dip"
+            android:background="@color/sub_title_color" />
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_margin="12.0dip"
+                android:fontFamily="sans-serif-medium"
+                android:text="@string/select"
+                android:textColor="@color/title_color"
+                android:textSize="16.0sp" />
+
+            <ImageView
+                android:id="@+id/wifi"
+                style="?checkboxStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="12.0dip"
+                android:layout_marginRight="12.0dip"
+                android:tint="@color/sub_title_color"
+                app:srcCompat="@drawable/ic_signal_wifi_off_white_24dp" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="18.0dip"
+                android:layout_height="18.0dip"
+                android:layout_marginLeft="12.0dip"
+                android:layout_marginRight="12.0dip"
+                android:tint="@color/icon_movie"
+                app:srcCompat="@drawable/ic_movie_black_24dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/video"
+                android:textAllCaps="true"
+                android:textColor="@color/title_color"
+                android:textSize="14.0sp" />
+        </LinearLayout>
+
+        <ListView
+            android:id="@+id/download_list"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:divider="@android:color/transparent"
+            android:dividerHeight="0.0dip" />
+    </LinearLayout>
+</RelativeLayout>

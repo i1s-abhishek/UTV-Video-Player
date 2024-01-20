@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "51453291117",
+    "project_id": "video-player-4b191",
+    "storage_bucket": "video-player-4b191.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:51453291117:android:db7696b48f054978532d64",
+        "android_client_info": {
+          "package_name": "hdplayer.vlcplayer.videoplayer"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "51453291117-57vgujtf2jas6u6mj0h7l9d60o4tehgg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCMuTqN-6Ns75VWNIL7pn4FHLGcm7pKwLo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "51453291117-57vgujtf2jas6u6mj0h7l9d60o4tehgg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/panel_layout"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:clickable="true">
+
+    <TextView
+        android:id="@+id/sample"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_marginLeft="10.0dip"
+        android:layout_marginRight="10.0dip"
+        android:layout_marginBottom="20.0dip"
+        android:gravity="center"
+        android:padding="5.0dip"
+        android:shadowColor="#ff000000"
+        android:shadowDx="5.0"
+        android:shadowDy="5.0"
+        android:shadowRadius="10.0"
+        android:text="Sample Subtitle"
+        android:visibility="gone" />
+
+    <RelativeLayout
+        android:id="@+id/subtitle_panel_layout"
+        android:layout_width="300.0dip"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="@drawable/bg_center"
+        android:clickable="true">
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="24.0dip"
+            android:layout_marginTop="20.0dip"
+            android:text="@string/subtitle_personality"
+            android:textColor="@android:color/white"
+            android:textSize="21.0sp" />
+
+        <TextView
+            android:id="@+id/title_size"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/title"
+            android:layout_marginLeft="24.0dip"
+            android:layout_marginTop="24.0dip"
+            android:text="@string/size"
+            android:textColor="@android:color/white"
+            android:textSize="17.0sp" />
+
+        <SeekBar
+            android:id="@+id/subtitle_size_seek_bar"
+            style="@style/PlayerSeekBarAppTheme"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/title_size"
+            android:layout_marginLeft="14.0dip"
+            android:layout_marginTop="11.0dip"
+            android:layout_marginRight="14.0dip"
+            android:layout_toLeftOf="@id/size"
+            android:focusable="false" />
+
+        <TextView
+            android:id="@+id/size"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/subtitle_size_seek_bar"
+            android:layout_alignBottom="@id/subtitle_size_seek_bar"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="24.0dip"
+            android:gravity="center|right"
+            android:text="32"
+            android:textColor="#ff919192"
+            android:textSize="16.0sp" />
+
+        <TextView
+            android:id="@+id/title_color"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/subtitle_size_seek_bar"
+            android:layout_marginLeft="24.0dip"
+            android:layout_marginTop="18.0dip"
+            android:text="@string/color"
+            android:textColor="@android:color/white"
+            android:textSize="17.0sp" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/hList"
+            android:layout_width="fill_parent"
+            android:layout_height="40.0dip"
+            android:layout_below="@id/title_color"
+            android:layout_marginLeft="24.0dip"
+            android:layout_marginTop="10.0dip"
+            android:layout_marginRight="24.0dip"
+            android:layout_marginBottom="20.0dip" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/panel_close"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="24.0dip"
+            android:layout_marginRight="20.0dip"
+            android:background="@drawable/bg_common_btn_light"
+            app:srcCompat="@drawable/ic_close" />
+    </RelativeLayout>
+</FrameLayout>

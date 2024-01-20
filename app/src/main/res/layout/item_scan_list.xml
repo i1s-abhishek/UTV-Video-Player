@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="16.0dip"
+        android:paddingTop="20.0dip"
+        android:paddingRight="16.0dip"
+        android:paddingBottom="20.0dip">
+
+        <TextView
+            android:id="@+id/hide"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/bg_common_btn_light2"
+            android:text="Show"
+            android:textColor="@color/green_text_color"
+            android:textSize="17.0sp" />
+
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_marginRight="16.0dip"
+            android:layout_toLeftOf="@id/hide"
+            android:text="/storage/emulated/0/DICM/FromMac/Dad/asdfadfadsf"
+            android:textColor="?videoSubTextColor"
+            android:textSize="17.0sp" />
+    </RelativeLayout>
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1.0dip"
+        android:background="?settingDividerColor" />
+</LinearLayout>

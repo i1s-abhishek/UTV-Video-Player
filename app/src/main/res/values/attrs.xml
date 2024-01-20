@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <attr name="settingSubTextColor" format="reference|color" />
+    <attr name="settingTextColor" format="reference|color" />
+    <attr name="homeBgColor" format="reference|color" />
+    <attr name="sctv_span_text" format="string" />
+    <attr name="sctv_span_underline" format="boolean" />
+    <attr name="sctv_span_color" format="color" />
+    <attr name="homeSubTextColor" format="reference|color" />
+    <attr name="homeTextColor" format="reference|color" />
+    <attr name="settingDividerColor" format="reference|color" />
+    <attr name="videoSubTextColor" format="reference|color" />
+    <attr name="settingBgColor" format="reference|color" />
+    <attr name="itemBgSelector" format="reference" />
+
+    <attr name="imgAlpha" format="reference|string" />
+    <attr name="threeDot" format="reference" />
+    <attr name="videoTextColor" format="reference|color" />
+
+    <attr name="videoListAdColor" format="reference|color" />
+    <attr name="homeItemColor" format="reference|color" />
+    <attr name="homeDividerColor" format="reference|color" />
+    <attr name="videoTitleColor" format="reference|color" />
+    <attr name="toolBarPopupMenuStyle" format="reference" />
+    <attr name="toolbarSettingsBackground" format="reference|color" />
+    <attr name="selectedBackground" format="reference|color" />
+    <attr name="listBackground" format="reference|color" />
+    <attr name="dividerColor" format="reference|color" />
+    <attr name="drawerBackground" format="reference|color" />
+    <attr name="progressBackgroundColor" format="color" />
+    <attr name="searchBackground" format="reference|color" />
+    <attr name="pressItemBg" format="reference|color" />
+
+</resources>

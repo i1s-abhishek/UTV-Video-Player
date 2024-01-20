@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/lib_rate_dialog_bg"
+    android:clipChildren="false">
+
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:clipChildren="false">
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:clipChildren="false">
+
+            <RelativeLayout
+                android:id="@+id/rate_tip_layout"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dp_24"
+                android:layout_marginRight="@dimen/dp_24"
+                android:layout_marginBottom="@dimen/dp_8">
+
+                <ImageView
+                    android:id="@+id/rate_emoji"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:src="@mipmap/lib_rate_emoji_star_0" />
+
+                <RelativeLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/rate_emoji">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/rate_tip"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:fontFamily="@string/lib_rate_roboto_medium"
+                        android:gravity="center"
+                        android:maxLines="2"
+                        android:text="@string/lib_rate_dialog_tip"
+                        android:textColor="@color/lib_rate_dialog_message_text_color"
+                        android:textSize="@dimen/sp_14"
+                        android:visibility="invisible"
+                        app:autoSizeMaxTextSize="@dimen/sp_14"
+                        app:autoSizeMinTextSize="@dimen/sp_10"
+                        app:autoSizeStepGranularity="1.0sp"
+                        app:autoSizeTextType="uniform" />
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:orientation="vertical">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/rate_result_title"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@string/lib_rate_roboto_medium"
+                            android:gravity="center"
+                            android:maxLines="1"
+                            android:text="@string/lib_rate_love_it"
+                            android:textColor="@color/lib_rate_dialog_message_text_color"
+                            android:textSize="@dimen/sp_14"
+                            android:textStyle="bold"
+                            app:autoSizeMaxTextSize="@dimen/sp_14"
+                            app:autoSizeMinTextSize="@dimen/sp_10"
+                            app:autoSizeStepGranularity="1.0sp"
+                            app:autoSizeTextType="uniform" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/rate_result_tip"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/rate_result_title"
+                            android:fontFamily="@string/lib_rate_roboto_medium"
+                            android:gravity="center"
+                            android:maxLines="1"
+                            android:text="@string/lib_rate_five_stars_tip"
+                            android:textColor="@color/lib_rate_dialog_message_text_color"
+                            android:textSize="@dimen/sp_14"
+                            app:autoSizeMaxTextSize="@dimen/sp_14"
+                            app:autoSizeMinTextSize="@dimen/sp_10"
+                            app:autoSizeStepGranularity="1.0sp"
+                            app:autoSizeTextType="uniform" />
+                    </LinearLayout>
+                </RelativeLayout>
+            </RelativeLayout>
+
+            <LinearLayout
+                android:id="@+id/star_layout"
+                android:layout_width="fill_parent"
+                android:layout_height="@dimen/dp_42"
+                android:layout_below="@id/rate_tip_layout"
+                android:layout_marginLeft="@dimen/dp_24"
+                android:layout_marginRight="@dimen/dp_24"
+                android:clipChildren="false"
+                android:orientation="horizontal">
+
+                <com.us.rateus.view.StarCheckView
+                    android:id="@+id/rate_star_1"
+                    android:layout_width="0.0dip"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.0"
+                    android:background="?selectableItemBackgroundBorderless"
+                    android:src="@mipmap/lib_rate_star" />
+
+                <com.us.rateus.view.StarCheckView
+                    android:id="@+id/rate_star_2"
+                    android:layout_width="0.0dip"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.0"
+                    android:background="?selectableItemBackgroundBorderless"
+                    android:src="@mipmap/lib_rate_star" />
+
+                <com.us.rateus.view.StarCheckView
+                    android:id="@+id/rate_star_3"
+                    android:layout_width="0.0dip"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.0"
+                    android:background="?selectableItemBackgroundBorderless"
+                    android:src="@mipmap/lib_rate_star" />
+
+                <com.us.rateus.view.StarCheckView
+                    android:id="@+id/rate_star_4"
+                    android:layout_width="0.0dip"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.0"
+                    android:background="?selectableItemBackgroundBorderless"
+                    android:src="@mipmap/lib_rate_star" />
+
+                <RelativeLayout
+                    android:layout_width="0.0dip"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.0"
+                    android:clipChildren="false">
+
+                    <com.us.rateus.view.StarCheckView
+                        android:id="@+id/rate_star_5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="?selectableItemBackgroundBorderless"
+                        android:src="@mipmap/lib_rate_star" />
+
+                    <com.us.rateus.view.StarShiningView
+                        android:id="@+id/lib_rate_shining_view"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@mipmap/lib_rate_shining_right" />
+                </RelativeLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/rate_hand_layout"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/star_layout"
+                android:layout_marginLeft="@dimen/dp_24"
+                android:layout_marginRight="@dimen/dp_24"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:weightSum="5.0">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="0.0dip"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="4.0"
+                    android:fontFamily="@string/lib_rate_roboto_regular"
+                    android:gravity="end"
+                    android:maxLines="2"
+                    android:text="@string/lib_rate_five_stars_tip"
+                    android:textColor="@color/lib_rate_dialog_five_star_tip_color"
+                    android:textSize="@dimen/sp_14"
+                    app:autoSizeMaxTextSize="@dimen/sp_14"
+                    app:autoSizeMinTextSize="@dimen/sp_10"
+                    app:autoSizeStepGranularity="1.0sp"
+                    app:autoSizeTextType="uniform" />
+
+                <ImageView
+                    android:id="@+id/rate_hand"
+                    android:layout_width="0.0dip"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.0"
+                    android:scaleType="fitCenter"
+                    android:src="@mipmap/lib_rate_five_star_arrow" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/lib_rate_button_bg"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/rate_hand_layout"
+                android:layout_marginStart="@dimen/dp_32"
+                android:layout_marginLeft="@dimen/dp_32"
+                android:layout_marginEnd="@dimen/dp_32"
+                android:layout_marginRight="@dimen/dp_32"
+                android:layout_marginBottom="@dimen/dp_12"
+                android:background="@drawable/lib_rate_button_bg"
+                android:gravity="end|center"
+                android:orientation="horizontal">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/lib_rate_button"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:background="?selectableItemBackground"
+                    android:fontFamily="@string/lib_rate_roboto_medium"
+                    android:gravity="center"
+                    android:minHeight="@dimen/dp_30"
+                    android:text="@string/lib_rate_btn_rate"
+                    android:textAllCaps="true"
+                    android:textColor="@color/lib_rate_button_text_color"
+                    android:textSize="@dimen/sp_14"
+                    app:autoSizeMaxTextSize="@dimen/sp_14"
+                    app:autoSizeMinTextSize="@dimen/sp_10"
+                    app:autoSizeStepGranularity="1.0sp"
+                    app:autoSizeTextType="uniform" />
+            </LinearLayout>
+        </RelativeLayout>
+    </ScrollView>
+</RelativeLayout>
