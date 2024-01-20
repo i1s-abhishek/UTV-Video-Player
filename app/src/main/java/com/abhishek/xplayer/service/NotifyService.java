@@ -213,9 +213,9 @@ public class NotifyService extends Service implements axh.C1349a {
     /* renamed from: a */
     private void m12580a() {
         Notification notification;
-        PendingIntent activity = PendingIntent.getActivity(this, (int) (Math.random() * 9999.0d), new Intent(this, SplashActivity.class).putExtra("fromNotification", true).addFlags(32768), 134217728);
-        PendingIntent broadcast = PendingIntent.getBroadcast(this, (int) (Math.random() * 9999.0d), new Intent(this, SelfReceiver.class).setAction("dgoasdf"), 134217728);
-        PendingIntent broadcast2 = PendingIntent.getBroadcast(this, (int) (Math.random() * 9999.0d), new Intent(this, SelfReceiver.class).setAction("sfdavxvv"), 134217728);
+        PendingIntent activity = PendingIntent.getActivity(this, (int) (Math.random() * 9999.0d), new Intent(this, SplashActivity.class).putExtra("fromNotification", true).addFlags(32768), 167772160);
+        PendingIntent broadcast = PendingIntent.getBroadcast(this, (int) (Math.random() * 9999.0d), new Intent(this, SelfReceiver.class).setAction("dgoasdf"), 167772160);
+        PendingIntent broadcast2 = PendingIntent.getBroadcast(this, (int) (Math.random() * 9999.0d), new Intent(this, SelfReceiver.class).setAction("sfdavxvv"), 167772160);
         int i = Build.VERSION.SDK_INT;
         int i2 = R.mipmap.ic_notification;
         if (i >= 26) {

@@ -7,7 +7,6 @@ import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
 import android.util.Log;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -25,7 +24,7 @@ import java.lang.ref.WeakReference;
 import java.util.List;
 
 import classesdef.ads.atd;
-import classesdef.xdplayer.AllPermission;
+import classesdef.xdplayer.PermissionHelper;
 import classesdef.xdplayer.FirebaseStup;
 import classesdef.xdplayer.LogEvents;
 
@@ -120,7 +119,7 @@ public class SplashActivity extends AppCompatActivity  {
             LogEvents.m18492b("Notification", "click");
         }
         InitilizationActivity.addInitilize((Activity) this);
-        boolean z = AllPermission.m7381a(getApplicationContext(), "android.permission.WRITE_EXTERNAL_STORAGE") && C2650e.m12161b();
+        boolean z = PermissionHelper.hasPermission(getApplicationContext(), "android.permission.WRITE_EXTERNAL_STORAGE") && C2650e.m12161b();
         this.f7911l = m10141n();
         if (z) {
             m10139l();

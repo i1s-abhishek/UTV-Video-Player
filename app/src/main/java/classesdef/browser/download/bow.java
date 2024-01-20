@@ -160,7 +160,7 @@ public class bow {
         Intent intent = new Intent(context, FilesActivity.class);
         intent.setFlags(131072);
         intent.putExtra("position", 1);
-        builder.setContentIntent(PendingIntent.getActivity(context, 0, intent, 134217728));
+        builder.setContentIntent(PendingIntent.getActivity(context, 0, intent, 167772160));
         builder.setSmallIcon(R.mipmap.ic_file_download_white_24dp_noti);
         m18448a(context).notify(i, builder.build());
         return builder;

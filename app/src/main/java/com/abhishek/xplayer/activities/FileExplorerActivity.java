@@ -47,7 +47,7 @@ import classesdef.xdplayer.avu;
 import classesdef.xdplayer.awp;
 import classesdef.xdplayer.axe;
 import classesdef.xdplayer.axh;
-import classesdef.xdplayer.AllPermission;
+import classesdef.xdplayer.PermissionHelper;
 import classesdef.xdplayer.axv;
 import classesdef.xdplayer.LogEvents;
 import hdplayer.vlcplayer.videoplayer.R;
@@ -122,7 +122,7 @@ public class FileExplorerActivity extends AppActivity implements axh.C1349a {
         this.f10248d = new axh(this, this, 500);
         this.f10248d.mo10973a();
         this.f10247c = new avu();
-        if (!AllPermission.m7381a(MyApplication.getApplicationContext_(), "android.permission.WRITE_EXTERNAL_STORAGE")) {
+        if (!PermissionHelper.hasPermission(MyApplication.getApplicationContext_(), "android.permission.WRITE_EXTERNAL_STORAGE")) {
             getSupportFragmentManager().beginTransaction().replace(R.id.body, PermissionFragment.m12280a()).commitAllowingStateLoss();
             return;
         }

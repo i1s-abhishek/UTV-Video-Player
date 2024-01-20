@@ -103,7 +103,7 @@ import classesdef.player.axt;
 
 import classesdef.xdplayer.awy;
 import classesdef.xdplayer.axe;
-import classesdef.xdplayer.AllPermission;
+import classesdef.xdplayer.PermissionHelper;
 import classesdef.xdplayer.axv;
 import classesdef.xdplayer.axw;
 import classesdef.xdplayer.axy;
@@ -2325,7 +2325,7 @@ public class C2483g implements awz.C1324b, axg.C1345a, C2481e {
     /* access modifiers changed from: private */
     /* renamed from: B */
     public boolean m11292B() {
-        if (!AllPermission.canDrawOverlays(MyApplication.getApplicationContext_())) {
+        if (!PermissionHelper.canDrawOverlays(MyApplication.getApplicationContext_())) {
             return false;
         }
         if (this.f10098cf) {
@@ -2342,7 +2342,7 @@ public class C2483g implements awz.C1324b, axg.C1345a, C2481e {
     public void m11294C() {
         new AlertDialog.Builder(this.f10092c).setView((int) R.layout.dialog_overlay_permission).setPositiveButton((int) R.string.allow, (DialogInterface.OnClickListener) new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialogInterface, int i) {
-                AllPermission.overlayPermission((Activity) C2483g.this.f10092c, 162);
+                PermissionHelper.overlayPermission((Activity) C2483g.this.f10092c, 162);
             }
         }).setNegativeButton((int) R.string.cancel, (DialogInterface.OnClickListener) null).show();
     }

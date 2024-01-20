@@ -7,6 +7,7 @@ import android.content.res.Configuration;
 import android.graphics.Bitmap;
 import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
+import android.os.Environment;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
@@ -79,6 +80,7 @@ import classesdef.eventbus.bnt;
 import classesdef.eventbus.bnv;
 import classesdef.inplayer.SharedPrefrence;
 import classesdef.player.DefaultSharedPreferences;
+import classesdef.xdplayer.PermissionHelper;
 import classesdef.xdplayer.avt;
 import classesdef.xdplayer.awl;
 import classesdef.xdplayer.awy;
@@ -97,19 +99,19 @@ import video.downloader.videodownloader.activity.MainActivity;
 
 public class VideoFolderFragment extends FragmentLifecycle implements SwipeRefreshLayout.OnRefreshListener, AppAbstractInterface<FolderListNativeAdLoader>, AppActivity.Toolbarinterface {
 
-    
+
     public static boolean f10956a;
 
-    
+
     private ProgressDialog progressDialog;
 
-    
+
     public View view;
 
-    
+
     private final int f10959C = 2;
 
-    
+
     public VideoFolderAdapter f10960b;
     /* access modifiers changed from: private */
 
@@ -122,11 +124,11 @@ public class VideoFolderFragment extends FragmentLifecycle implements SwipeRefre
     public List<C2624a> f10963e;
     /* access modifiers changed from: private */
 
-    
+
     public boolean f10964f;
     /* access modifiers changed from: private */
 
-    
+
     public boolean f10965g;
     /* access modifiers changed from: private */
 
@@ -134,26 +136,26 @@ public class VideoFolderFragment extends FragmentLifecycle implements SwipeRefre
     public ActionBar f10966h;
     /* access modifiers changed from: private */
 
-    
+
     public Set<String> f10967i = new HashSet();
     /* access modifiers changed from: private */
 
-    
+
     public byte f10968j = 0;
 
-    
+
     private boolean f10969k;
     /* access modifiers changed from: private */
 
-    
+
     public AtomicBoolean f10970l = new AtomicBoolean(false);
     /* access modifiers changed from: private */
 
-    
+
     public axa f10971m;
     /* access modifiers changed from: private */
 
-    
+
     public axb f10972n;
     /* access modifiers changed from: private */
 
@@ -211,19 +213,19 @@ public class VideoFolderFragment extends FragmentLifecycle implements SwipeRefre
                             }
                             break;
                         case 293:
-                        //    Log.e("swipeRefresh_","one1false");
-                        //    Log.e("swipeRefresh_","one1false"+String.valueOf(swipeRefreshLayout != null ));
-                           // Log.e("swipeRefresh_","one1false"+String.valueOf(swipeRefreshLayout.isRefreshing()));
-                           // Log.e("swipeRefresh","one1false"+String.valueOf());
-                          if (VideoFolderFragment.this.swipeRefreshLayout != null && VideoFolderFragment.this.swipeRefreshLayout.isRefreshing()) {
-                                Log.e("swipeRefresh","one1false23");
+                            //    Log.e("swipeRefresh_","one1false");
+                            //    Log.e("swipeRefresh_","one1false"+String.valueOf(swipeRefreshLayout != null ));
+                            // Log.e("swipeRefresh_","one1false"+String.valueOf(swipeRefreshLayout.isRefreshing()));
+                            // Log.e("swipeRefresh","one1false"+String.valueOf());
+                            if (VideoFolderFragment.this.swipeRefreshLayout != null && VideoFolderFragment.this.swipeRefreshLayout.isRefreshing()) {
+                                Log.e("swipeRefresh", "one1false23");
                                 VideoFolderFragment.this.swipeRefreshLayout.setRefreshing(false);
                             }
-                            Log.e("swipeRefresh","one1false2");
+                            Log.e("swipeRefresh", "one1false2");
                             HideListFragment.f10725a.clear();
                             break;
                         case 294:
-                            Log.e("swipeRefresh","one1false1");
+                            Log.e("swipeRefresh", "one1false1");
                             if (VideoFolderFragment.this.f10963e == null || VideoFolderFragment.this.f10963e.isEmpty()) {
                                 List unused3 = VideoFolderFragment.this.f10963e = (List) message.obj;
                                 if (!VideoFolderFragment.this.f10964f || VideoFolderFragment.this.f10960b == null) {
@@ -254,7 +256,7 @@ public class VideoFolderFragment extends FragmentLifecycle implements SwipeRefre
             reloadVideoFolder(true);
         }
         EventBus.getDefault().register((Object) this);
-      //  this.f10974p = new avv();
+        //  this.f10974p = new avv();
     }
 
     public void onStart() {
@@ -332,19 +334,19 @@ public class VideoFolderFragment extends FragmentLifecycle implements SwipeRefre
         long unused = this.f10960b.f11016c = System.currentTimeMillis();
         this.f10964f = true;
         if (!DefaultSharedPreferences.getAdRemoved("adRemoved", false)) {
-            Log.e("folderListAds","adRemoved fail");
+            Log.e("folderListAds", "adRemoved fail");
             FolderListNativeAd.createRefrence().mo16955a((AppAbstractInterface<FolderListNativeAdLoader>) this);
             FolderListNativeAdLoader folderListNativeAdLoader = FolderListNativeAd.createRefrence().mo16960f();
-            Log.e("folderListAds","one"+"one__"+String.valueOf(folderListNativeAdLoader != null));
-           // Log.e("folderListAds","one"+"one__"+String.valueOf( folderListNativeAdLoader.mo16905d()));
+            Log.e("folderListAds", "one" + "one__" + String.valueOf(folderListNativeAdLoader != null));
+            // Log.e("folderListAds","one"+"one__"+String.valueOf( folderListNativeAdLoader.mo16905d()));
             if (folderListNativeAdLoader != null && folderListNativeAdLoader.mo16905d()) {
-                Log.e("folderListAds","one");
+                Log.e("folderListAds", "one");
                 this.view = folderListNativeAdLoader.mo16953g();
-            Log.e("folderListAds","one__"+String.valueOf(view));
-            FolderListNativeAd.createRefrence().mo16959c(folderListNativeAdLoader);
+                Log.e("folderListAds", "one__" + String.valueOf(view));
+                FolderListNativeAd.createRefrence().mo16959c(folderListNativeAdLoader);
             }
             if (this.view == null) {
-                Log.e("folderListAds","two");
+                Log.e("folderListAds", "two");
                 this.view = StaticAppAds.create(MyApplication.getApplicationContext_(), (int) R.layout.folder_list_ad);
             }
         }
@@ -364,7 +366,7 @@ public class VideoFolderFragment extends FragmentLifecycle implements SwipeRefre
         }
     }
 
-    
+
     private void m12529d() {
         f10956a = false;
         getActivity().setTheme(R.style.DarkTheme);
@@ -446,26 +448,38 @@ public class VideoFolderFragment extends FragmentLifecycle implements SwipeRefre
                 }
                 return true;
             case R.id.lock /*2131296618*/:
-                TreeMap treeMap3 = new TreeMap();
-                treeMap3.put("dirCount", String.valueOf(this.f10967i.size()));
-                LogEvents.m18487a("VideoFolder", "Lock", (Map<String, String>) treeMap3);
-                if (!this.f10967i.isEmpty()) {
-                    m12548n();
+                if (!Environment.isExternalStorageManager()) {
+                    new AlertDialog.Builder(getActivity()).setTitle(R.string.allow).setMessage(R.string.manage_all_file_permission_description)
+                            .setPositiveButton((int) R.string.open_setting, (DialogInterface.OnClickListener)
+                                    (dialogInterface, i) -> PermissionHelper.manageAppFilesAccessPermission(requireActivity())).show();
+                } else {
+                    TreeMap treeMap3 = new TreeMap();
+                    treeMap3.put("dirCount", String.valueOf(this.f10967i.size()));
+                    LogEvents.m18487a("VideoFolder", "Lock", (Map<String, String>) treeMap3);
+                    if (!this.f10967i.isEmpty()) {
+                        m12548n();
+                    }
                 }
                 return true;
             case R.id.private_videos /*2131296710*/:
                 LogEvents.m18492b("VideoFolder", "TopPrivate");
-                if (PasswordFragment.m12273a()) {
-                    AppActivity.loadFragmet(getActivity().getSupportFragmentManager(), PasswordFragment.m12270a(0), true);
+                if (!Environment.isExternalStorageManager()) {
+                    new AlertDialog.Builder(getActivity()).setTitle(R.string.allow).setMessage(R.string.manage_all_file_permission_description)
+                            .setPositiveButton((int) R.string.open_setting, (DialogInterface.OnClickListener)
+                                    (dialogInterface, i) -> PermissionHelper.manageAppFilesAccessPermission(requireActivity())).show();
                 } else {
-                    this.f10968j = 1;
-                    AppActivity.loadFragmet(getActivity().getSupportFragmentManager(), PasswordFragment.m12270a(2), true);
+                    if (PasswordFragment.m12273a()) {
+                        AppActivity.loadFragmet(getActivity().getSupportFragmentManager(), PasswordFragment.m12270a(0), true);
+                    } else {
+                        this.f10968j = 1;
+                        AppActivity.loadFragmet(getActivity().getSupportFragmentManager(), PasswordFragment.m12270a(2), true);
+                    }
                 }
                 return true;
             case R.id.refresh /*2131296734*/:
                 if (this.swipeRefreshLayout != null) {
                     LogEvents.m18492b("VideoFolder", "TopRefresh");
-               //     this.swipeRefreshLayout.setRefreshing(true);
+                    //     this.swipeRefreshLayout.setRefreshing(true);
                     m12533f();
                     break;
                 }
@@ -498,7 +512,7 @@ public class VideoFolderFragment extends FragmentLifecycle implements SwipeRefre
         return super.onOptionsItemSelected(menuItem);
     }
 
-    
+
     private void m12530e() {
         startActivity(new Intent(getActivity(), EqualizerActivity.class));
     }
@@ -537,7 +551,7 @@ public class VideoFolderFragment extends FragmentLifecycle implements SwipeRefre
         super.onDestroy();
     }
 
-    
+
     public boolean setToolbar() {
         if (!this.f10965g) {
             return false;
@@ -551,7 +565,7 @@ public class VideoFolderFragment extends FragmentLifecycle implements SwipeRefre
         m12533f();
     }
 
-   
+
     public void m12533f() {
         reloadVideoFolder(false);
     }
@@ -607,7 +621,7 @@ public class VideoFolderFragment extends FragmentLifecycle implements SwipeRefre
         }
     }
 
-   
+
     public void m12535g() {
         new Thread(new Runnable() {
             public void run() {
@@ -627,7 +641,7 @@ public class VideoFolderFragment extends FragmentLifecycle implements SwipeRefre
                         if (VideoFolderFragment.this.f10962d != null && VideoFolderFragment.this.f10962d.f10533f < VideoFolderFragment.this.f10962d.f10534g) {
                             z = true;
                         }
-                       c.f11015b = z;
+                        c.f11015b = z;
                         if (a != VideoFolderFragment.this.f10960b.f11015b) {
                             VideoFolderFragment.this.f10960b.notifyDataSetChanged();
                         } else if (VideoFolderFragment.this.f10960b.f11015b) {
@@ -639,7 +653,7 @@ public class VideoFolderFragment extends FragmentLifecycle implements SwipeRefre
         }).start();
     }
 
-    
+
     private void reloadVideoFolder(boolean z) {
         this.f10978t = z && this.f10963e != null && !this.f10963e.isEmpty();
         this.f10970l.set(true);
@@ -647,7 +661,7 @@ public class VideoFolderFragment extends FragmentLifecycle implements SwipeRefre
     }
 
     /* access modifiers changed from: private */
-    
+
     public void folderSelect(String str) {
         this.f10965g = true;
         this.f10967i.clear();
@@ -668,7 +682,7 @@ public class VideoFolderFragment extends FragmentLifecycle implements SwipeRefre
         this.f10960b.notifyDataSetChanged();
     }
 
-  
+
     public void m12537h() {
         this.f10965g = false;
         this.f10967i.clear();
@@ -692,7 +706,7 @@ public class VideoFolderFragment extends FragmentLifecycle implements SwipeRefre
         }
     }
 
-    
+
     private void m12524b(boolean z) {
         int i = 8;
         this.f10979u.setVisibility(z ? 0 : 8);
@@ -703,7 +717,7 @@ public class VideoFolderFragment extends FragmentLifecycle implements SwipeRefre
         textView.setVisibility(i);
     }
 
-    
+
     private void m12538i() {
         int i;
         int i2;
@@ -744,7 +758,7 @@ public class VideoFolderFragment extends FragmentLifecycle implements SwipeRefre
         }
     }
 
-  
+
     public void m12540j() {
         AlertDialog.Builder builder;
         if (mo17989b()) {
@@ -765,7 +779,7 @@ public class VideoFolderFragment extends FragmentLifecycle implements SwipeRefre
         }
     }
 
-    
+
     public void m12542k() {
         AlertDialog.Builder builder;
         if (mo17989b() && this.f10967i != null) {
@@ -796,7 +810,7 @@ public class VideoFolderFragment extends FragmentLifecycle implements SwipeRefre
         }
     }
 
-   
+
     public void m12544l() {
         AlertDialog.Builder builder;
         if (mo17989b()) {
@@ -817,7 +831,7 @@ public class VideoFolderFragment extends FragmentLifecycle implements SwipeRefre
         }
     }
 
-  
+
     public void m12546m() {
         if (this.f10967i != null) {
             ArrayList arrayList = new ArrayList();
@@ -894,7 +908,7 @@ public class VideoFolderFragment extends FragmentLifecycle implements SwipeRefre
         }
     }
 
-    
+
     public void m12548n() {
         AlertDialog.Builder builder;
         if (mo17989b()) {
@@ -934,7 +948,7 @@ public class VideoFolderFragment extends FragmentLifecycle implements SwipeRefre
         }
     }
 
-  
+
     public void m12519a(List<MediaFileInfo> list) {
         this.f10973o = new C2625b();
         this.f10973o.mo17933a(list, (C2625b.C2630d) new C2625b.C2630d() {
@@ -1028,7 +1042,7 @@ public class VideoFolderFragment extends FragmentLifecycle implements SwipeRefre
         });
     }
 
-  
+
     public void m12513a(C2624a aVar) {
         this.f10972n = new axb(aVar.f10545a, aVar, new axb.C1341a() {
             /* renamed from: a */
@@ -1099,7 +1113,7 @@ public class VideoFolderFragment extends FragmentLifecycle implements SwipeRefre
         this.f10972n.mo10944a((FragmentLifecycle) this);
     }
 
- 
+
     public void m12510a(int i, boolean z) {
         if (mo17989b()) {
             if (this.progressDialog == null) {
@@ -1120,14 +1134,14 @@ public class VideoFolderFragment extends FragmentLifecycle implements SwipeRefre
         }
     }
 
-    
+
     public void m12551o() {
         if (this.progressDialog != null) {
             this.progressDialog.dismiss();
         }
     }
 
-   
+
     public void m12511a(View view, final C2624a aVar) {
         this.popupMenu = new PopupMenu(view.getContext(), view);
         this.popupMenu.getMenuInflater().inflate(R.menu.menu_folder_item, this.popupMenu.getMenu());
@@ -1209,7 +1223,7 @@ public class VideoFolderFragment extends FragmentLifecycle implements SwipeRefre
     private class VideoFolderAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> implements View.OnClickListener, View.OnLongClickListener, CompoundButton.OnCheckedChangeListener {
 
         public boolean f11015b;
-      
+
         public long f11016c;
 
         VideoFolderAdapter() {
@@ -1245,8 +1259,7 @@ public class VideoFolderFragment extends FragmentLifecycle implements SwipeRefre
             } else if (viewHolder instanceof FolderListAdContainerViewHolder) {
                 //Toast.makeText(getContext(), "AddView", Toast.LENGTH_SHORT).show();
                 ((FolderListAdContainerViewHolder) viewHolder).addView(VideoFolderFragment.this.view);
-            } 
-            else {
+            } else {
                 if (VideoFolderFragment.this.view != null && i > 2) {
                     i--;
                 }
@@ -1423,14 +1436,14 @@ public class VideoFolderFragment extends FragmentLifecycle implements SwipeRefre
         }
     }
 
-  
+
     public void recentVideoPlay(RecentMediaStorage.DBBean dBBean) {
         C2624a aVar;
         LogEvents.m18492b("VideoFolder", "Recent");
         String str = dBBean.f10529b;
         long j = dBBean.f10533f;
         Intent intent = new Intent();
-        intent.setClass(getActivity(),  PlayerActivity.class);
+        intent.setClass(getActivity(), PlayerActivity.class);
         intent.putExtra("path", str);
         intent.putExtra("name", axy.m7460a(str));
         intent.putExtra("dbBean", dBBean);
@@ -1500,6 +1513,7 @@ public class VideoFolderFragment extends FragmentLifecycle implements SwipeRefre
         final TextView name;
         final View f11021c;
         final ImageView icon;
+
         ItemRecentVideoViewHolder(View view) {
             super(view);
             this.icon = (ImageView) view.findViewById(R.id.icon);
@@ -1511,7 +1525,7 @@ public class VideoFolderFragment extends FragmentLifecycle implements SwipeRefre
 
     private class DirectoryViewHolder extends RecyclerView.ViewHolder {
 
-        
+
         final View directory_btn;
 
         DirectoryViewHolder(View view) {
@@ -1520,10 +1534,10 @@ public class VideoFolderFragment extends FragmentLifecycle implements SwipeRefre
         }
     }
 
-    
+
     private class FolderListAdContainerViewHolder extends RecyclerView.ViewHolder {
 
-        
+
         private final ViewGroup adView;
 
         private final boolean appTheme;
@@ -1534,8 +1548,7 @@ public class VideoFolderFragment extends FragmentLifecycle implements SwipeRefre
             this.appTheme = SharedPrefrence.getSharedPrefrence(MyApplication.getApplicationContext_()).getBoolean("darkTheme", false);
         }
 
-        
-        
+
         public void addView(View view) {
             if (this.adView != null && this.adView.getChildCount() == 0) {
                 Views.removeFromParent(view);

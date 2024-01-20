@@ -14,6 +14,11 @@
     <uses-feature android:name="android.hardware.screen.LANDSCAPE" android:required="false"/>
     <uses-feature android:name="android.hardware.WIFI" android:required="false"/>
 
+    <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_MEDIA_VIDEO"/>
+    <uses-permission android:name="android.permission.READ_MEDIA_AUDIO"/>
+    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES"/>
+
     <!-- mopub Android 11 (API level 30), -->
     <queries>
         <intent>

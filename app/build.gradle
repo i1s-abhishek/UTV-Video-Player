@@ -5,7 +5,7 @@ plugins {
 }
 
 android {
-    compileSdkVersion 31
+    compileSdkVersion 33
     lintOptions {
         checkReleaseBuilds false
         // Or, if you prefer, you can continue to check for errors in release builds,
@@ -15,7 +15,7 @@ android {
     defaultConfig {
         applicationId "hdplayer.vlcplayer.videoplayer"
         minSdkVersion 19
-        targetSdkVersion 31
+        targetSdkVersion 33
         versionCode 3
         versionName "3"
         multiDexEnabled true
@@ -78,7 +78,7 @@ dependencies {
     implementation('com.mopub:mopub-sdk:5.17.0') {
         transitive = true
     }
-    implementation 'com.google.android.gms:play-services-ads:19.5.0'
+    implementation 'com.google.android.gms:play-services-ads:19.4.0'
     implementation 'com.mopub.mediation:admob:15.0.0.10'
 
 
@@ -95,7 +95,10 @@ dependencies {
 
 
 //the Google Play Billing Library
-    implementation 'com.android.billingclient:billing:4.0.0'
+    implementation 'com.android.billingclient:billing:6.1.0'
 
     implementation 'fr.turri:aXMLRPC:1.12.0'
+
+    implementation 'androidx.media:media:1.6.0'
+
 }

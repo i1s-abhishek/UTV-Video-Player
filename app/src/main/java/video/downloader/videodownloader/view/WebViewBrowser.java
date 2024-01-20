@@ -581,7 +581,7 @@ public class WebViewBrowser {
         if (this.webView != null) {
             final WebSettings settings = this.webView.getSettings();
             if (f13828d < 18) {
-                settings.setAppCacheMaxSize(Long.MAX_VALUE);
+                // settings.setAppCacheMaxSize(Long.MAX_VALUE);
             }
             if (f13828d < 17) {
                 settings.setEnableSmoothTransition(true);
@@ -596,12 +596,12 @@ public class WebViewBrowser {
             }
             if (!this.f13845r) {
                 settings.setDomStorageEnabled(true);
-                settings.setAppCacheEnabled(true);
+                // settings.setAppCacheEnabled(true);
                 settings.setCacheMode(-1);
                 settings.setDatabaseEnabled(true);
             } else {
                 settings.setDomStorageEnabled(false);
-                settings.setAppCacheEnabled(false);
+                // settings.setAppCacheEnabled(false);
                 settings.setDatabaseEnabled(false);
                 settings.setCacheMode(2);
             }
@@ -618,7 +618,7 @@ public class WebViewBrowser {
                 /* renamed from: a */
                 public void mo21366a(File file) {
                     bql.m18952a(file);
-                    settings.setAppCachePath(file.getPath());
+                    // settings.setAppCachePath(file.getPath());
                 }
             });
             if (Build.VERSION.SDK_INT < 24) {

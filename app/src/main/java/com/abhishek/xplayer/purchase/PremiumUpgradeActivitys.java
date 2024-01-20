@@ -24,6 +24,7 @@ import com.android.billingclient.api.BillingFlowParams;
 import com.android.billingclient.api.BillingResult;
 import com.android.billingclient.api.Purchase;
 import com.android.billingclient.api.PurchasesUpdatedListener;
+import com.android.billingclient.api.QueryPurchasesParams;
 import com.android.billingclient.api.SkuDetails;
 import com.android.billingclient.api.SkuDetailsParams;
 import com.android.billingclient.api.SkuDetailsResponseListener;
@@ -32,6 +33,7 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.concurrent.CountDownLatch;
 
 import classesdef.ads.atd;
 import hdplayer.vlcplayer.videoplayer.R;
@@ -330,51 +332,88 @@ public class PremiumUpgradeActivitys extends BaseActivity implements PurchasesUp
             boolean z;
             try {
                 if (this.f14596a.billingClient != null) {
-                    Purchase.PurchasesResult a = this.f14596a.billingClient.queryPurchases("inapp");
-                    Purchase.PurchasesResult b = this.f14596a.billingClient.queryPurchases("subs");
-                    if (a.getResponseCode() == 0 ||b.getResponseCode()==0 ) {
-                        Iterator it = a.getPurchasesList().iterator();
-                        Iterator it2 = b.getPurchasesList().iterator();
-                        while (true) {
-                            if (!it.hasNext()) {
-                                z = false;
-                                break;
-                            }
-                            if (!it2.hasNext()) {
-                                z = false;
-                                break;
-                            }
-                            if ("lifetime_subscription".equals(((Purchase) it.next()).getSkus().get(0))) {
-                                z = true;
-                                break;
-                            }
-                            if ("monthly_subscription".equals(((Purchase) it2.next()).getSkus().get(0))) {
-                                z = true;
-                                break;
-                            }
-                            if ("yearly_subscription".equals(((Purchase) it2.next()).getSkus().get(0))) {
-                                z = true;
-                                break;
+
+                    ArrayList inAppArrayList = new ArrayList();
+                    ArrayList subAppArrayList = new ArrayList();
+                    QueryPurchasesParams inAppParams = QueryPurchasesParams.newBuilder()
+                            .setProductType(BillingClient.SkuType.INAPP)
+                            .build();
+                    QueryPurchasesParams subsParams = QueryPurchasesParams.newBuilder()
+                            .setProductType(BillingClient.SkuType.SUBS)
+                            .build();
+                    CountDownLatch latch = new CountDownLatch(2); // Creating a latch for two async queries
+
+                    billingClient.queryPurchasesAsync(inAppParams, (billingResult, purchases) -> {
+                        if (purchases != null && !purchases.isEmpty()) {
+                            for (Purchase purchase : purchases) {
+                                if (purchase.getPurchaseState() == Purchase.PurchaseState.PURCHASED) {
+                                    inAppArrayList.add(purchase);
+                                }
                             }
                         }
-                        if (!z) {
-                            //Toast.makeText(this.f14596a.activity, "onSkuDetailsResponse4", Toast.LENGTH_SHORT).show();
-                            atd.adRemoved("adRemoved", false);
-                            //  User.getInstance(PremiumUpgradeActivitys.this).setRemoveAd(false);
-                         //   User.getInstance(PremiumUpgradeActivitys.this).save(PremiumUpgradeActivitys.this);
-                            this.f14596a.getSku();
-                        } else {
-                            atd.adRemoved("adRemoved", true);
-                            //  User.getInstance(PremiumUpgradeActivitys.this).setRemoveAd(true);
-                        //    User.getInstance(PremiumUpgradeActivitys.this).save(PremiumUpgradeActivitys.this);
-                            this.f14596a.m18595g();
+                        latch.countDown(); // Decrement the latch count
+                    });
+
+                    billingClient.queryPurchasesAsync(subsParams, (billingResult, purchases) -> {
+                        if (purchases != null && !purchases.isEmpty()) {
+                            for (Purchase purchase : purchases) {
+                                if (purchase.getPurchaseState() == Purchase.PurchaseState.PURCHASED) {
+                                    subAppArrayList.add(purchase);
+                                }
+                            }
+                        }
+                        latch.countDown(); // Decrement the latch count
+                    });
+
+                    try {
+                        latch.await(); // Wait until both async queries are finished
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+
+                    Iterator it = inAppArrayList.iterator();
+                    Iterator it2 = subAppArrayList.iterator();
+                    while (true) {
+                        if (!it.hasNext()) {
+                            z = false;
+                            break;
+                        }
+                        if (!it2.hasNext()) {
+                            z = false;
+                            break;
+                        }
+                        if ("lifetime_subscription".equals(((Purchase) it.next()).getSkus().get(0))) {
+                            z = true;
+                            break;
+                        }
+                        if ("monthly_subscription".equals(((Purchase) it2.next()).getSkus().get(0))) {
+                            z = true;
+                            break;
+                        }
+                        if ("yearly_subscription".equals(((Purchase) it2.next()).getSkus().get(0))) {
+                            z = true;
+                            break;
                         }
                     }
+                    if (!z) {
+                        //Toast.makeText(this.f14596a.activity, "onSkuDetailsResponse4", Toast.LENGTH_SHORT).show();
+                        atd.adRemoved("adRemoved", false);
+                        //  User.getInstance(PremiumUpgradeActivitys.this).setRemoveAd(false);
+                        //   User.getInstance(PremiumUpgradeActivitys.this).save(PremiumUpgradeActivitys.this);
+                        this.f14596a.getSku();
+                    } else {
+                        atd.adRemoved("adRemoved", true);
+                        //  User.getInstance(PremiumUpgradeActivitys.this).setRemoveAd(true);
+                        //    User.getInstance(PremiumUpgradeActivitys.this).save(PremiumUpgradeActivitys.this);
+                        this.f14596a.m18595g();
+                    }
+
                 }
             } catch (Exception e) {
-             //   C4529n.m18804a(PremiumUpgradeActivitys.this, "BillingClient", e.getMessage());
+                // C4529n.m18804a(PremiumUpgradeActivitys.this, "BillingClient", e.getMessage());
             }
         }
+
     }
 
     public void premiumUpgradeButtonEnable(boolean z) {

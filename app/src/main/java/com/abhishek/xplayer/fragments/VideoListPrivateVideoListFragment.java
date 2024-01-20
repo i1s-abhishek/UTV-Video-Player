@@ -12,6 +12,7 @@ import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
@@ -99,6 +100,7 @@ import classesdef.inplayer.axi;
 import classesdef.inplayer.SharedPrefrence;
 import classesdef.player.aww;
 import classesdef.player.DefaultSharedPreferences;
+import classesdef.xdplayer.PermissionHelper;
 import classesdef.xdplayer.avt;
 import classesdef.xdplayer.awl;
 import classesdef.xdplayer.awu;
@@ -116,7 +118,7 @@ import hdplayer.vlcplayer.videoplayer.R;
 
 
 /* renamed from: com.inshot.xplayer.fragments.j */
-public class VideoListPrivateVideoListFragment extends FragmentLifecycle implements SwipeRefreshLayout.OnRefreshListener, AppAbstractInterface<VideoListNativeAdLoader>,  AppActivity.Toolbarinterface {
+public class VideoListPrivateVideoListFragment extends FragmentLifecycle implements SwipeRefreshLayout.OnRefreshListener, AppAbstractInterface<VideoListNativeAdLoader>, AppActivity.Toolbarinterface {
     /* access modifiers changed from: private */
 
     /* renamed from: A */
@@ -354,7 +356,7 @@ public class VideoListPrivateVideoListFragment extends FragmentLifecycle impleme
                     VideoListNativeAd.m10175e().mo16916c(f);
                 }
                 if (this.f10861L == null) {
-                   this.f10861L = StaticAppAds.create(MyApplication.getApplicationContext_(), (int) R.layout.video_list_ad);
+                    this.f10861L = StaticAppAds.create(MyApplication.getApplicationContext_(), (int) R.layout.video_list_ad);
                 }
             }
         }
@@ -433,7 +435,7 @@ public class VideoListPrivateVideoListFragment extends FragmentLifecycle impleme
         setHasOptionsMenu(true);
         long unused = this.f10864a.f10942b = System.currentTimeMillis();
         this.f10870g = true;
-      //  this.f10889z = new avy();
+        //  this.f10889z = new avy();
         this.f10851B = inflate;
         return inflate;
     }
@@ -539,11 +541,17 @@ public class VideoListPrivateVideoListFragment extends FragmentLifecycle impleme
                 }
                 return true;
             case R.id.lock /*2131296618*/:
-                TreeMap treeMap3 = new TreeMap();
-                treeMap3.put("fileCount", String.valueOf(this.f10874k.size()));
-                LogEvents.m18487a(m12431d(), "Lock", (Map<String, String>) treeMap3);
-                if (!this.f10874k.isEmpty()) {
-                    m12451m();
+                if (!Environment.isExternalStorageManager()) {
+                    new AlertDialog.Builder(getActivity()).setTitle(R.string.allow).setMessage(R.string.manage_all_file_permission_description)
+                            .setPositiveButton((int) R.string.open_setting, (DialogInterface.OnClickListener)
+                                    (dialogInterface, i) -> PermissionHelper.manageAppFilesAccessPermission(requireActivity())).show();
+                } else {
+                    TreeMap treeMap3 = new TreeMap();
+                    treeMap3.put("fileCount", String.valueOf(this.f10874k.size()));
+                    LogEvents.m18487a(m12431d(), "Lock", (Map<String, String>) treeMap3);
+                    if (!this.f10874k.isEmpty()) {
+                        m12451m();
+                    }
                 }
                 return true;
             case R.id.modify_pin /*2131296633*/:
@@ -1264,10 +1272,10 @@ public class VideoListPrivateVideoListFragment extends FragmentLifecycle impleme
         this.f10855F.mo17934a(list, (C2625b.C2631e) new C2625b.C2631e() {
             /* renamed from: b */
             public void mo17942b(List<MediaFileInfo> list) {
-                Log.e("abhi_private_vid","one");
+                Log.e("abhi_private_vid", "one");
                 C2625b unused = VideoListPrivateVideoListFragment.this.f10855F = null;
                 if (VideoListPrivateVideoListFragment.this.mo17989b()) {
-                    Log.e("abhi_private_vid","two");
+                    Log.e("abhi_private_vid", "two");
                     VideoListPrivateVideoListFragment.this.m12458p();
                     if (!(VideoListPrivateVideoListFragment.this.f10867d == null || VideoListPrivateVideoListFragment.this.f10867d.f10547c == null)) {
                         Iterator<MediaFileInfo> it = VideoListPrivateVideoListFragment.this.f10867d.f10547c.iterator();
@@ -1286,7 +1294,7 @@ public class VideoListPrivateVideoListFragment extends FragmentLifecycle impleme
 
             /* renamed from: b */
             public void mo17941b(String str) {
-                Log.e("abhi_private_vid","three");
+                Log.e("abhi_private_vid", "three");
                 C2625b unused = VideoListPrivateVideoListFragment.this.f10855F = null;
                 if (VideoListPrivateVideoListFragment.this.mo17989b()) {
                     axv.m7434a((int) R.string.unlock_failed);
@@ -1535,6 +1543,7 @@ public class VideoListPrivateVideoListFragment extends FragmentLifecycle impleme
         */
         throw new UnsupportedOperationException("Method not decompiled: com.inshot.xplayer.fragments.C2729j.m12455o():void");
     }
+
     private void m12455o() {
         AlertDialog.Builder builder;
         MediaFileInfo mediaFileInfo = null;
@@ -1765,7 +1774,7 @@ public class VideoListPrivateVideoListFragment extends FragmentLifecycle impleme
                     boolean unused2 = jVar.f10883t = z;
                     VideoListPrivateVideoListFragment.this.m12462r();
 
-                    int a= VideoListPrivateVideoListFragment.this.f10883t?1:0;
+                    int a = VideoListPrivateVideoListFragment.this.f10883t ? 1 : 0;
                     axv.m7434a(aww.f6157c[VideoListPrivateVideoListFragment.this.f10882s][a]);
                     VideoListPrivateVideoListFragment.this.f10864a.notifyDataSetChanged();
                     PreferenceManager.getDefaultSharedPreferences(MyApplication.getApplicationContext_()).edit().putInt("sort_by", VideoListPrivateVideoListFragment.this.f10882s).apply();
@@ -1876,7 +1885,6 @@ public class VideoListPrivateVideoListFragment extends FragmentLifecycle impleme
             }
         }
     }
-
 
 
     @SuppressLint({"SimpleDateFormat"})

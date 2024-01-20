@@ -45,7 +45,7 @@ import classesdef.eventbus.awi;
 import classesdef.inplayer.awt;
 import classesdef.player.DefaultSharedPreferences;
 import classesdef.xdplayer.axk;
-import classesdef.xdplayer.AllPermission;
+import classesdef.xdplayer.PermissionHelper;
 import classesdef.xdplayer.axv;
 import classesdef.xdplayer.axw;
 import classesdef.xdplayer.axy;
@@ -172,7 +172,7 @@ public class EmailFragment extends FragmentLifecycle implements TextWatcher, Vie
 
     public void onResume() {
         if (Build.VERSION.SDK_INT >= 23 && Build.VERSION.SDK_INT < 26 && this.f10659a == 1 && this.f10660b < 1 && (this.f10669k == null || this.f10669k.isEmpty())) {
-            if (!AllPermission.m7381a(getContext(), "android.permission.GET_ACCOUNTS")) {
+            if (!PermissionHelper.hasPermission(getContext(), "android.permission.GET_ACCOUNTS")) {
                 this.f10668j.setVisibility(0);
             } else {
                 this.f10668j.setVisibility(8);
@@ -435,15 +435,15 @@ public class EmailFragment extends FragmentLifecycle implements TextWatcher, Vie
     /* renamed from: a */
     public void mo17991a() {
         if (!DefaultSharedPreferences.getAdRemoved("CPhNuBnN", false) || shouldShowRequestPermissionRationale("android.permission.GET_ACCOUNTS")) {
-            requestPermissions(AllPermission.getAccount, 4);
+            requestPermissions(PermissionHelper.getAccount, 4);
         } else {
-            AllPermission.m7377a((Fragment) this);
+            PermissionHelper.openAppDetailsSettings((Fragment) this);
         }
     }
 
     public void onRequestPermissionsResult(int i, String[] strArr, int[] iArr) {
         super.onRequestPermissionsResult(i, strArr, iArr);
-        if (i == 4 && !AllPermission.permissionChek(iArr)) {
+        if (i == 4 && !PermissionHelper.permissionChek(iArr)) {
             DefaultSharedPreferences.m7385a("CPhNuBnN", true);
         }
     }

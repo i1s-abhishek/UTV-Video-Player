@@ -234,12 +234,12 @@ public class PlayerService extends Service implements AudioManager.OnAudioFocusC
                 if (z2 || c != null) {
                     String e = C2779a.m12613a().mo18139e();
                     boolean z3 = (this.f11045o == null || this.f11043m == null || this.f11044n == null || !TextUtils.equals(e, this.f11047q)) ? false : true;
-                    PendingIntent activity = PendingIntent.getActivity(this, (int) (Math.random() * 9999.0d), C2779a.m12613a().mo18128a((Context) this, true), 134217728);
+                    PendingIntent activity = PendingIntent.getActivity(this, (int) (Math.random() * 9999.0d), C2779a.m12613a().mo18128a((Context) this, true), 167772160);
                     if (this.f11041k == null) {
-                        this.f11041k = PendingIntent.getBroadcast(this, (int) (Math.random() * 9999.0d), new Intent(this, SelfReceiver.class).setAction("xvlqefsfvv"), 134217728);
+                        this.f11041k = PendingIntent.getBroadcast(this, (int) (Math.random() * 9999.0d), new Intent(this, SelfReceiver.class).setAction("xvlqefsfvv"), 167772160);
                     }
                     if (this.f11040j == null) {
-                        this.f11040j = PendingIntent.getBroadcast(this, (int) (Math.random() * 9999.0d), new Intent(this, SelfReceiver.class).setAction("oeuortoqwei"), 134217728);
+                        this.f11040j = PendingIntent.getBroadcast(this, (int) (Math.random() * 9999.0d), new Intent(this, SelfReceiver.class).setAction("oeuortoqwei"), 167772160);
                     }
                     if (c == null) {
                         j = 0;
@@ -250,10 +250,10 @@ public class PlayerService extends Service implements AudioManager.OnAudioFocusC
                     if (this.f11043m == null || this.f11044n == null) {
                         this.f11043m = new RemoteViews(getPackageName(), R.layout.layout_player_notification);
                         this.f11044n = new RemoteViews(getPackageName(), R.layout.layout_player_notification_big);
-                        PendingIntent broadcast = PendingIntent.getBroadcast(this, (int) (Math.random() * 9999.0d), new Intent(this, SelfReceiver.class).setAction("flkdlwasdf"), 134217728);
+                        PendingIntent broadcast = PendingIntent.getBroadcast(this, (int) (Math.random() * 9999.0d), new Intent(this, SelfReceiver.class).setAction("flkdlwasdf"), 167772160);
                         str = e;
-                        PendingIntent broadcast2 = PendingIntent.getBroadcast(this, (int) (Math.random() * 9999.0d), new Intent(this, SelfReceiver.class).setAction("zxcwe2dfwe"), 134217728);
-                        PendingIntent broadcast3 = PendingIntent.getBroadcast(this, (int) (Math.random() * 9999.0d), new Intent(this, SelfReceiver.class).setAction("flkdlwasdf").putExtra("ipcldjwsd", true), 134217728);
+                        PendingIntent broadcast2 = PendingIntent.getBroadcast(this, (int) (Math.random() * 9999.0d), new Intent(this, SelfReceiver.class).setAction("zxcwe2dfwe"), 167772160);
+                        PendingIntent broadcast3 = PendingIntent.getBroadcast(this, (int) (Math.random() * 9999.0d), new Intent(this, SelfReceiver.class).setAction("flkdlwasdf").putExtra("ipcldjwsd", true), 167772160);
                         this.f11043m.setOnClickPendingIntent(R.id.close, broadcast2);
                         this.f11043m.setOnClickPendingIntent(R.id.next, broadcast);
                         this.f11044n.setOnClickPendingIntent(R.id.close, broadcast2);

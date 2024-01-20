@@ -13,6 +13,7 @@ import com.abhishek.inplayer.bean.VideoPlayListBean;
 import com.abhishek.xplayer.application.MyApplication;
 
 import java.io.File;
+import java.io.IOException;
 import java.net.URLDecoder;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -259,7 +260,11 @@ public class axi {
             mediaMetadataRetriever = null;
             e.printStackTrace();
             if (mediaMetadataRetriever != null) {
-                mediaMetadataRetriever.release();
+                try {
+                    mediaMetadataRetriever.release();
+                } catch (IOException ex) {
+                    throw new RuntimeException(ex);
+                }
             }
             return str2;
         } catch (Throwable th3) {

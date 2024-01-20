@@ -9,13 +9,13 @@ import android.os.Bundle;
 import java.util.HashMap;
 
 import classesdef.xdplayer.axx;
-import classesdef.xdplayer.AllPermission;
+import classesdef.xdplayer.PermissionHelper;
 import classesdef.xdplayer.LogEvents;
 
 public class C2552a {
 
     public static boolean m11684a(Activity activity, int i) {
-        if (!AllPermission.m7381a(activity.getApplicationContext(), "android.permission.WRITE_EXTERNAL_STORAGE")) {
+        if (!PermissionHelper.hasPermission(activity.getApplicationContext(), "android.permission.WRITE_EXTERNAL_STORAGE")) {
             activity.startActivityForResult(new Intent(activity, SimpleFragmentActivity.class).putExtra("_mode", 2), i);
             return false;
         } else {

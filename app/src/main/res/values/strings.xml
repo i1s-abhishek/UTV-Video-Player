@@ -563,5 +563,6 @@ in just one click and  free ocr ....</string>
     <string name="videodownloader_detail">Download Video from facebook,twitter ,instagram and others in one click</string>
     <string name="applocker_detail">applock protect and lock app,gallery,photos,video,privacy with fingerprint</string>
 
+    <string name="manage_all_file_permission_description">Allow HD Video Player to Access File</string>
 
 </resources>
