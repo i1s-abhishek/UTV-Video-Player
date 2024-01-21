@@ -15,7 +15,7 @@ import android.util.TypedValue;
 import androidx.core.content.ContextCompat;
 import androidx.core.graphics.drawable.DrawableCompat;
 
-import hdplayer.vlcplayer.videoplayer.R;
+import hdplayer.xdplayer.videoplayer.R;
 
 
 /* renamed from: bqt ContextCompat*/

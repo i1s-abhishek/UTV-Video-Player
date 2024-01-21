@@ -24,7 +24,7 @@ import org.greenrobot.eventbus.ThreadMode;
 import classesdef.eventbus.awn;
 import classesdef.player.axg;
 import classesdef.xdplayer.awl;
-import hdplayer.vlcplayer.videoplayer.R;
+import hdplayer.xdplayer.videoplayer.R;
 
 
 public class PipPlayerService extends Service implements AudioManager.OnAudioFocusChangeListener, axg.C1345a {

@@ -24,7 +24,7 @@ import java.util.Set;
 import classesdef.inplayer.awt;
 import classesdef.xdplayer.ServerConfigSharedPrefrence;
 import classesdef.xdplayer.axy;
-import hdplayer.vlcplayer.videoplayer.R;
+import hdplayer.xdplayer.videoplayer.R;
 
 
 

@@ -5,7 +5,7 @@ import android.graphics.Bitmap;
 
 import classesdef.browser.bqt;
 import classesdef.browser.bqw;
-import hdplayer.vlcplayer.videoplayer.R;
+import hdplayer.xdplayer.videoplayer.R;
 
 
 class NewTab {

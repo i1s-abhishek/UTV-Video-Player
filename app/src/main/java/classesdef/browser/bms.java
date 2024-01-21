@@ -21,7 +21,7 @@ import classesdef.browser.download.bmn;
 import classesdef.browser.download.boi;
 import classesdef.browser.tab.C4123d;
 import classesdef.browser.tab.C4892v;
-import hdplayer.vlcplayer.videoplayer.R;
+import hdplayer.xdplayer.videoplayer.R;
 import video.downloader.videodownloader.app.BrowserApp;
 
 /* renamed from: bms */

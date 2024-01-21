@@ -24,7 +24,7 @@ import java.util.Locale;
 import classesdef.inplayer.axi;
 import classesdef.xdplayer.axw;
 import classesdef.xdplayer.axy;
-import hdplayer.vlcplayer.videoplayer.R;
+import hdplayer.xdplayer.videoplayer.R;
 import tv.danmaku.ijk.media.player.misc.ITrackInfo;
 
 

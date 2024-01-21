@@ -24,7 +24,7 @@ import classesdef.ads.C4796mz;
 import classesdef.ads.C4798na;
 import classesdef.ads.C4799nb;
 import classesdef.ads.AdInterface;
-import hdplayer.vlcplayer.videoplayer.R;
+import hdplayer.xdplayer.videoplayer.R;
 
 
 

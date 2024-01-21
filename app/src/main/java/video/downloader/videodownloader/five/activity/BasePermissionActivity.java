@@ -22,7 +22,7 @@ import classesdef.browser.bov;
 import classesdef.browser.box;
 import classesdef.eventbus.bnz;
 import classesdef.xdplayer.bpj;
-import hdplayer.vlcplayer.videoplayer.R;
+import hdplayer.xdplayer.videoplayer.R;
 
 
 public abstract class BasePermissionActivity extends BaseActivity {

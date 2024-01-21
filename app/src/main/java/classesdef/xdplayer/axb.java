@@ -27,7 +27,7 @@ import java.util.regex.Pattern;
 
 import classesdef.inplayer.axi;
 import classesdef.inplayer.SharedPrefrence;
-import hdplayer.vlcplayer.videoplayer.R;
+import hdplayer.xdplayer.videoplayer.R;
 
 
 /* renamed from: axb */

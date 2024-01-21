@@ -15,7 +15,7 @@ import com.liulishuo.filedownloader.BaseDownloadTask;
 import java.util.HashMap;
 
 import classesdef.browser.bbc;
-import hdplayer.vlcplayer.videoplayer.R;
+import hdplayer.xdplayer.videoplayer.R;
 import video.downloader.videodownloader.five.activity.FilesActivity;
 
 /* renamed from: bow */

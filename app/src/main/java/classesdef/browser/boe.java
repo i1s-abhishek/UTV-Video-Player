@@ -16,7 +16,7 @@ import androidx.fragment.app.Fragment;
 
 import com.bumptech.glide.Glide;
 
-import hdplayer.vlcplayer.videoplayer.R;
+import hdplayer.xdplayer.videoplayer.R;
 import video.downloader.videodownloader.five.activity.HelpActivity;
 import video.downloader.videodownloader.five.view.MyViewPager;
 import video.downloader.videodownloader.five.view.ScalingImageView;

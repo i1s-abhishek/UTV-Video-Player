@@ -7,7 +7,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import classesdef.browser.BrowserLogEvent;
 import classesdef.browser.boq;
-import hdplayer.vlcplayer.videoplayer.R;
+import hdplayer.xdplayer.videoplayer.R;
 
 
 public class NoWebViewActivity extends AppCompatActivity implements View.OnClickListener {

@@ -5,7 +5,7 @@ import android.content.Intent;
 
 import java.util.regex.Pattern;
 
-import hdplayer.vlcplayer.videoplayer.R;
+import hdplayer.xdplayer.videoplayer.R;
 
 
 /* renamed from: bqj */

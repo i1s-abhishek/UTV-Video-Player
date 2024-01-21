@@ -2,7 +2,7 @@ package com.us.rateus.general;
 
 import com.us.rateus.AppRate;
 
-import hdplayer.vlcplayer.videoplayer.R;
+import hdplayer.xdplayer.videoplayer.R;
 
 /* renamed from: avo */
 public class RateConstant {

@@ -5,7 +5,7 @@ import android.widget.TextView;
 
 import butterknife.Unbinder;
 import butterknife.internal.Utils;
-import hdplayer.vlcplayer.videoplayer.R;
+import hdplayer.xdplayer.videoplayer.R;
 
 public class ReadingActivity_ViewBinding implements Unbinder {
 

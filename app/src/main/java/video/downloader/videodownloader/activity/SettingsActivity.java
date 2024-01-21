@@ -47,7 +47,7 @@ import classesdef.browser.tab.C4165e;
 import classesdef.eventbus.boc;
 import classesdef.xdplayer.ServerConfigSharedPrefrence;
 import classesdef.xdplayer.bpj;
-import hdplayer.vlcplayer.videoplayer.R;
+import hdplayer.xdplayer.videoplayer.R;
 import video.downloader.videodownloader.app.BrowserApp;
 import video.downloader.videodownloader.five.activity.BasePermissionActivity;
 import video.downloader.videodownloader.five.activity.ChooseStorageActivity;

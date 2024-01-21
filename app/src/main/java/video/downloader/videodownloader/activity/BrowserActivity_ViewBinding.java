@@ -11,7 +11,7 @@ import com.anthonycr.progress.AnimatedProgressBar;
 
 import butterknife.Unbinder;
 import butterknife.internal.Utils;
-import hdplayer.vlcplayer.videoplayer.R;
+import hdplayer.xdplayer.videoplayer.R;
 import video.downloader.videodownloader.five.view.FixedDrawerLayout;
 
 public class BrowserActivity_ViewBinding implements Unbinder {

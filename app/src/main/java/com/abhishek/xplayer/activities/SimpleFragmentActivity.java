@@ -6,7 +6,7 @@ import com.abhishek.xplayer.application.AppActivity;
 import com.abhishek.xplayer.fragments.PasswordFragment;
 import com.abhishek.xplayer.fragments.PermissionFragment;
 
-import hdplayer.vlcplayer.videoplayer.R;
+import hdplayer.xdplayer.videoplayer.R;
 
 
 public class SimpleFragmentActivity extends AppActivity {

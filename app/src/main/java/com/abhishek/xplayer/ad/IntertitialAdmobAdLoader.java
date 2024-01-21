@@ -91,7 +91,7 @@ public class IntertitialAdmobAdLoader {
         if (context != null && !this.f8100c) {
             try {
                 this.interstitialAd = new InterstitialAd(context);
-                this.interstitialAd.setAdUnitId("ca-app-pub-4292474654371508/9193863855");
+                this.interstitialAd.setAdUnitId("ca-app-pub-8178279133979191/9193863855");
                 this.interstitialAd.setAdListener(new AdListener() {
                     public void onAdFailedToLoad(int i) {
                         super.onAdFailedToLoad(i);

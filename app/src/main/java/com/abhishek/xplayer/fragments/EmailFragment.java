@@ -50,7 +50,7 @@ import classesdef.xdplayer.axv;
 import classesdef.xdplayer.axw;
 import classesdef.xdplayer.axy;
 import classesdef.xdplayer.LogEvents;
-import hdplayer.vlcplayer.videoplayer.R;
+import hdplayer.xdplayer.videoplayer.R;
 
 /* renamed from: com.inshot.xplayer.fragments.b */
 public class EmailFragment extends FragmentLifecycle implements TextWatcher, View.OnClickListener, TextView.OnEditorActionListener {

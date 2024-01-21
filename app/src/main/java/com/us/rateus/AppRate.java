@@ -8,7 +8,7 @@ import android.text.TextUtils;
 import com.us.rateus.general.RateConstant;
 import com.us.rateus.general.RatingInterface;
 
-import hdplayer.vlcplayer.videoplayer.R;
+import hdplayer.xdplayer.videoplayer.R;
 
 /* renamed from: com.zjsoft.rate.d */
 public class AppRate {

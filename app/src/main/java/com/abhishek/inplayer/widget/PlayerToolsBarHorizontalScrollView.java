@@ -16,7 +16,7 @@ import com.abhishek.xplayer.application.MyApplication;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-import hdplayer.vlcplayer.videoplayer.R;
+import hdplayer.xdplayer.videoplayer.R;
 
 
 public class PlayerToolsBarHorizontalScrollView extends HorizontalScrollView {

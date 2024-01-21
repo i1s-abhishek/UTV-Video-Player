@@ -2,7 +2,7 @@ package classesdef.player;
 
 import android.os.Build;
 
-import hdplayer.vlcplayer.videoplayer.R;
+import hdplayer.xdplayer.videoplayer.R;
 
 
 /* renamed from: aww */

@@ -10,7 +10,7 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.TextView;
 
-import hdplayer.vlcplayer.videoplayer.R;
+import hdplayer.xdplayer.videoplayer.R;
 
 
 public class SpanClickableTextView extends TextView {

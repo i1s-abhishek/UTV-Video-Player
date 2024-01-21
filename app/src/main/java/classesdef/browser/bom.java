@@ -11,7 +11,7 @@ import java.util.Locale;
 import java.util.TimeZone;
 
 import classesdef.browser.download.bpd;
-import hdplayer.vlcplayer.videoplayer.R;
+import hdplayer.xdplayer.videoplayer.R;
 
 
 /* renamed from: bom */

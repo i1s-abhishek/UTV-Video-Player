@@ -13,11 +13,11 @@ android {
         abortOnError false
     }
     defaultConfig {
-        applicationId "hdplayer.vlcplayer.videoplayer"
+        applicationId "hdplayer.xdplayer.videoplayer"
         minSdkVersion 19
         targetSdkVersion 33
-        versionCode 3
-        versionName "3"
+        versionCode 7
+        versionName "7"
         multiDexEnabled true
        ndk.abiFilters 'armeabi-v7a','arm64-v8a','x86','x86_64'
 

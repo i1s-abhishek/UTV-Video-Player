@@ -23,7 +23,8 @@ public class DefaultSharedPreferences {
 
 
     public static boolean getAdRemoved(String str, boolean z) {
-        return PreferenceManager.getDefaultSharedPreferences(MyApplication.getApplicationContext_()).getBoolean(str, z);
+        // return PreferenceManager.getDefaultSharedPreferences(MyApplication.getApplicationContext_()).getBoolean(str, z);
+        return true;
     }
 
 

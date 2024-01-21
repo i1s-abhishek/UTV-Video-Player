@@ -36,7 +36,7 @@ import java.util.List;
 import java.util.concurrent.CountDownLatch;
 
 import classesdef.ads.atd;
-import hdplayer.vlcplayer.videoplayer.R;
+import hdplayer.xdplayer.videoplayer.R;
 
 public class PremiumUpgradeActivitys extends BaseActivity implements PurchasesUpdatedListener {
 

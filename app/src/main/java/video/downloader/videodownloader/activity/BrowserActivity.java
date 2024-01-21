@@ -136,7 +136,7 @@ import classesdef.xdplayer.bpe;
 import classesdef.xdplayer.bpj;
 import es.dmoral.toasty.Toasty;
 import me.shaohui.bottomdialog.BottomDialog;
-import hdplayer.vlcplayer.videoplayer.R;
+import hdplayer.xdplayer.videoplayer.R;
 import q.rorbin.badgeview.QBadgeView;
 import video.downloader.videodownloader.app.BrowserApp;
 import video.downloader.videodownloader.five.activity.FilesActivity;

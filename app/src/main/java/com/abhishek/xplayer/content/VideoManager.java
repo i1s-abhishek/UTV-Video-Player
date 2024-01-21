@@ -54,7 +54,7 @@ import classesdef.xdplayer.axe;
 import classesdef.xdplayer.axy;
 import classesdef.xdplayer.LogEvents;
 import classesdef.xdplayer.bpj;
-import hdplayer.vlcplayer.videoplayer.R;
+import hdplayer.xdplayer.videoplayer.R;
 
 
 public class VideoManager {

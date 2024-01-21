@@ -18,7 +18,7 @@ import com.abhishek.inplayer.widget.C2481e;
 import com.abhishek.xplayer.application.MyApplication;
 
 import classesdef.xdplayer.axw;
-import hdplayer.vlcplayer.videoplayer.R;
+import hdplayer.xdplayer.videoplayer.R;
 
 
 /* renamed from: com.inshot.xplayer.subtitle.e */

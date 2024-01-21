@@ -9,7 +9,7 @@ import javax.inject.Inject;
 
 import classesdef.browser.bpn;
 import classesdef.browser.bqt;
-import hdplayer.vlcplayer.videoplayer.R;
+import hdplayer.xdplayer.videoplayer.R;
 import video.downloader.videodownloader.app.BrowserApp;
 
 public abstract class ThemableSettingsActivity extends AppCompatPreferenceActivity {

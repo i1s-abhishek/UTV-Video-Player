@@ -1,4 +1,4 @@
-package hdplayer.vlcplayer.videoplayer;
+package hdplayer.xdplayer.videoplayer;
 
 import org.junit.Test;
 

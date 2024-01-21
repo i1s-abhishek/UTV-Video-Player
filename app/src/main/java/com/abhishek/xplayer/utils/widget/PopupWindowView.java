@@ -17,7 +17,7 @@ import android.widget.PopupWindow;
 import android.widget.TextView;
 
 import classesdef.xdplayer.axw;
-import hdplayer.vlcplayer.videoplayer.R;
+import hdplayer.xdplayer.videoplayer.R;
 
 
 /* renamed from: com.inshot.xplayer.utils.widget.a */

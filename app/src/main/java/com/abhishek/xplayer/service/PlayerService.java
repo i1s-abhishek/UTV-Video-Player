@@ -36,7 +36,7 @@ import classesdef.xdplayer.axd;
 import classesdef.xdplayer.axw;
 import classesdef.xdplayer.LogEvents;
 
-import hdplayer.vlcplayer.videoplayer.R;
+import hdplayer.xdplayer.videoplayer.R;
 import tv.danmaku.ijk.media.player.IMediaPlayer;
 
 

@@ -3,7 +3,7 @@ package com.abhishek.xplayer.purchase;
 import android.app.AlertDialog;
 import android.content.Context;
 
-import hdplayer.vlcplayer.videoplayer.R;
+import hdplayer.xdplayer.videoplayer.R;
 
 
 /* renamed from: com.popularapp.videodownloaderforinstagram.common.c */

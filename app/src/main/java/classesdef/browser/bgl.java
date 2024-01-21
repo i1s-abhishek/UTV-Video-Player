@@ -15,7 +15,7 @@ import android.util.Log;
 import net.i2p.android.router.service.IRouterState;
 import net.i2p.android.router.service.State;
 
-import hdplayer.vlcplayer.videoplayer.R;
+import hdplayer.xdplayer.videoplayer.R;
 
 /* renamed from: bgl */
 public class bgl {

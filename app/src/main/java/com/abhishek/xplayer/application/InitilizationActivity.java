@@ -39,7 +39,7 @@ public class InitilizationActivity {
             once = true;
             C4786mv.m23718a().mo26045a((Context) activity, "d8dd9a1d5a5f439b9db9fda6ddcff54c");
 //   AudienceNetworkAds.initialize(activity.getApplicationContext());
-            MobileAds.initialize(activity.getApplicationContext(), "ca-app-pub-4292474654371508~7717130651");
+            MobileAds.initialize(activity.getApplicationContext(), "ca-app-pub-8178279133979191~8178279133");
             Log.e("addInitilize done",String.valueOf(once));
             MobileAds.setAppMuted(true);
             SelfLoadedServerAds.m10398a(activity.getApplicationContext(), "http://ad.myinstashot.com/hd3____", axy.cacheFolderAddresh(activity.getApplicationContext()));

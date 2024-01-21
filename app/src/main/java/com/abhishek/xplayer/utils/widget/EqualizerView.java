@@ -16,7 +16,7 @@ import android.view.View;
 
 import java.util.ArrayList;
 
-import hdplayer.vlcplayer.videoplayer.R;
+import hdplayer.xdplayer.videoplayer.R;
 
 
 public class EqualizerView extends View {

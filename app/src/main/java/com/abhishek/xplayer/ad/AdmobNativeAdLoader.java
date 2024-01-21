@@ -24,7 +24,7 @@ import com.mopub.nativeads.NativeErrorCode;
 
 import classesdef.ads.AdInterface;
 import classesdef.xdplayer.ServerConfigSharedPrefrence;
-import hdplayer.vlcplayer.videoplayer.R;
+import hdplayer.xdplayer.videoplayer.R;
 
 
 
@@ -63,7 +63,7 @@ class AdmobNativeAdLoader {
     public void loadUnifiedNativeAds() {
         Log.e("folderListAds","adload unkwon admob load1"+String.valueOf("x"));
         UnifiedAdListener unifiedAdListener = new UnifiedAdListener();
-        AdLoader build = new AdLoader.Builder(this.context, "ca-app-pub-4292474654371508/9385435541")
+        AdLoader build = new AdLoader.Builder(this.context, "ca-app-pub-8178279133979191/9385435541")
                 .forUnifiedNativeAd(unifiedAdListener)
                 .withAdListener(unifiedAdListener)
                 .withNativeAdOptions(new NativeAdOptions.Builder()

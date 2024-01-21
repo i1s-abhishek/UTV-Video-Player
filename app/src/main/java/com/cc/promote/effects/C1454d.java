@@ -3,7 +3,7 @@ package com.cc.promote.effects;
 import android.content.Context;
 
 
-import hdplayer.vlcplayer.videoplayer.R;
+import hdplayer.xdplayer.videoplayer.R;
 
 /* renamed from: com.cc.promote.effects.d */
 public class C1454d extends C1451a {

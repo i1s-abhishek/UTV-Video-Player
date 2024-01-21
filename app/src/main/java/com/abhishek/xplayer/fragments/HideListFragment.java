@@ -37,7 +37,7 @@ import java.util.Set;
 import classesdef.eventbus.awj;
 import classesdef.inplayer.SharedPrefrence;
 import classesdef.xdplayer.LogEvents;
-import hdplayer.vlcplayer.videoplayer.R;
+import hdplayer.xdplayer.videoplayer.R;
 
 
 /* renamed from: com.inshot.xplayer.fragments.f */

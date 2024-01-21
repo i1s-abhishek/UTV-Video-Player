@@ -27,7 +27,7 @@ import classesdef.database.boh;
 import classesdef.eventbus.bob;
 import classesdef.inplayer.awt;
 import es.dmoral.toasty.Toasty;
-import hdplayer.vlcplayer.videoplayer.R;
+import hdplayer.xdplayer.videoplayer.R;
 import video.downloader.videodownloader.five.service.ManualParseService;
 
 /* renamed from: boi */

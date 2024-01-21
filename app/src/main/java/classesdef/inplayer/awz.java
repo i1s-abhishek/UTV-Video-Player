@@ -17,7 +17,7 @@ import com.abhishek.xplayer.application.MyApplication;
 
 
 import classesdef.xdplayer.axy;
-import hdplayer.vlcplayer.videoplayer.R;
+import hdplayer.xdplayer.videoplayer.R;
 
 
 /* renamed from: awz */

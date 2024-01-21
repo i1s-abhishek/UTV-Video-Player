@@ -14,7 +14,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import classesdef.inplayer.SharedPrefrence;
 import classesdef.xdplayer.axy;
-import hdplayer.vlcplayer.videoplayer.R;
+import hdplayer.xdplayer.videoplayer.R;
 
 
 public class FunnyAdActivity extends AppCompatActivity {

@@ -32,7 +32,7 @@ import classesdef.browser.tab.C4805t;
 import classesdef.browser.tab.C4858u;
 import classesdef.browser.tab.C4892v;
 import classesdef.browser.tab.C4927w;
-import hdplayer.vlcplayer.videoplayer.R;
+import hdplayer.xdplayer.videoplayer.R;
 import video.downloader.videodownloader.app.BrowserApp;
 
 /* renamed from: bqb */

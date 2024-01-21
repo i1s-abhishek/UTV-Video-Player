@@ -31,7 +31,7 @@ import classesdef.inplayer.axc;
 import classesdef.player.awr;
 import classesdef.xdplayer.axw;
 import classesdef.xdplayer.LogEvents;
-import hdplayer.vlcplayer.videoplayer.R;
+import hdplayer.xdplayer.videoplayer.R;
 
 
 /* renamed from: com.inshot.xplayer.subtitle.d */

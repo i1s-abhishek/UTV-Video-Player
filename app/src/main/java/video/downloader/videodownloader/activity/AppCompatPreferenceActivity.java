@@ -11,7 +11,7 @@ import android.view.ViewGroup;
 import androidx.appcompat.app.AppCompatCallback;
 import androidx.appcompat.app.AppCompatDelegate;
 
-import hdplayer.vlcplayer.videoplayer.R;
+import hdplayer.xdplayer.videoplayer.R;
 
 
 public abstract class AppCompatPreferenceActivity extends PreferenceActivity {

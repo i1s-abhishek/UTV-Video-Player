@@ -46,7 +46,7 @@ import classesdef.browser.download.boi;
 import classesdef.browser.download.bpd;
 import classesdef.database.bnm;
 import classesdef.xdplayer.bpj;
-import hdplayer.vlcplayer.videoplayer.R;
+import hdplayer.xdplayer.videoplayer.R;
 
 
 /* renamed from: bnf */

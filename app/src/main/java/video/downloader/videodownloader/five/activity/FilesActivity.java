@@ -29,7 +29,7 @@ import classesdef.eventbus.bnv;
 import classesdef.xdplayer.LogEvents;
 import classesdef.xdplayer.bpe;
 import classesdef.xdplayer.bpj;
-import hdplayer.vlcplayer.videoplayer.R;
+import hdplayer.xdplayer.videoplayer.R;
 
 import q.rorbin.badgeview.QBadgeView;
 import video.downloader.videodownloader.activity.MainActivity;

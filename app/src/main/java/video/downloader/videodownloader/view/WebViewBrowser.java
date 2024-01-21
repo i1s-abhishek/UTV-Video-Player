@@ -56,7 +56,7 @@ import classesdef.browser.tab.C4858u;
 import classesdef.browser.tab.C4892v;
 import classesdef.browser.tab.C4927w;
 import classesdef.eventbus.bob;
-import hdplayer.vlcplayer.videoplayer.R;
+import hdplayer.xdplayer.videoplayer.R;
 import video.downloader.videodownloader.activity.BrowserActivity;
 import video.downloader.videodownloader.app.BrowserApp;
 

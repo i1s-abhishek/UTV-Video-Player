@@ -5,7 +5,7 @@ import android.os.Environment;
 import android.os.StatFs;
 import android.text.format.Formatter;
 
-import hdplayer.vlcplayer.videoplayer.R;
+import hdplayer.xdplayer.videoplayer.R;
 
 
 /* renamed from: bot */

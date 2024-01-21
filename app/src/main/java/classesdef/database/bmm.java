@@ -22,7 +22,7 @@ import classesdef.browser.tab.C4165e;
 import classesdef.browser.tab.C4805t;
 import classesdef.browser.tab.C4858u;
 import classesdef.browser.tab.C4927w;
-import hdplayer.vlcplayer.videoplayer.R;
+import hdplayer.xdplayer.videoplayer.R;
 
 
 @Singleton

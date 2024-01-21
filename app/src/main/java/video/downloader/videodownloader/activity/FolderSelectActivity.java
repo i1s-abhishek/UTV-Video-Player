@@ -28,7 +28,7 @@ import classesdef.browser.BrowserLogEvent;
 import classesdef.browser.bpb;
 import classesdef.browser.bqw;
 import classesdef.xdplayer.bpj;
-import hdplayer.vlcplayer.videoplayer.R;
+import hdplayer.xdplayer.videoplayer.R;
 
 public class FolderSelectActivity extends AppCompatActivity implements View.OnClickListener {
 

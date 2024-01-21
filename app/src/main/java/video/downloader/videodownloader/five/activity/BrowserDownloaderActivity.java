@@ -44,7 +44,7 @@ import classesdef.browser.download.bpa;
 import classesdef.browser.download.bpd;
 import classesdef.database.bnm;
 import es.dmoral.toasty.Toasty;
-import hdplayer.vlcplayer.videoplayer.R;
+import hdplayer.xdplayer.videoplayer.R;
 
 
 public class BrowserDownloaderActivity extends BasePermissionActivity {

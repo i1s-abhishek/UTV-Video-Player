@@ -14,7 +14,7 @@ import com.abhishek.xplayer.service.PlayerService;
 import classesdef.inplayer.SharedPrefrence;
 import classesdef.xdplayer.axv;
 import classesdef.xdplayer.LogEvents;
-import hdplayer.vlcplayer.videoplayer.R;
+import hdplayer.xdplayer.videoplayer.R;
 
 
 public class SelfReceiver extends BroadcastReceiver {

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="hdplayer.vlcplayer.videoplayer">
+    package="hdplayer.xdplayer.videoplayer">
 
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.INTERNET"/>
@@ -14,7 +14,6 @@
     <uses-feature android:name="android.hardware.screen.LANDSCAPE" android:required="false"/>
     <uses-feature android:name="android.hardware.WIFI" android:required="false"/>
 
-    <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.READ_MEDIA_VIDEO"/>
     <uses-permission android:name="android.permission.READ_MEDIA_AUDIO"/>
     <uses-permission android:name="android.permission.READ_MEDIA_IMAGES"/>
@@ -36,7 +35,7 @@
         android:preserveLegacyExternalStorage="true"
         android:requestLegacyExternalStorage="true"
         android:theme="@style/AppTheme">
-        <meta-data android:name="com.google.android.gms.ads.APPLICATION_ID" android:value="ca-app-pub-4292474654371508~7717130651"/>
+        <meta-data android:name="com.google.android.gms.ads.APPLICATION_ID" android:value="ca-app-pub-8178279133979191~8178279133"/>
         <activity android:configChanges="keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize"
             android:label="@string/app_name"
             android:name="com.abhishek.xplayer.activities.SplashActivity"
@@ -620,7 +619,7 @@
                 <action android:name="android.intent.action.MEDIA_BUTTON"/>
             </intent-filter>
         </receiver>
-        <provider android:authorities="hdplayer.vlcplayer.videoplayer.share"
+        <provider android:authorities="hdplayer.xdplayer.videoplayer.share"
             android:exported="false"
             android:grantUriPermissions="true"
             android:name="com.abhishek.xplayer.ShareProvider"/>

@@ -19,7 +19,7 @@ import com.abhishek.xplayer.subtitle.C2822c;
 import java.util.Locale;
 
 import classesdef.xdplayer.axy;
-import hdplayer.vlcplayer.videoplayer.R;
+import hdplayer.xdplayer.videoplayer.R;
 
 
 /* renamed from: awo */

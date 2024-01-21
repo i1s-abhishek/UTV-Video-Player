@@ -20,7 +20,7 @@ import com.mopub.common.privacy.PersonalInfoManager;
 import com.cc.promote.activity.PolicyActivity;
 
 import classesdef.xdplayer.ServerConfigSharedPrefrence;
-import hdplayer.vlcplayer.videoplayer.R;
+import hdplayer.xdplayer.videoplayer.R;
 
 
 /* renamed from: mv */

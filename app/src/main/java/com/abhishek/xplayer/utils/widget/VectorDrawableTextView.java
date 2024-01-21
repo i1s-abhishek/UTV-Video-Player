@@ -9,7 +9,7 @@ import android.util.AttributeSet;
 import androidx.appcompat.widget.AppCompatDrawableManager;
 import androidx.appcompat.widget.AppCompatTextView;
 
-import hdplayer.vlcplayer.videoplayer.R;
+import hdplayer.xdplayer.videoplayer.R;
 
 
 public class VectorDrawableTextView extends AppCompatTextView {

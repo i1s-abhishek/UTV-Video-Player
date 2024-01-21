@@ -23,7 +23,7 @@ import classesdef.inplayer.awt;
 import classesdef.inplayer.axc;
 import classesdef.xdplayer.axy;
 import de.timroes.axmlrpc.XMLRPCClient;
-import hdplayer.vlcplayer.videoplayer.R;
+import hdplayer.xdplayer.videoplayer.R;
 
 
 /* renamed from: com.inshot.xplayer.subtitle.b */

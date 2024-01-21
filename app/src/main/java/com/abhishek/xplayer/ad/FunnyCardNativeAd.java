@@ -24,7 +24,7 @@ import classesdef.ads.C4782mr;
 import classesdef.ads.AdInterface;
 import classesdef.xdplayer.axw;
 import classesdef.xdplayer.LogEvents;
-import hdplayer.vlcplayer.videoplayer.R;
+import hdplayer.xdplayer.videoplayer.R;
 
 
 public class FunnyCardNativeAd implements AdInterface2, AdInterface {

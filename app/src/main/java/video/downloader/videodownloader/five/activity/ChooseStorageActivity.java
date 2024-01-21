@@ -17,7 +17,7 @@ import classesdef.browser.bnp;
 import classesdef.browser.BrowserLogEvent;
 import classesdef.browser.bot;
 import classesdef.xdplayer.bpj;
-import hdplayer.vlcplayer.videoplayer.R;
+import hdplayer.xdplayer.videoplayer.R;
 import video.downloader.videodownloader.activity.FolderSelectActivity;
 
 

@@ -45,7 +45,7 @@ import classesdef.database.bnm;
 import classesdef.eventbus.bnt;
 import classesdef.eventbus.boa;
 import classesdef.xdplayer.bpe;
-import hdplayer.vlcplayer.videoplayer.R;
+import hdplayer.xdplayer.videoplayer.R;
 import video.downloader.videodownloader.activity.MainActivity;
 import video.downloader.videodownloader.five.activity.ImagePreActivity;
 

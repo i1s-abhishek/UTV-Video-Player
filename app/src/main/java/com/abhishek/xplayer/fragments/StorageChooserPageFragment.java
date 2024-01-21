@@ -29,7 +29,7 @@ import java.util.List;
 
 import classesdef.player.awr;
 import classesdef.xdplayer.axy;
-import hdplayer.vlcplayer.videoplayer.R;
+import hdplayer.xdplayer.videoplayer.R;
 
 
 /* renamed from: com.inshot.xplayer.fragments.h */

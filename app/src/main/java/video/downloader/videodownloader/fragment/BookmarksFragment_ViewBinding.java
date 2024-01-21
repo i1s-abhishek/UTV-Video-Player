@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import butterknife.Unbinder;
 import butterknife.internal.Utils;
-import hdplayer.vlcplayer.videoplayer.R;
+import hdplayer.xdplayer.videoplayer.R;
 
 public class BookmarksFragment_ViewBinding implements Unbinder {
 

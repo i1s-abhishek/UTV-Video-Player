@@ -16,7 +16,7 @@ import java.io.File;
 
 import classesdef.browser.bph;
 import classesdef.xdplayer.LogEvents;
-import hdplayer.vlcplayer.videoplayer.R;
+import hdplayer.xdplayer.videoplayer.R;
 
 
 public class ImagePreActivity extends AppCompatActivity {

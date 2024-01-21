@@ -8,7 +8,7 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AlertDialog;
 
-import hdplayer.vlcplayer.videoplayer.R;
+import hdplayer.xdplayer.videoplayer.R;
 
 
 /* renamed from: bno */

@@ -9,7 +9,7 @@ import android.webkit.CookieSyncManager;
 import classesdef.browser.tab.C3659b;
 import classesdef.browser.tab.C4067c;
 import classesdef.browser.tab.C4165e;
-import hdplayer.vlcplayer.videoplayer.R;
+import hdplayer.xdplayer.videoplayer.R;
 
 
 public class IncognitoActivity extends BrowserActivity {

@@ -21,7 +21,7 @@ import com.abhishek.xplayer.application.MyApplication;
 
 import classesdef.xdplayer.PermissionHelper;
 import classesdef.xdplayer.Permissions;
-import hdplayer.vlcplayer.videoplayer.R;
+import hdplayer.xdplayer.videoplayer.R;
 
 
 public class AllFilesPermissionFragment extends FragmentLifecycle implements View.OnClickListener {

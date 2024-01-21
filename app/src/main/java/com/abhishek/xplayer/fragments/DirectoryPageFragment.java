@@ -37,7 +37,7 @@ import classesdef.inplayer.axi;
 import classesdef.inplayer.SharedPrefrence;
 import classesdef.xdplayer.axy;
 import classesdef.xdplayer.LogEvents;
-import hdplayer.vlcplayer.videoplayer.R;
+import hdplayer.xdplayer.videoplayer.R;
 
 
 /* renamed from: com.inshot.xplayer.fragments.c */

@@ -23,7 +23,7 @@ import classesdef.ads.RemoteCloudConfig;
 import classesdef.inplayer.awt;
 import classesdef.inplayer.awz;
 import classesdef.inplayer.SharedPrefrence;
-import hdplayer.vlcplayer.videoplayer.R;
+import hdplayer.xdplayer.videoplayer.R;
 
 /* renamed from: awp */
 public class awp {

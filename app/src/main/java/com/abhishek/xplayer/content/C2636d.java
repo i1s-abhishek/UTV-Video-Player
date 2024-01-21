@@ -25,7 +25,7 @@ import classesdef.inplayer.axi;
 import classesdef.xdplayer.awx;
 import classesdef.xdplayer.axe;
 import classesdef.xdplayer.axy;
-import hdplayer.vlcplayer.videoplayer.R;
+import hdplayer.xdplayer.videoplayer.R;
 
 
 /* renamed from: com.inshot.xplayer.content.d */

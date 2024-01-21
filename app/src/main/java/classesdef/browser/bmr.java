@@ -20,7 +20,7 @@ import androidx.appcompat.app.AlertDialog;
 
 import java.util.ArrayList;
 
-import hdplayer.vlcplayer.videoplayer.R;
+import hdplayer.xdplayer.videoplayer.R;
 
 
 /* renamed from: bmr */

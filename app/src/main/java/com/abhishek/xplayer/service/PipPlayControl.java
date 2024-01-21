@@ -34,7 +34,7 @@ import classesdef.inplayer.axi;
 import classesdef.inplayer.SharedPrefrence;
 import classesdef.xdplayer.axv;
 import classesdef.xdplayer.axw;
-import hdplayer.vlcplayer.videoplayer.R;
+import hdplayer.xdplayer.videoplayer.R;
 import tv.danmaku.ijk.media.player.IMediaPlayer;
 import tv.danmaku.ijk.media.player.IjkTimedText;
 

@@ -44,7 +44,7 @@ import classesdef.browser.bqs;
 import classesdef.browser.bqt;
 import classesdef.browser.tab.C0053ad;
 import classesdef.browser.tab.C4892v;
-import hdplayer.vlcplayer.videoplayer.R;
+import hdplayer.xdplayer.videoplayer.R;
 import video.downloader.videodownloader.activity.C3524a;
 import video.downloader.videodownloader.activity.TabsManager;
 import video.downloader.videodownloader.activity.ReadingActivity;

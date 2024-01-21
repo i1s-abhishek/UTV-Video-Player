@@ -50,7 +50,7 @@ import classesdef.xdplayer.axh;
 import classesdef.xdplayer.PermissionHelper;
 import classesdef.xdplayer.axv;
 import classesdef.xdplayer.LogEvents;
-import hdplayer.vlcplayer.videoplayer.R;
+import hdplayer.xdplayer.videoplayer.R;
 
 
 public class FileExplorerActivity extends AppActivity implements axh.C1349a {

@@ -5,7 +5,7 @@ import android.util.Log;
 
 import com.abhishek.xplayer.application.MyApplication;
 
-import hdplayer.vlcplayer.videoplayer.R;
+import hdplayer.xdplayer.videoplayer.R;
 
 
 /* renamed from: awf */

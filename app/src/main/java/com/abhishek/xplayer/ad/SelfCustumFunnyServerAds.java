@@ -27,7 +27,7 @@ import java.util.Random;
 import classesdef.ads.C4314ie;
 import classesdef.ads.AppDataAdded;
 import classesdef.xdplayer.ServerConfigSharedPrefrence;
-import hdplayer.vlcplayer.videoplayer.R;
+import hdplayer.xdplayer.videoplayer.R;
 
 
 public class SelfCustumFunnyServerAds {

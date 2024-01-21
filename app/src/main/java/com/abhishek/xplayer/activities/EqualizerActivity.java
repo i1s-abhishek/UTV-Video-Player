@@ -39,7 +39,7 @@ import classesdef.inplayer.SharedPrefrence;
 import classesdef.xdplayer.awf;
 import classesdef.xdplayer.axw;
 import classesdef.xdplayer.LogEvents;
-import hdplayer.vlcplayer.videoplayer.R;
+import hdplayer.xdplayer.videoplayer.R;
 import tv.danmaku.ijk.media.player.IMediaPlayer;
 
 

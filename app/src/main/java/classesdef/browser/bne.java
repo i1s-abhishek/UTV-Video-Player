@@ -9,7 +9,7 @@ import android.widget.BaseAdapter;
 
 import com.mopub.common.util.Views;
 
-import hdplayer.vlcplayer.videoplayer.R;
+import hdplayer.xdplayer.videoplayer.R;
 
 
 /* renamed from: bne */

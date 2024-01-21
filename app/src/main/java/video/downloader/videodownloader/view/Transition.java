@@ -8,7 +8,7 @@ import android.graphics.drawable.TransitionDrawable;
 import androidx.core.content.ContextCompat;
 
 import classesdef.browser.bqt;
-import hdplayer.vlcplayer.videoplayer.R;
+import hdplayer.xdplayer.videoplayer.R;
 
 public class Transition extends TransitionDrawable {
 

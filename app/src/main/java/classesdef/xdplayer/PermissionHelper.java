@@ -108,7 +108,7 @@ public class PermissionHelper {
         if (Build.VERSION.SDK_INT >= 30) {
             Intent intent = new Intent(Settings.ACTION_MANAGE_APP_ALL_FILES_ACCESS_PERMISSION);
             intent.addCategory(Intent.CATEGORY_DEFAULT);
-            intent.setData(Uri.fromParts("package", "hdplayer.vlcplayer.videoplayer", null));
+            intent.setData(Uri.fromParts("package", "hdplayer.xdplayer.videoplayer", null));
 
             try {
                 activity.startActivityForResult(intent, 471);

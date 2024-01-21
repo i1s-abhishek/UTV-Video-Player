@@ -93,7 +93,7 @@ import classesdef.xdplayer.axy;
 import classesdef.xdplayer.LogEvents;
 import classesdef.xdplayer.bpe;
 import classesdef.xdplayer.bpj;
-import hdplayer.vlcplayer.videoplayer.R;
+import hdplayer.xdplayer.videoplayer.R;
 import video.downloader.videodownloader.activity.MainActivity;
 
 

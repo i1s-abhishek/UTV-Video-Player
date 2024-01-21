@@ -24,7 +24,7 @@ import com.mopub.common.privacy.PersonalInfoManager;
 
 import org.json.JSONObject;
 
-import hdplayer.vlcplayer.videoplayer.R;
+import hdplayer.xdplayer.videoplayer.R;
 
 /* renamed from: com.cc.promote.activity.PolicyActivity */
 public class PolicyActivity extends AppCompatActivity {

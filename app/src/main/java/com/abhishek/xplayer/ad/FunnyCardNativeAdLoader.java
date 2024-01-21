@@ -36,7 +36,7 @@ import classesdef.ads.C4782mr;
 import classesdef.ads.AdInterface;
 import classesdef.ads.C4811nk;
 import classesdef.xdplayer.ServerConfigSharedPrefrence;
-import hdplayer.vlcplayer.videoplayer.R;
+import hdplayer.xdplayer.videoplayer.R;
 
 
 public class FunnyCardNativeAdLoader implements AdInterface {

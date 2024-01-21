@@ -114,7 +114,7 @@ import classesdef.xdplayer.axw;
 import classesdef.xdplayer.axx;
 import classesdef.xdplayer.axy;
 import classesdef.xdplayer.LogEvents;
-import hdplayer.vlcplayer.videoplayer.R;
+import hdplayer.xdplayer.videoplayer.R;
 
 
 /* renamed from: com.inshot.xplayer.fragments.j */

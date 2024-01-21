@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.Set;
 
 import classesdef.xdplayer.axq;
-import hdplayer.vlcplayer.videoplayer.R;
+import hdplayer.xdplayer.videoplayer.R;
 
 public class C2625b {
 

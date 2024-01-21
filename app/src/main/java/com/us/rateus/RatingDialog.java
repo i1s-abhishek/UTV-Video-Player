@@ -27,7 +27,7 @@ import com.us.rateus.view.StarCheckView;
 import java.util.ArrayList;
 import java.util.Locale;
 
-import hdplayer.vlcplayer.videoplayer.R;
+import hdplayer.xdplayer.videoplayer.R;
 
 
 /* renamed from: c */

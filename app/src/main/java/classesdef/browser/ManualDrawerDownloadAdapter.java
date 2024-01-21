@@ -21,7 +21,7 @@ import classesdef.browser.download.bpd;
 import classesdef.eventbus.bns;
 import es.dmoral.toasty.Toasty;
 import me.shaohui.bottomdialog.BottomDialog;
-import hdplayer.vlcplayer.videoplayer.R;
+import hdplayer.xdplayer.videoplayer.R;
 import video.downloader.videodownloader.five.activity.FilesActivity;
 
 /* renamed from: bnj */

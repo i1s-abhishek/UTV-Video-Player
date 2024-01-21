@@ -29,7 +29,7 @@ import classesdef.eventbus.awj;
 import classesdef.xdplayer.bpe;
 import classesdef.xdplayer.bpj;
 import es.dmoral.toasty.Toasty;
-import hdplayer.vlcplayer.videoplayer.R;
+import hdplayer.xdplayer.videoplayer.R;
 
 public class bou {
 

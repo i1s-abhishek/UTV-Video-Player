@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import classesdef.browser.bni;
 import classesdef.browser.boe;
 import classesdef.browser.BrowserLogEvent;
-import hdplayer.vlcplayer.videoplayer.R;
+import hdplayer.xdplayer.videoplayer.R;
 import video.downloader.videodownloader.five.view.MyViewPager;
 
 public class HelpActivity extends AppCompatActivity {

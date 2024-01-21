@@ -18,7 +18,7 @@ import java.util.HashMap;
 
 import classesdef.inplayer.axc;
 import classesdef.inplayer.SharedPrefrence;
-import hdplayer.vlcplayer.videoplayer.R;
+import hdplayer.xdplayer.videoplayer.R;
 
 
 /* renamed from: awq */

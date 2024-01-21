@@ -5,7 +5,7 @@ import android.content.res.Resources;
 import android.util.TypedValue;
 import android.view.ViewGroup;
 
-import hdplayer.vlcplayer.videoplayer.R;
+import hdplayer.xdplayer.videoplayer.R;
 
 
 

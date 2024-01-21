@@ -27,7 +27,7 @@ import classesdef.inplayer.SharedPrefrence;
 import classesdef.xdplayer.axh;
 import classesdef.xdplayer.axy;
 import classesdef.xdplayer.LogEvents;
-import hdplayer.vlcplayer.videoplayer.R;
+import hdplayer.xdplayer.videoplayer.R;
 
 public class NotifyService extends Service implements axh.C1349a {
 

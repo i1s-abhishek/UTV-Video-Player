@@ -53,7 +53,7 @@ import classesdef.xdplayer.ServerConfigSharedPrefrence;
 import classesdef.xdplayer.avt;
 import classesdef.xdplayer.axw;
 import classesdef.xdplayer.LogEvents;
-import hdplayer.vlcplayer.videoplayer.R;
+import hdplayer.xdplayer.videoplayer.R;
 
 
 /* renamed from: com.inshot.xplayer.fragments.i */

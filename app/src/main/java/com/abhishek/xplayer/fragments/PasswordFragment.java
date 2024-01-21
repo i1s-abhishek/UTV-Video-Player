@@ -33,7 +33,7 @@ import classesdef.xdplayer.axv;
 import classesdef.xdplayer.axw;
 import classesdef.xdplayer.aya;
 import classesdef.xdplayer.LogEvents;
-import hdplayer.vlcplayer.videoplayer.R;
+import hdplayer.xdplayer.videoplayer.R;
 
 /* renamed from: com.inshot.xplayer.fragments.d */
 public class PasswordFragment extends FragmentLifecycle implements View.OnClickListener {

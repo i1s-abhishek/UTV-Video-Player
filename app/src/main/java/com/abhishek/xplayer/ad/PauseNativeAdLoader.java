@@ -13,7 +13,7 @@ import com.mopub.nativeads.NativeErrorCode;
 import classesdef.ads.AdInterface;
 import classesdef.xdplayer.axw;
 import classesdef.xdplayer.LogEvents;
-import hdplayer.vlcplayer.videoplayer.R;
+import hdplayer.xdplayer.videoplayer.R;
 
 
 

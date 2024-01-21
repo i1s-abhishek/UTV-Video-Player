@@ -9,7 +9,7 @@ import androidx.appcompat.app.AlertDialog;
 import javax.inject.Inject;
 import javax.inject.Singleton;
 
-import hdplayer.vlcplayer.videoplayer.R;
+import hdplayer.xdplayer.videoplayer.R;
 import video.downloader.videodownloader.app.BrowserApp;
 
 @Singleton

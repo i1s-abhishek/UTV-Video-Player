@@ -179,7 +179,7 @@ public class MopubInterstitialAdLoader implements AdInterface2 {
         if (context != null && !m10292c()) {
             try {
                 this.interstitialAd = new com.google.android.gms.ads.InterstitialAd(context);
-                this.interstitialAd.setAdUnitId("ca-app-pub-4292474654371508/7689210490");
+                this.interstitialAd.setAdUnitId("ca-app-pub-8178279133979191/7689210490");
                 this.interstitialAd.setAdListener(new AdListener() {
                     public void onAdFailedToLoad(int i) {
                         super.onAdFailedToLoad(i);

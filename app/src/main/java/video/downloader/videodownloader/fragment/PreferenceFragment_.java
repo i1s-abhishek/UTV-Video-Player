@@ -10,7 +10,7 @@ import javax.inject.Inject;
 
 import classesdef.browser.bpn;
 import classesdef.browser.bqw;
-import hdplayer.vlcplayer.videoplayer.R;
+import hdplayer.xdplayer.videoplayer.R;
 import video.downloader.videodownloader.app.BrowserApp;
 
 public class PreferenceFragment_ extends PreferenceFragment implements Preference.OnPreferenceChangeListener, Preference.OnPreferenceClickListener {

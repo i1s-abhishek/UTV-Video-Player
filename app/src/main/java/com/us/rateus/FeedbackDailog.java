@@ -16,7 +16,7 @@ import com.us.rateus.general.RateConstant;
 import com.us.rateus.general.RatingTheme;
 import com.us.rateus.general.RatingInterface;
 
-import hdplayer.vlcplayer.videoplayer.R;
+import hdplayer.xdplayer.videoplayer.R;
 
 public class FeedbackDailog {
     /* access modifiers changed from: package-private */

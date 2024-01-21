@@ -16,7 +16,7 @@ import com.mopub.nativeads.NativeErrorCode;
 import java.util.HashMap;
 
 import classesdef.ads.AdInterface;
-import hdplayer.vlcplayer.videoplayer.R;
+import hdplayer.xdplayer.videoplayer.R;
 
 public class NativeAds implements AdInterface {
 

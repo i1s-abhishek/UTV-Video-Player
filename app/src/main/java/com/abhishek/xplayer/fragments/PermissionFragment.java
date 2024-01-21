@@ -18,7 +18,7 @@ import com.abhishek.xplayer.activities.SimpleFragmentActivity;
 import com.abhishek.xplayer.application.MyApplication;
 
 import classesdef.xdplayer.PermissionHelper;
-import hdplayer.vlcplayer.videoplayer.R;
+import hdplayer.xdplayer.videoplayer.R;
 
 
 /* renamed from: com.inshot.xplayer.fragments.e */

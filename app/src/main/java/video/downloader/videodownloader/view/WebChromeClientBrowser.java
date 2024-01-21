@@ -23,7 +23,7 @@ import classesdef.browser.bmy;
 import classesdef.browser.bql;
 import classesdef.browser.download.boi;
 import classesdef.eventbus.bob;
-import hdplayer.vlcplayer.videoplayer.R;
+import hdplayer.xdplayer.videoplayer.R;
 import video.downloader.videodownloader.app.BrowserApp;
 
 public class WebChromeClientBrowser extends WebChromeClient {

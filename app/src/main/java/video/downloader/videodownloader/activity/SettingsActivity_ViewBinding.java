@@ -7,7 +7,7 @@ import androidx.appcompat.widget.SwitchCompat;
 
 import butterknife.Unbinder;
 import butterknife.internal.Utils;
-import hdplayer.vlcplayer.videoplayer.R;
+import hdplayer.xdplayer.videoplayer.R;
 
 public class SettingsActivity_ViewBinding implements Unbinder {
 

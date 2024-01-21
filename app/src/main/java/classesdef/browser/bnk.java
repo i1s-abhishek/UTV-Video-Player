@@ -37,7 +37,7 @@ import classesdef.browser.download.bpd;
 import classesdef.database.bnm;
 import classesdef.xdplayer.bpj;
 import es.dmoral.toasty.Toasty;
-import hdplayer.vlcplayer.videoplayer.R;
+import hdplayer.xdplayer.videoplayer.R;
 
 /* renamed from: bnk */
 public class bnk {
