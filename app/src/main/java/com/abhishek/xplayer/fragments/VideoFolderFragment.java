@@ -356,7 +356,7 @@ public class VideoFolderFragment extends FragmentLifecycle implements SwipeRefre
         }
         // m12524b(true);
         // change so that download icon not appear on mainactivity
-        m12524b(true);
+        m12524b(false);
         this.animationDrawable = ((FileExplorerActivity) getActivity()).adButtonAds(0);
         recyclerView.setAdapter(this.videoFolderAdapter);
         this.f10975q = inflate;
