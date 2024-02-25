@@ -25,7 +25,7 @@ import androidx.fragment.app.FragmentManager;
 import com.abhishek.xplayer.activities.FileExplorerActivity;
 import com.abhishek.xplayer.application.AppActivity;
 import com.abhishek.xplayer.application.MyApplication;
-import com.abhishek.xplayer.content.C2624a;
+import com.abhishek.xplayer.content.MediaFolder;
 
 import classesdef.inplayer.awz;
 import classesdef.inplayer.SharedPrefrence;
@@ -307,7 +307,7 @@ public class PasswordFragment extends FragmentLifecycle implements View.OnClickL
                         FragmentManager supportFragmentManager = getActivity().getSupportFragmentManager();
                         supportFragmentManager.popBackStack();
                         if (this.f10703a == 0) {
-                            AppActivity.loadFragmet(supportFragmentManager, VideoListPrivateVideoListFragment.m12406a((C2624a) null, true), true);
+                            AppActivity.loadFragmet(supportFragmentManager, VideoListPrivateVideoListFragment.m12406a((MediaFolder) null, true), true);
                             return;
                         }
                         FragmentActivity activity = getActivity();

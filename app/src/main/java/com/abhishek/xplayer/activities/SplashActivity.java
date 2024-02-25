@@ -114,7 +114,7 @@ public class SplashActivity extends AppCompatActivity  {
         Log.e("splashUseMoPub",String.valueOf(FirebaseStup.splashUseMoPub("splashUseMoPub")));
         this.splashUseMoPub =FirebaseStup.splashUseMoPub("splashUseMoPub");
         LogEvents.m18483a("OpenApp");
-        VideoManager.m12177a(this.handler);
+        VideoManager.setHandler(this.handler);
         if (getIntent() != null && getIntent().getBooleanExtra("fromNotification", false)) {
             LogEvents.m18492b("Notification", "click");
         }
@@ -164,7 +164,7 @@ public class SplashActivity extends AppCompatActivity  {
             this.f7914o = null;
         }
         this.handler.removeMessages(0);
-        VideoManager.m12177a(this.handler);
+        VideoManager.clearHandler(this.handler);
     }
 
 

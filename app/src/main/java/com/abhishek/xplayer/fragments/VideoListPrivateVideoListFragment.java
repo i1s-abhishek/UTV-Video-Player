@@ -11,6 +11,7 @@ import android.content.res.Configuration;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
@@ -56,6 +57,7 @@ import com.abhishek.xplayer.ad.C2231b;
 import com.abhishek.xplayer.ad.MopubIntertitialAd;
 import com.abhishek.xplayer.ad.AppAbstractInterface;
 import com.abhishek.xplayer.ad.StaticAppAds;
+import com.abhishek.xplayer.content.MediaFolder;
 import com.bumptech.glide.BitmapRequestBuilder;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.ResourceDecoder;
@@ -63,7 +65,6 @@ import com.bumptech.glide.load.model.ImageVideoWrapper;
 import com.abhishek.xplayer.activities.FileExplorerActivity;
 import com.abhishek.xplayer.application.AppActivity;
 import com.abhishek.xplayer.application.MyApplication;
-import com.abhishek.xplayer.content.C2624a;
 import com.abhishek.xplayer.content.C2625b;
 import com.abhishek.xplayer.content.C2636d;
 import com.abhishek.xplayer.content.VideoManager;
@@ -186,7 +187,7 @@ public class VideoListPrivateVideoListFragment extends FragmentLifecycle impleme
     /* access modifiers changed from: private */
 
     /* renamed from: d */
-    public C2624a f10867d;
+    public MediaFolder f10867d;
     /* access modifiers changed from: private */
 
     /* renamed from: e */
@@ -295,7 +296,7 @@ public class VideoListPrivateVideoListFragment extends FragmentLifecycle impleme
     }
 
     /* renamed from: a */
-    public static VideoListPrivateVideoListFragment m12406a(C2624a aVar, boolean z) {
+    public static VideoListPrivateVideoListFragment m12406a(MediaFolder aVar, boolean z) {
         VideoListPrivateVideoListFragment jVar = new VideoListPrivateVideoListFragment();
         jVar.f10867d = aVar;
         jVar.f10868e = z;
@@ -313,8 +314,8 @@ public class VideoListPrivateVideoListFragment extends FragmentLifecycle impleme
             public void handleMessage(Message message) {
                 if (VideoListPrivateVideoListFragment.this.mo17989b()) {
                     super.handleMessage(message);
-                    if (message.obj instanceof C2624a) {
-                        C2624a unused = VideoListPrivateVideoListFragment.this.f10867d = (C2624a) message.obj;
+                    if (message.obj instanceof MediaFolder) {
+                        MediaFolder unused = VideoListPrivateVideoListFragment.this.f10867d = (MediaFolder) message.obj;
                         VideoListPrivateVideoListFragment.this.m12462r();
                     } else if (!(!(message.obj instanceof HashMap) || VideoListPrivateVideoListFragment.this.f10867d == null || VideoListPrivateVideoListFragment.this.f10867d.f10547c == null)) {
                         HashMap hashMap = (HashMap) message.obj;
@@ -541,7 +542,7 @@ public class VideoListPrivateVideoListFragment extends FragmentLifecycle impleme
                 }
                 return true;
             case R.id.lock /*2131296618*/:
-                if (!Environment.isExternalStorageManager()) {
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R && !Environment.isExternalStorageManager()) {
                     new AlertDialog.Builder(getActivity()).setTitle(R.string.allow).setMessage(R.string.manage_all_file_permission_description)
                             .setPositiveButton((int) R.string.open_setting, (DialogInterface.OnClickListener)
                                     (dialogInterface, i) -> PermissionHelper.manageAppFilesAccessPermission(requireActivity())).show();
@@ -753,7 +754,7 @@ public class VideoListPrivateVideoListFragment extends FragmentLifecycle impleme
         if (this.f10868e) {
             runnable = new Runnable() {
                 public void run() {
-                    C2624a a = C2636d.m12138a();
+                    MediaFolder a = C2636d.m12138a();
                     if (a != null) {
                         RecentMediaStorage recentMediaStorage = new RecentMediaStorage(MyApplication.getApplicationContext_());
                         if (a.f10547c != null) {
@@ -1726,10 +1727,16 @@ public class VideoListPrivateVideoListFragment extends FragmentLifecycle impleme
                         VideoListPrivateVideoListFragment.this.m12455o();
                         break;
                     case R.id.lock /*2131296618*/:
-                        LogEvents.m18487a(VideoListPrivateVideoListFragment.this.m12431d(), "Lock", (Map<String, String>) treeMap);
-                        VideoListPrivateVideoListFragment.this.f10874k.clear();
-                        VideoListPrivateVideoListFragment.this.f10874k.add(mediaFileInfo.mo17890d());
-                        VideoListPrivateVideoListFragment.this.m12451m();
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R && !Environment.isExternalStorageManager()) {
+                            new AlertDialog.Builder(getActivity()).setTitle(R.string.allow).setMessage(R.string.manage_all_file_permission_description)
+                                    .setPositiveButton((int) R.string.open_setting, (DialogInterface.OnClickListener)
+                                            (dialogInterface, i) -> PermissionHelper.manageAppFilesAccessPermission(requireActivity())).show();
+                        } else {
+                            LogEvents.m18487a(VideoListPrivateVideoListFragment.this.m12431d(), "Lock", (Map<String, String>) treeMap);
+                            VideoListPrivateVideoListFragment.this.f10874k.clear();
+                            VideoListPrivateVideoListFragment.this.f10874k.add(mediaFileInfo.mo17890d());
+                            VideoListPrivateVideoListFragment.this.m12451m();
+                        }
                         break;
                     case R.id.rename /*2131296746*/:
                         LogEvents.m18492b(VideoListPrivateVideoListFragment.this.m12431d(), "Rename");

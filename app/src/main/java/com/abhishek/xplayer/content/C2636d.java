@@ -80,7 +80,7 @@ public class C2636d {
     }
 
     /* renamed from: a */
-    public static C2624a m12138a() {
+    public static MediaFolder m12138a() {
         ArrayList arrayList;
         File[] listFiles;
         List<PrivateVideoInfo.C2634a> a = new PrivateVideoInfo(MyApplication.getApplicationContext_()).mo17945a((String) null, (String[]) null);
@@ -188,7 +188,7 @@ public class C2636d {
         } else {
             arrayList = new ArrayList(0);
         }
-        return new C2624a((String) null, (String) null, arrayList);
+        return new MediaFolder((String) null, (String) null, arrayList);
     }
 
     /* renamed from: a */

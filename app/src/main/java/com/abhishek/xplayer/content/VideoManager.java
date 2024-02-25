@@ -28,6 +28,7 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.FilenameFilter;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -60,10 +61,10 @@ import hdplayer.xdplayer.videoplayer.R;
 public class VideoManager {
 
 
-    private static final Executor f10618a = Executors.newSingleThreadExecutor();
+    private static final Executor EXECUTOR = Executors.newSingleThreadExecutor();
 
 
-    private static Handler f10619b;
+    private static Handler handler;
 
 
     private static Set<String> f10620c;
@@ -77,46 +78,49 @@ public class VideoManager {
     }
 
 
-    public static void m12177a(Handler handler) {
-        f10619b = handler;
+    public static void setHandler(Handler handler) {
+        VideoManager.handler = handler;
     }
 
-
+    public static void clearHandler(Handler handler) {
+        if (VideoManager.handler == handler) {
+            VideoManager.handler = null;
+        }
+    }
     private static void m12175a(int i, Object obj) {
-        Log.e("swipeRefresh","one1");
+        Log.e("swipeRefresh", "one1");
         m12195b(i, obj, 0, 0);
     }
 
 
-
     public static void m12195b(final int i, final Object obj, final int i2, final int i3) {
-        Log.e("swipeRefresh","one2");
+        Log.e("swipeRefresh", "one2");
         if (Looper.myLooper() != Looper.getMainLooper()) {
-            Log.e("swipeRefresh","one4");
+            Log.e("swipeRefresh", "one4");
             MyApplication.myApplication().runnable((Runnable) new Runnable() {
                 public void run() {
                     VideoManager.m12195b(i, obj, i2, i3);
                 }
             });
-        } else if (f10619b != null) {
-            Log.e("swipeRefresh_","one3"+String.valueOf(i));
-            f10619b.obtainMessage(i, i2, i3, obj).sendToTarget();
-            Log.e("swipeRefresh__","one3"+String.valueOf(i));
+        } else if (handler != null) {
+            Log.e("swipeRefresh_", "one3" + String.valueOf(i));
+            handler.obtainMessage(i, i2, i3, obj).sendToTarget();
+            Log.e("swipeRefresh__", "one3" + String.valueOf(i));
         }
     }
 
 
-    public static void m12187a(final boolean z, final boolean z2, final AtomicBoolean atomicBoolean) {
-        f10618a.execute(new Runnable() {
+    public static void m12187a(final boolean includeRecent, final boolean z2, final AtomicBoolean atomicBoolean) {
+        EXECUTOR.execute(new Runnable() {
             public void run() {
-                VideoManager.getAllVideoFolder(z, z2, atomicBoolean);
+                VideoManager.getAllVideoFolder(includeRecent, z2, atomicBoolean);
             }
         });
     }
 
 
     public static void m12174a() {
-        f10618a.execute(new Runnable() {
+        EXECUTOR.execute(new Runnable() {
             public void run() {
                 VideoManager.m12201d();
             }
@@ -126,34 +130,34 @@ public class VideoManager {
 
     public static void m12201d() {
         ArrayList arrayList;
-        List<C2624a> a = m12173a(SharedPrefrence.getSharedPrefrence(MyApplication.getApplicationContext_()).getBoolean("lH9wboin", false), Environment.getExternalStorageDirectory().getAbsolutePath(), new ArrayList(), C2636d.m12150b(), HideListFragment.m12284a(), new RecentMediaStorage(MyApplication.getApplicationContext_()), new HashSet(), (List<C2624a>) null);
+        List<MediaFolder> a = m12173a(SharedPrefrence.getSharedPrefrence(MyApplication.getApplicationContext_()).getBoolean("lH9wboin", false), Environment.getExternalStorageDirectory().getAbsolutePath(), new ArrayList(), C2636d.m12150b(), HideListFragment.m12284a(), new RecentMediaStorage(MyApplication.getApplicationContext_()), new HashSet(), (List<MediaFolder>) null);
         if (a == null || a.isEmpty()) {
             arrayList = null;
         } else {
             arrayList = new ArrayList(a.size() + 1);
-            arrayList.add(0, recentAddedVideos((Collection<C2624a>) a));
+            arrayList.add(0, recentAddedVideos((Collection<MediaFolder>) a));
             arrayList.addAll(a);
         }
         m12175a(294, (Object) arrayList);
     }
 
 
-    private static List<C2624a> m12173a(boolean z, String str, List<String> list, Set<String> set, Set<String> set2, RecentMediaStorage recentMediaStorage, Set<String> set3, List<C2624a> list2) {
+    private static List<MediaFolder> m12173a(boolean z, String str, List<String> list, Set<String> set, Set<String> set2, RecentMediaStorage recentMediaStorage, Set<String> set3, List<MediaFolder> list2) {
         String str2 = str;
         Set<String> set4 = set2;
         Set<String> set5 = set3;
-        List<C2668a> e = m12202e();
+        List<C2668a> e = loadAndParseVideoData();
         if (e == null) {
             return list2;
         }
         ArrayList arrayList = new ArrayList(e.size());
         for (C2668a next : e) {
-            if (!(next == null || next.f10636a == null)) {
-                File file = new File(next.f10636a);
+            if (!(next == null || next.path == null)) {
+                File file = new File(next.path);
                 if (z || !file.isHidden()) {
                     if (file.exists()) {
-                        if ((f10620c == null || !f10620c.contains(next.f10636a)) && file.lastModified() == next.f10637b) {
-                            C2624a a = m12167a(next, str2.equals(next.f10636a) ? MyApplication.myApplication().getString(R.string.internal_sd) : file.getName());
+                        if ((f10620c == null || !f10620c.contains(next.path)) && file.lastModified() == next.lastFetchedTime) {
+                            MediaFolder a = m12167a(next, str2.equals(next.path) ? MyApplication.myApplication().getString(R.string.internal_sd) : file.getName());
                             if (a == null || a.f10545a == null) {
                                 List<String> list3 = list;
                                 RecentMediaStorage recentMediaStorage2 = recentMediaStorage;
@@ -171,10 +175,10 @@ public class VideoManager {
                                 } else {
                                     List<String> list5 = list;
                                 }
-                                m12178a(recentMediaStorage, a);
+                                updateRecentMediaStorage(recentMediaStorage, a);
                             }
                         } else {
-                            C2624a a2 = m12168a(next.f10636a, str2, list, set, set4, recentMediaStorage, set5, next, z);
+                            MediaFolder a2 = m12168a(next.path, str2, list, set, set4, recentMediaStorage, set5, next, z);
                             if (!(a2 == null || a2.f10545a == null)) {
                                 a2.mo17925a(!a2.f10545a.startsWith(str2));
                                 arrayList.add(a2);
@@ -236,7 +240,7 @@ public class VideoManager {
             int r7 = r5.size()
             int r7 = r7 + r4
             r6.<init>(r7)
-            com.inshot.xplayer.content.a r7 = m12169a((java.util.Collection<com.inshot.xplayer.content.C2624a>) r5)
+            com.inshot.xplayer.content.a r7 = m12169a((java.util.Collection<com.inshot.xplayer.content.MediaFolder>) r5)
             r8 = 0
             r6.add(r8, r7)
             r6.addAll(r5)
@@ -256,7 +260,7 @@ public class VideoManager {
         L_0x007b:
             android.content.Context r5 = com.inshot.xplayer.application.MyApplication.getApplicationContext_()
             r11 = r18
-            java.util.List r5 = m12171a((android.content.Context) r5, (java.util.Set<java.lang.String>) r15, (java.util.Set<java.lang.String>) r13, (java.util.Set<java.lang.String>) r11)
+            java.util.List r5 = extractMediaFoldersFromMediaFiles((android.content.Context) r5, (java.util.Set<java.lang.String>) r15, (java.util.Set<java.lang.String>) r13, (java.util.Set<java.lang.String>) r11)
             if (r16 != 0) goto L_0x0096
             java.util.ArrayList r6 = new java.util.ArrayList
             if (r5 != 0) goto L_0x008d
@@ -280,7 +284,7 @@ public class VideoManager {
             if (r16 == 0) goto L_0x00fb
             java.lang.Object r16 = r5.next()
             r12 = r16
-            com.inshot.xplayer.content.a r12 = (com.inshot.xplayer.content.C2624a) r12
+            com.inshot.xplayer.content.a r12 = (com.inshot.xplayer.content.MediaFolder) r12
             java.lang.String r8 = r12.f10545a
             if (r8 == 0) goto L_0x00ba
             r14.add(r8)
@@ -324,7 +328,7 @@ public class VideoManager {
             boolean r9 = r5.hasNext()
             if (r9 == 0) goto L_0x024b
             java.lang.Object r9 = r5.next()
-            com.inshot.xplayer.content.a r9 = (com.inshot.xplayer.content.C2624a) r9
+            com.inshot.xplayer.content.a r9 = (com.inshot.xplayer.content.MediaFolder) r9
             if (r7 >= r6) goto L_0x0111
             r12 = 1
             goto L_0x0112
@@ -459,7 +463,7 @@ public class VideoManager {
             r2 = r19
         L_0x021d:
             if (r12 != 0) goto L_0x0222
-            m12178a((com.inshot.xplayer.content.RecentMediaStorage) r2, (com.inshot.xplayer.content.C2624a) r9)
+            updateRecentMediaStorage((com.inshot.xplayer.content.RecentMediaStorage) r2, (com.inshot.xplayer.content.MediaFolder) r9)
         L_0x0222:
             int r0 = r9.mo17924a()
             if (r0 != 0) goto L_0x022c
@@ -533,7 +537,7 @@ public class VideoManager {
             r12 = r35
             r37 = r13
             r13 = r33
-            m12180a((java.lang.String) r5, (java.lang.String) r6, (java.util.List<java.lang.String>) r7, (java.util.Set<java.lang.String>) r8, (java.util.List<com.inshot.xplayer.content.C2624a>) r9, (java.util.Set<java.lang.String>) r10, (com.inshot.xplayer.content.RecentMediaStorage) r11, (java.util.Set<java.lang.String>) r12, (boolean) r13)
+            m12180a((java.lang.String) r5, (java.lang.String) r6, (java.util.List<java.lang.String>) r7, (java.util.Set<java.lang.String>) r8, (java.util.List<com.inshot.xplayer.content.MediaFolder>) r9, (java.util.Set<java.lang.String>) r10, (com.inshot.xplayer.content.RecentMediaStorage) r11, (java.util.Set<java.lang.String>) r12, (boolean) r13)
             r11 = r35
             r10 = r36
             r13 = r37
@@ -553,7 +557,7 @@ public class VideoManager {
             r11 = r2
             r12 = r35
             r13 = r33
-            m12180a((java.lang.String) r5, (java.lang.String) r6, (java.util.List<java.lang.String>) r7, (java.util.Set<java.lang.String>) r8, (java.util.List<com.inshot.xplayer.content.C2624a>) r9, (java.util.Set<java.lang.String>) r10, (com.inshot.xplayer.content.RecentMediaStorage) r11, (java.util.Set<java.lang.String>) r12, (boolean) r13)
+            m12180a((java.lang.String) r5, (java.lang.String) r6, (java.util.List<java.lang.String>) r7, (java.util.Set<java.lang.String>) r8, (java.util.List<com.inshot.xplayer.content.MediaFolder>) r9, (java.util.Set<java.lang.String>) r10, (com.inshot.xplayer.content.RecentMediaStorage) r11, (java.util.Set<java.lang.String>) r12, (boolean) r13)
             java.util.ArrayList r0 = p000.awr.m7190d()
             java.util.Iterator r13 = r0.iterator()
         L_0x02d8:
@@ -575,7 +579,7 @@ public class VideoManager {
             r12 = r35
             r16 = r13
             r13 = r33
-            m12180a((java.lang.String) r5, (java.lang.String) r6, (java.util.List<java.lang.String>) r7, (java.util.Set<java.lang.String>) r8, (java.util.List<com.inshot.xplayer.content.C2624a>) r9, (java.util.Set<java.lang.String>) r10, (com.inshot.xplayer.content.RecentMediaStorage) r11, (java.util.Set<java.lang.String>) r12, (boolean) r13)
+            m12180a((java.lang.String) r5, (java.lang.String) r6, (java.util.List<java.lang.String>) r7, (java.util.Set<java.lang.String>) r8, (java.util.List<com.inshot.xplayer.content.MediaFolder>) r9, (java.util.Set<java.lang.String>) r10, (com.inshot.xplayer.content.RecentMediaStorage) r11, (java.util.Set<java.lang.String>) r12, (boolean) r13)
             goto L_0x0306
         L_0x0304:
             r16 = r13
@@ -607,7 +611,7 @@ public class VideoManager {
             r12 = r35
             r38 = r13
             r13 = r33
-            m12180a((java.lang.String) r5, (java.lang.String) r6, (java.util.List<java.lang.String>) r7, (java.util.Set<java.lang.String>) r8, (java.util.List<com.inshot.xplayer.content.C2624a>) r9, (java.util.Set<java.lang.String>) r10, (com.inshot.xplayer.content.RecentMediaStorage) r11, (java.util.Set<java.lang.String>) r12, (boolean) r13)
+            m12180a((java.lang.String) r5, (java.lang.String) r6, (java.util.List<java.lang.String>) r7, (java.util.Set<java.lang.String>) r8, (java.util.List<com.inshot.xplayer.content.MediaFolder>) r9, (java.util.Set<java.lang.String>) r10, (com.inshot.xplayer.content.RecentMediaStorage) r11, (java.util.Set<java.lang.String>) r12, (boolean) r13)
             r12 = r16
             r13 = r38
             goto L_0x0323
@@ -626,7 +630,7 @@ public class VideoManager {
             r11 = r2
             r12 = r35
             r13 = r33
-            m12180a((java.lang.String) r5, (java.lang.String) r6, (java.util.List<java.lang.String>) r7, (java.util.Set<java.lang.String>) r8, (java.util.List<com.inshot.xplayer.content.C2624a>) r9, (java.util.Set<java.lang.String>) r10, (com.inshot.xplayer.content.RecentMediaStorage) r11, (java.util.Set<java.lang.String>) r12, (boolean) r13)
+            m12180a((java.lang.String) r5, (java.lang.String) r6, (java.util.List<java.lang.String>) r7, (java.util.Set<java.lang.String>) r8, (java.util.List<com.inshot.xplayer.content.MediaFolder>) r9, (java.util.Set<java.lang.String>) r10, (com.inshot.xplayer.content.RecentMediaStorage) r11, (java.util.Set<java.lang.String>) r12, (boolean) r13)
         L_0x036c:
             android.content.Context r5 = com.inshot.xplayer.application.MyApplication.getApplicationContext_()
             android.content.SharedPreferences r5 = android.preference.PreferenceManager.getDefaultSharedPreferences(r5)
@@ -644,7 +648,7 @@ public class VideoManager {
             boolean r10 = r8.hasNext()
             if (r10 == 0) goto L_0x03a0
             java.lang.Object r10 = r8.next()
-            com.inshot.xplayer.content.a r10 = (com.inshot.xplayer.content.C2624a) r10
+            com.inshot.xplayer.content.a r10 = (com.inshot.xplayer.content.MediaFolder) r10
             int r10 = r10.mo17924a()
             int r9 = r9 + r10
             goto L_0x038a
@@ -658,7 +662,7 @@ public class VideoManager {
             boolean r10 = r8.hasNext()
             if (r10 == 0) goto L_0x03c9
             java.lang.Object r10 = r8.next()
-            com.inshot.xplayer.content.a r10 = (com.inshot.xplayer.content.C2624a) r10
+            com.inshot.xplayer.content.a r10 = (com.inshot.xplayer.content.MediaFolder) r10
             if (r10 == 0) goto L_0x03c4
             java.lang.String r11 = r10.f10545a
             if (r11 == 0) goto L_0x03c4
@@ -682,7 +686,7 @@ public class VideoManager {
             java.util.ArrayList r8 = new java.util.ArrayList
             r8.<init>(r6)
             if (r44 == 0) goto L_0x03ec
-            com.inshot.xplayer.content.a r11 = m12169a((java.util.Collection<com.inshot.xplayer.content.C2624a>) r6)
+            com.inshot.xplayer.content.a r11 = m12169a((java.util.Collection<com.inshot.xplayer.content.MediaFolder>) r6)
             r13 = 0
             r6.add(r13, r11)
             if (r30 == 0) goto L_0x03e9
@@ -804,7 +808,7 @@ public class VideoManager {
             r17 = r0
             r20 = r11
             r17.<init>(r18, r19, r20, r21)
-            m12178a((com.inshot.xplayer.content.RecentMediaStorage) r2, (com.inshot.xplayer.content.C2624a) r0)
+            updateRecentMediaStorage((com.inshot.xplayer.content.RecentMediaStorage) r2, (com.inshot.xplayer.content.MediaFolder) r0)
             int r1 = r0.mo17924a()
             if (r1 <= 0) goto L_0x0507
             r6.add(r0)
@@ -833,7 +837,7 @@ public class VideoManager {
             boolean r1 = r0.hasNext()
             if (r1 == 0) goto L_0x0537
             java.lang.Object r1 = r0.next()
-            com.inshot.xplayer.content.a r1 = (com.inshot.xplayer.content.C2624a) r1
+            com.inshot.xplayer.content.a r1 = (com.inshot.xplayer.content.MediaFolder) r1
             int r1 = r1.mo17924a()
             int r42 = r42 + r1
             goto L_0x0524
@@ -844,7 +848,7 @@ public class VideoManager {
             boolean r1 = r0.hasNext()
             if (r1 == 0) goto L_0x0559
             java.lang.Object r1 = r0.next()
-            com.inshot.xplayer.content.a r1 = (com.inshot.xplayer.content.C2624a) r1
+            com.inshot.xplayer.content.a r1 = (com.inshot.xplayer.content.MediaFolder) r1
             if (r1 == 0) goto L_0x0557
             java.lang.String r2 = r1.f10545a
             boolean r2 = r2.startsWith(r12)
@@ -858,10 +862,10 @@ public class VideoManager {
         L_0x0559:
             r8.addAll(r6)
             if (r44 == 0) goto L_0x0574
-            m12196b((java.util.List<com.inshot.xplayer.content.C2624a>) r8)
+            m12196b((java.util.List<com.inshot.xplayer.content.MediaFolder>) r8)
             r1 = 292(0x124, float:4.09E-43)
             android.support.v4.util.Pair r2 = new android.support.v4.util.Pair
-            com.inshot.xplayer.content.a r3 = m12169a((java.util.Collection<com.inshot.xplayer.content.C2624a>) r8)
+            com.inshot.xplayer.content.a r3 = m12169a((java.util.Collection<com.inshot.xplayer.content.MediaFolder>) r8)
             r2.<init>(r6, r3)
             m12175a((int) r1, (java.lang.Object) r2)
             goto L_0x0574
@@ -871,11 +875,11 @@ public class VideoManager {
             r9 = r42
         L_0x0574:
             if (r44 != 0) goto L_0x058f
-            m12196b((java.util.List<com.inshot.xplayer.content.C2624a>) r8)
+            m12196b((java.util.List<com.inshot.xplayer.content.MediaFolder>) r8)
             com.inshot.xplayer.content.f$12 r0 = new com.inshot.xplayer.content.f$12
             r0.<init>()
             java.util.Collections.sort(r8, r0)
-            com.inshot.xplayer.content.a r0 = m12169a((java.util.Collection<com.inshot.xplayer.content.C2624a>) r8)
+            com.inshot.xplayer.content.a r0 = m12169a((java.util.Collection<com.inshot.xplayer.content.MediaFolder>) r8)
             r1 = 0
             r8.add(r1, r0)
             r0 = 291(0x123, float:4.08E-43)
@@ -917,7 +921,8 @@ public class VideoManager {
         */
         throw new UnsupportedOperationException("Method not decompiled: com.inshot.xplayer.content.C2651f.getAllVideoFolder(boolean, boolean, java.util.concurrent.atomic.AtomicBoolean):void");
     }
-    public static void getAllVideoFolderc(boolean z, boolean z2, AtomicBoolean atomicBoolean) {
+
+    public static void getAllVideoFolder(boolean z, boolean z2, AtomicBoolean atomicBoolean) {
         RecentMediaStorage recentMediaStorage;
         HashSet hashSet;
         String str;
@@ -926,7 +931,7 @@ public class VideoManager {
         RecentMediaStorage recentMediaStorage2;
         int i;
         int i2;
-        ArrayList<C2624a> arrayList;
+        ArrayList<MediaFolder> arrayList;
         int i3;
         boolean z5 = false;
         int i4;
@@ -954,14 +959,14 @@ public class VideoManager {
         Set<String> a2 = HideListFragment.m12284a();
         RecentMediaStorage recentMediaStorage5 = new RecentMediaStorage(MyApplication.getApplicationContext_());
         HashSet hashSet2 = new HashSet();
-        List<C2624a> list = null;
+        List<MediaFolder> list = null;
         if (z2) {
             hashSet = hashSet2;
             recentMediaStorage = recentMediaStorage5;
-            List<C2624a> a3 = m12173a(z9, absolutePath, arrayList2, b3, a2, recentMediaStorage5, hashSet2, null);
+            List<MediaFolder> a3 = m12173a(z9, absolutePath, arrayList2, b3, a2, recentMediaStorage5, hashSet2, null);
             if (a3 != null && !a3.isEmpty() && z) {
                 ArrayList arrayList3 = new ArrayList(a3.size() + 1);
-                arrayList3.add(0, recentAddedVideos((Collection<C2624a>) a3));
+                arrayList3.add(0, recentAddedVideos((Collection<MediaFolder>) a3));
                 arrayList3.addAll(a3);
                 m12175a(291, arrayList3);
             }
@@ -971,18 +976,18 @@ public class VideoManager {
             recentMediaStorage = recentMediaStorage5;
         }
         HashSet hashSet3 = hashSet;
-        List<C2624a> a4 = m12171a(MyApplication.getApplicationContext_(), b3, a2, hashSet3);
+        List<MediaFolder> a4 = extractMediaFoldersFromMediaFiles(MyApplication.getApplicationContext_(), b3, a2, hashSet3);
         ArrayList arrayList4 = list == null ? new ArrayList(a4 == null ? 0 : a4.size()) : (ArrayList) list;
         int i10 = R.string.internal_sd;
         if (a4 != null) {
             int size = arrayList4.size();
-            for (C2624a aVar : a4) {
+            for (MediaFolder aVar : a4) {
                 String str5 = aVar.f10545a;
                 if (str5 != null) {
                     arrayList2.add(str5);
                 }
                 if (a2 == null || str5 == null || !a2.contains(str5.toLowerCase(Locale.ENGLISH))) {
-                    arrayList4.add(new C2624a(str5, absolutePath.equals(str5) ? MyApplication.myApplication().getString(i10) : axy.m7460a(str5), aVar.f10547c, aVar.mo17930f()));
+                    arrayList4.add(new MediaFolder(str5, absolutePath.equals(str5) ? MyApplication.myApplication().getString(i10) : axy.m7460a(str5), aVar.f10547c, aVar.mo17930f()));
                     i10 = R.string.internal_sd;
                 }
             }
@@ -990,7 +995,7 @@ public class VideoManager {
             int i11 = 0;
             boolean z10 = false;
             while (it3.hasNext()) {
-                C2624a aVar2 = (C2624a) it3.next();
+                MediaFolder aVar2 = (MediaFolder) it3.next();
                 boolean z11 = i11 < size;
                 int i12 = i11 + 1;
                 if (aVar2.f10547c == null || aVar2.f10545a == null) {
@@ -1091,7 +1096,7 @@ public class VideoManager {
                         recentMediaStorage3 = recentMediaStorage;
                     }
                     if (!z11) {
-                        m12178a(recentMediaStorage3, aVar2);
+                        updateRecentMediaStorage(recentMediaStorage3, aVar2);
                     }
                     if (aVar2.mo17924a() == 0) {
                         it3.remove();
@@ -1157,7 +1162,7 @@ public class VideoManager {
             arrayList = arrayList4;
             i2 = arrayList.size() + 0;
             i = 0;
-            for (C2624a aVar3 : arrayList) {
+            for (MediaFolder aVar3 : arrayList) {
                 i += aVar3.mo17924a();
             }
         } else {
@@ -1165,7 +1170,7 @@ public class VideoManager {
             i2 = 0;
             i = 0;
         }
-        for (C2624a aVar4 : arrayList) {
+        for (MediaFolder aVar4 : arrayList) {
             if (aVar4 == null || aVar4.f10545a == null) {
                 str2 = str;
             } else {
@@ -1174,17 +1179,17 @@ public class VideoManager {
             }
             str = str2;
         }
-        Collections.sort(arrayList, new Comparator<C2624a>() {
+        Collections.sort(arrayList, new Comparator<MediaFolder>() {
             /* class com.inshot.xplayer.content.f.AnonymousClass11 */
 
             /* renamed from: a */
-            public int compare(C2624a aVar, C2624a aVar2) {
+            public int compare(MediaFolder aVar, MediaFolder aVar2) {
                 return VideoManager.m12164a(aVar.f10545a, aVar2.f10545a);
             }
         });
         ArrayList arrayList5 = new ArrayList(arrayList);
         if (z) {
-            arrayList.add(0, recentAddedVideos((Collection<C2624a>) arrayList));
+            arrayList.add(0, recentAddedVideos((Collection<MediaFolder>) arrayList));
             if (z4) {
                 m12195b(291, arrayList, 1, 0);
             } else {
@@ -1198,7 +1203,7 @@ public class VideoManager {
         if (a5 == null || a5.isEmpty()) {
             i4 = i;
         } else {
-            ArrayList<C2624a> arrayList6 = new ArrayList(a5.size());
+            ArrayList<MediaFolder> arrayList6 = new ArrayList(a5.size());
             Iterator<Pair<C2671d, String[]>> it7 = a5.iterator();
             while (it7.hasNext()) {
                 Pair<C2671d, String[]> next3 = it7.next();
@@ -1243,8 +1248,8 @@ public class VideoManager {
                             it = it7;
                             i5 = i;
                             if (!arrayList7.isEmpty()) {
-                                C2624a aVar5 = new C2624a(file2.getAbsolutePath(), str.equals(file2.getAbsolutePath()) ? MyApplication.myApplication().getString(R.string.internal_sd) : file2.getName(), arrayList7, ((C2671d) f).f10649b);
-                                m12178a(recentMediaStorage2, aVar5);
+                                MediaFolder aVar5 = new MediaFolder(file2.getAbsolutePath(), str.equals(file2.getAbsolutePath()) ? MyApplication.myApplication().getString(R.string.internal_sd) : file2.getName(), arrayList7, ((C2671d) f).f10649b);
+                                updateRecentMediaStorage(recentMediaStorage2, aVar5);
                                 if (aVar5.mo17924a() > 0) {
                                     arrayList6.add(aVar5);
                                     aVar5.mo17928d();
@@ -1262,12 +1267,12 @@ public class VideoManager {
             if (!arrayList6.isEmpty()) {
                 if (z13) {
                     i2 += arrayList6.size();
-                    for (C2624a aVar6 : arrayList6) {
+                    for (MediaFolder aVar6 : arrayList6) {
                         i4 += aVar6.mo17924a();
                     }
                 }
                 i3 = i4;
-                for (C2624a aVar7 : arrayList6) {
+                for (MediaFolder aVar7 : arrayList6) {
                     if (aVar7 != null) {
                         aVar7.mo17925a(!aVar7.f10545a.startsWith(str));
                     }
@@ -1275,20 +1280,20 @@ public class VideoManager {
                 arrayList5.addAll(arrayList6);
                 if (z) {
                     m12196b(arrayList5);
-                    m12175a(292, new Pair(arrayList6, recentAddedVideos((Collection<C2624a>) arrayList5)));
+                    m12175a(292, new Pair(arrayList6, recentAddedVideos((Collection<MediaFolder>) arrayList5)));
                 }
                 if (z) {
                     m12196b(arrayList5);
-                    Collections.sort(arrayList5, new Comparator<C2624a>() {
+                    Collections.sort(arrayList5, new Comparator<MediaFolder>() {
                         /* class com.inshot.xplayer.content.f.AnonymousClass12 */
 
                         /* renamed from: a */
-                        public int compare(C2624a aVar, C2624a aVar2) {
+                        public int compare(MediaFolder aVar, MediaFolder aVar2) {
                             return VideoManager.m12164a(aVar.f10545a, aVar2.f10545a);
                         }
                     });
                     z5 = false;
-                    arrayList5.add(0, recentAddedVideos((Collection<C2624a>) arrayList5));
+                    arrayList5.add(0, recentAddedVideos((Collection<MediaFolder>) arrayList5));
                     m12175a(291, arrayList5);
                 } else {
                     z5 = false;
@@ -1316,46 +1321,45 @@ public class VideoManager {
         if (!z13) {
         }
     }
-    private static void getAllVideoFolder(final boolean b, final boolean b2, final AtomicBoolean atomicBoolean) {
+
+    private static void getAllVideoFoldernj(final boolean b, final boolean b2, final AtomicBoolean atomicBoolean) {
         final boolean boolean1 = SharedPrefrence.getSharedPrefrence(MyApplication.getApplicationContext_()).getBoolean("lH9wboin", false);
         final String absolutePath = Environment.getExternalStorageDirectory().getAbsolutePath();
         final ArrayList<String> list = new ArrayList<String>();
-        final Set b3 =C2636d.m12150b();
+        final Set b3 = C2636d.m12150b();
         final Set a = HideListFragment.m12284a();
         RecentMediaStorage recentMediaStorage = new RecentMediaStorage(MyApplication.getApplicationContext_());
         final HashSet<String> set = new HashSet<String>();
         Object a2 = null;
         if (!b2) {
             a2 = m12173a(boolean1, absolutePath, list, b3, a, recentMediaStorage, set, null);
-            if (a2 != null && !((List)a2).isEmpty() && b) {
-                final ArrayList list2 = new ArrayList<C2624a>(((List)a2).size() + 1);
-                list2.add(0, recentAddedVideos((Collection<C2624a>)a2));
-                list2.addAll((Collection<?>)a2);
+            if (a2 != null && !((List) a2).isEmpty() && b) {
+                final ArrayList list2 = new ArrayList<MediaFolder>(((List) a2).size() + 1);
+                list2.add(0, recentAddedVideos((Collection<MediaFolder>) a2));
+                list2.addAll((Collection<?>) a2);
                 m12175a(291, list2);
             }
         }
-        final List<C2624a> a3 = m12171a(MyApplication.getApplicationContext_(), b3, a, set);
-        List<C2624a> list3;
+        final List<MediaFolder> a3 = extractMediaFoldersFromMediaFiles(MyApplication.getApplicationContext_(), b3, a, set);
+        List<MediaFolder> list3;
         if (a2 == null) {
             int size;
             if (a3 == null) {
                 size = 0;
-            }
-            else {
+            } else {
                 size = a3.size();
             }
-            list3 = new ArrayList<C2624a>(size);
+            list3 = new ArrayList<MediaFolder>(size);
+        } else {
+            list3 = (List<MediaFolder>) a2;
         }
-        else {
-            list3 = (List<C2624a>)a2;
-        }
-        int n =  R.string.internal_sd;
+        int n = R.string.internal_sd;
         String s2;
         RecentMediaStorage recentMediaStorage6;
         boolean b6;
         if (a3 != null) {
             final int size2 = list3.size();
-            for (final C2624a a4 : a3) {
+            for (final MediaFolder a4 : a3) {
                 final String a5 = a4.f10545a;
                 if (a5 != null) {
                     list.add(a5);
@@ -1366,25 +1370,24 @@ public class VideoManager {
                 String s;
                 if (absolutePath.equals(a5)) {
                     s = MyApplication.myApplication().getString(n);
-                }
-                else {
+                } else {
                     s = axy.m7460a(a5);
                 }
-                list3.add(new C2624a(a5, s, a4.f10547c, a4.mo17930f()));
-                n =  R.string.internal_sd;
+                list3.add(new MediaFolder(a5, s, a4.f10547c, a4.mo17930f()));
+                n = R.string.internal_sd;
             }
-            final Iterator<C2624a> iterator2 = list3.iterator();
+            final Iterator<MediaFolder> iterator2 = list3.iterator();
             int n2 = 0;
             boolean b4 = false;
             s2 = absolutePath;
             while (iterator2.hasNext()) {
-                final C2624a a6 = (C2624a)iterator2.next();
+                final MediaFolder a6 = (MediaFolder) iterator2.next();
                 final boolean b5 = n2 < size2;
                 final int n3 = n2 + 1;
                 RecentMediaStorage recentMediaStorage2;
                 String s4;
                 if (a6.f10547c != null && a6.f10545a != null) {
-                    final File[] listFiles = new File(a6.f10545a).listFiles((FilenameFilter)new FilenameFilter() {
+                    final File[] listFiles = new File(a6.f10545a).listFiles((FilenameFilter) new FilenameFilter() {
                         /* class com.inshot.xplayer.content.f.AnonymousClass10 */
 
                         public boolean accept(File file, String str) {
@@ -1422,8 +1425,7 @@ public class VideoManager {
                                                 a6.f10550f.add(mediaFileInfo2);
                                                 b4 = true;
                                             }
-                                        }
-                                        else {
+                                        } else {
                                             a6.f10547c.add(mediaFileInfo2);
                                         }
                                     }
@@ -1434,23 +1436,20 @@ public class VideoManager {
                         final String s3 = s2;
                         recentMediaStorage2 = recentMediaStorage;
                         s4 = s3;
-                    }
-                    else {
+                    } else {
                         final RecentMediaStorage recentMediaStorage3 = recentMediaStorage;
                         s4 = s2;
                         recentMediaStorage2 = recentMediaStorage3;
                     }
                     if (!b5) {
-                        m12178a(recentMediaStorage2, a6);
+                        updateRecentMediaStorage(recentMediaStorage2, a6);
                     }
                     if (a6.mo17924a() == 0) {
                         iterator2.remove();
-                    }
-                    else {
+                    } else {
                         a6.mo17928d();
                     }
-                }
-                else {
+                } else {
                     final RecentMediaStorage recentMediaStorage4 = recentMediaStorage;
                     s4 = s2;
                     recentMediaStorage2 = recentMediaStorage4;
@@ -1462,8 +1461,7 @@ public class VideoManager {
             }
             recentMediaStorage6 = recentMediaStorage;
             b6 = b4;
-        }
-        else {
+        } else {
             s2 = absolutePath;
             b6 = false;
             recentMediaStorage6 = recentMediaStorage;
@@ -1473,20 +1471,20 @@ public class VideoManager {
                 set.add(s5.toLowerCase(Locale.ENGLISH));
             }
         }
-        List<C2624a> list4 = list3;
+        List<MediaFolder> list4 = list3;
         HashSet<String> set3 = set;
-        Set<String> set4 = (Set<String>)a;
+        Set<String> set4 = (Set<String>) a;
         if (!b2) {
             final List<String> b7 = m12192b();
             list4 = list3;
             set3 = set;
-            set4 = (Set<String>)a;
+            set4 = (Set<String>) a;
             if (b7 != null) {
                 final Iterator<String> iterator5 = b7.iterator();
                 while (true) {
                     list4 = list3;
                     set3 = set;
-                    set4 = (Set<String>)a;
+                    set4 = (Set<String>) a;
                     if (!iterator5.hasNext()) {
                         break;
                     }
@@ -1496,27 +1494,27 @@ public class VideoManager {
         }
         m12180a(s2, s2, list, b3, list4, set4, recentMediaStorage6, set3, boolean1);
         final ArrayList<String> d = awr.m7190d();
-        for ( String pathname : d) {
+        for (String pathname : d) {
             if (pathname != null && new File(pathname).exists()) {
                 m12180a(pathname, s2, list, b3, list4, set4, recentMediaStorage6, set3, boolean1);
             }
         }
         final SharedPreferences sharedPreferences = MyApplication.getApplicationContext_().getSharedPreferences("FolderData", 0);
-        final Iterator<String> iterator7 = sharedPreferences.getStringSet("additionDir", (Set)new HashSet(0)).iterator();
+        final Iterator<String> iterator7 = sharedPreferences.getStringSet("additionDir", (Set) new HashSet(0)).iterator();
         while (iterator7.hasNext()) {
             m12180a(iterator7.next(), s2, list, b3, list4, set4, recentMediaStorage6, set3, boolean1);
         }
         final String u = bpj.m18578a(MyApplication.getApplicationContext_()).mo23414u();
-        if (!TextUtils.isEmpty((CharSequence)u)) {
+        if (!TextUtils.isEmpty((CharSequence) u)) {
             m12180a(u, s2, list, b3, list4, set4, recentMediaStorage6, set3, boolean1);
         }
         final boolean boolean2 = PreferenceManager.getDefaultSharedPreferences(MyApplication.getApplicationContext_()).getBoolean("firstScan", true);
         int j;
         int n6;
         if (boolean2) {
-            final List<C2624a> list5 = list4;
+            final List<MediaFolder> list5 = list4;
             final int n4 = list5.size() + 0;
-            final Iterator<C2624a> iterator8 = list5.iterator();
+            final Iterator<MediaFolder> iterator8 = list5.iterator();
             int n5 = 0;
             while (true) {
                 j = n4;
@@ -1524,33 +1522,31 @@ public class VideoManager {
                 if (!iterator8.hasNext()) {
                     break;
                 }
-                n5 += ((C2624a)iterator8.next()).mo17924a();
+                n5 += ((MediaFolder) iterator8.next()).mo17924a();
             }
-        }
-        else {
+        } else {
             j = 0;
             n6 = 0;
         }
-        final Iterator<C2624a> iterator9 = list4.iterator();
+        final Iterator<MediaFolder> iterator9 = list4.iterator();
         final String prefix = s2;
         while (iterator9.hasNext()) {
-            final C2624a a7 = (C2624a)iterator9.next();
+            final MediaFolder a7 = (MediaFolder) iterator9.next();
             if (a7 != null && a7.f10545a != null) {
                 a7.mo17925a(a7.f10545a.startsWith(prefix) ^ true);
             }
         }
-        Collections.sort(list4,  new Comparator<C2624a>() {
-            public int compare(C2624a aVar, C2624a aVar2) {
+        Collections.sort(list4, new Comparator<MediaFolder>() {
+            public int compare(MediaFolder aVar, MediaFolder aVar2) {
                 return VideoManager.m12164a(aVar.f10545a, aVar2.f10545a);
             }
         });
-        final ArrayList list6 = new ArrayList<C2624a>(list4);
+        final ArrayList list6 = new ArrayList<MediaFolder>(list4);
         if (b) {
-            list4.add(0, recentAddedVideos((Collection<C2624a>)list4));
+            list4.add(0, recentAddedVideos((Collection<MediaFolder>) list4));
             if (b6) {
                 m12195b(291, list4, 1, 0);
-            }
-            else {
+            } else {
                 m12175a(291, list4);
             }
         }
@@ -1559,14 +1555,15 @@ public class VideoManager {
         set5.addAll(d);
         final List<Pair<C2671d, String[]>> a8 = m12172a(list, set3, set4, set5, boolean1);
         int l = 0;
-        Label_2214: {
+        Label_2214:
+        {
             int n8;
             if (a8 != null && !a8.isEmpty()) {
-                final ArrayList<C2624a>  list7 = new ArrayList<C2624a>(a8.size());
+                final ArrayList<MediaFolder> list7 = new ArrayList<MediaFolder>(a8.size());
                 Object iterator10 = a8.iterator();
-                while (((Iterator)iterator10).hasNext()) {
-                    final Pair pair = (Pair)((Iterator<Pair>)iterator10).next();
-                    final C2671d d2 = (C2671d)pair.first;
+                while (((Iterator) iterator10).hasNext()) {
+                    final Pair pair = (Pair) ((Iterator<Pair>) iterator10).next();
+                    final C2671d d2 = (C2671d) pair.first;
                     if (d2 != null) {
                         if (((C2671d) d2).f10648a == null) {
                             continue;
@@ -1575,7 +1572,7 @@ public class VideoManager {
                         if (!parent.isDirectory()) {
                             continue;
                         }
-                        final String[] array2 = (String[])pair.second;
+                        final String[] array2 = (String[]) pair.second;
                         Iterator<Pair> iterator11;
                         int n7;
                         if (array2 != null && array2.length > 0) {
@@ -1596,32 +1593,30 @@ public class VideoManager {
                                     }
                                 }
                             }
-                            iterator11 = (Iterator<Pair>)iterator10;
+                            iterator11 = (Iterator<Pair>) iterator10;
                             n7 = n6;
                             if (!list8.isEmpty()) {
                                 final String absolutePath2 = parent.getAbsolutePath();
                                 String s6;
                                 if (prefix.equals(parent.getAbsolutePath())) {
                                     s6 = MyApplication.myApplication().getString(R.string.internal_sd);
-                                }
-                                else {
+                                } else {
                                     s6 = parent.getName();
                                 }
-                                final C2624a a9 = new C2624a(absolutePath2, s6, (List)list8, ((C2671d) d2).f10649b);
-                                m12178a(recentMediaStorage6, a9);
-                                iterator11 = (Iterator<Pair>)iterator10;
+                                final MediaFolder a9 = new MediaFolder(absolutePath2, s6, (List) list8, ((C2671d) d2).f10649b);
+                                updateRecentMediaStorage(recentMediaStorage6, a9);
+                                iterator11 = (Iterator<Pair>) iterator10;
                                 n7 = n6;
                                 if (a9.mo17924a() > 0) {
                                     list7.add(a9);
                                     a9.mo17928d();
-                                    iterator11 = (Iterator<Pair>)iterator10;
+                                    iterator11 = (Iterator<Pair>) iterator10;
                                     n7 = n6;
                                 }
                             }
-                        }
-                        else {
+                        } else {
                             n7 = n6;
-                            iterator11 = (Iterator<Pair>)iterator10;
+                            iterator11 = (Iterator<Pair>) iterator10;
                         }
                         iterator10 = iterator11;
                         n6 = n7;
@@ -1633,46 +1628,45 @@ public class VideoManager {
                     int n10 = n6;
                     if (boolean2) {
                         final int n11 = j + list7.size();
-                        final Iterator<C2624a> iterator12 = list7.iterator();
+                        final Iterator<MediaFolder> iterator12 = list7.iterator();
                         while (true) {
                             n9 = n11;
                             n10 = n6;
                             if (!iterator12.hasNext()) {
                                 break;
                             }
-                            n6 += ((C2624a)iterator12.next()).mo17924a();
+                            n6 += ((MediaFolder) iterator12.next()).mo17924a();
                         }
                     }
-                    for ( C2624a a10 : list7) {
+                    for (MediaFolder a10 : list7) {
                         if (a10 != null) {
                             a10.mo17925a(a10.f10545a.startsWith(prefix) ^ true);
                         }
                     }
-                    list6.addAll((Collection<?>)list7);
+                    list6.addAll((Collection<?>) list7);
                     j = n9;
                     l = n10;
                     if (b) {
-                        m12196b((List)list6);
-                        m12175a(292, new Pair((Object)list7, (Object)recentAddedVideos((Collection<C2624a>)list6)));
+                        m12196b((List) list6);
+                        m12175a(292, new Pair((Object) list7, (Object) recentAddedVideos((Collection<MediaFolder>) list6)));
                         j = n9;
                         l = n10;
                     }
                     break Label_2214;
                 }
-            }
-            else {
+            } else {
                 n8 = n6;
             }
             l = n8;
         }
         if (!b) {
-            m12196b((List<C2624a>)list6);
-            Collections.sort((List)list6, new Comparator<C2624a>() {
-                public int compare(C2624a aVar, C2624a aVar2) {
+            m12196b((List<MediaFolder>) list6);
+            Collections.sort((List) list6, new Comparator<MediaFolder>() {
+                public int compare(MediaFolder aVar, MediaFolder aVar2) {
                     return VideoManager.m12164a(aVar.f10545a, aVar2.f10545a);
                 }
             });
-            list6.add(0, recentAddedVideos((Collection<C2624a>)list6));
+            list6.add(0, recentAddedVideos((Collection<MediaFolder>) list6));
             m12175a(291, list6);
         }
         atomicBoolean.set(false);
@@ -1682,15 +1676,500 @@ public class VideoManager {
             final TreeMap<String, String> treeMap = new TreeMap<String, String>();
             treeMap.put("dirCount", String.valueOf(j));
             treeMap.put("fileCount", String.valueOf(l));
-            LogEvents.m18489a("FirstScan", (Map)treeMap);
+            LogEvents.m18489a("FirstScan", (Map) treeMap);
             PreferenceManager.getDefaultSharedPreferences(MyApplication.getApplicationContext_()).edit().putBoolean("firstScan", false).apply();
         }
     }
+    public static void getAllVideoFolderv(boolean includeRecent, boolean scanInternal, AtomicBoolean isScanning) {
+        Context context = MyApplication.getApplicationContext_();
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
+        boolean isFirstScan = sharedPreferences.getBoolean("firstScan", true);
+        boolean isHidden = SharedPrefrence.getSharedPrefrence(context).getBoolean("lH9wboin", false);
+        String externalStoragePath = Environment.getExternalStorageDirectory().getAbsolutePath();
+        List<String> scannedDirectories = new ArrayList<>();
+        scannedDirectories.add(externalStoragePath);
+        Set<String> additionalDirectories = C2636d.m12150b();
+        Set<String> hiddenList = HideListFragment.m12284a();
+        RecentMediaStorage recentMediaStorage = new RecentMediaStorage(context);
+        List<MediaFolder> videoFolders = new ArrayList<>();
+
+        if (scanInternal) {
+            List<MediaFolder> internalFolders = m12173a(isHidden, externalStoragePath, scannedDirectories, additionalDirectories, hiddenList, recentMediaStorage, new HashSet<>(), null);
+            if (internalFolders != null && !internalFolders.isEmpty() && includeRecent) {
+                ArrayList<MediaFolder> tempFolders = new ArrayList<>(internalFolders.size() + 1);
+                tempFolders.add(0, recentAddedVideos(internalFolders));
+                tempFolders.addAll(internalFolders);
+                m12175a(291, tempFolders);
+            }
+            videoFolders.addAll(internalFolders != null ? internalFolders : Collections.emptyList());
+        }
+
+        List<MediaFolder> additionalFolders = extractMediaFoldersFromMediaFiles(context, additionalDirectories, hiddenList, new HashSet<>());
+        ArrayList<MediaFolder> finalVideoFolders = new ArrayList<>(videoFolders.isEmpty() ? 0 : additionalFolders.size());
+        if (additionalFolders != null) {
+            int internalSdStringResId = R.string.internal_sd;
+            for (MediaFolder folder : additionalFolders) {
+                String folderPath = folder.f10545a;
+                if (folderPath != null) {
+                    scannedDirectories.add(folderPath);
+                }
+                if (hiddenList == null || folderPath == null || !hiddenList.contains(folderPath.toLowerCase(Locale.ENGLISH))) {
+                    finalVideoFolders.add(new MediaFolder(folderPath, externalStoragePath.equals(folderPath) ? MyApplication.myApplication().getString(internalSdStringResId) : axy.m7460a(folderPath), folder.f10547c, folder.mo17930f()));
+                }
+            }
+            for (MediaFolder folder : finalVideoFolders) {
+                if (folder != null && folder.f10547c != null && folder.f10545a != null) {
+                    File[] files = new File(folder.f10545a).listFiles(new FilenameFilter() {
+                        public boolean accept(File file, String name) {
+                            return axi.m7358a(name);
+                        }
+                    });
+                    if (files != null) {
+                        HashSet<String> existingFiles = new HashSet<>();
+                        for (MediaFileInfo fileInfo : folder.f10547c) {
+                            if (fileInfo.mo17892e() != null) {
+                                existingFiles.add(fileInfo.mo17892e().toLowerCase(Locale.ENGLISH));
+                            }
+                        }
+                        boolean isRecentAdded = false;
+                        for (File file : files) {
+                            if (file.isFile() && !existingFiles.contains(file.getName().toLowerCase(Locale.ENGLISH))) {
+                                MediaFileInfo mediaFileInfo = new MediaFileInfo();
+                                mediaFileInfo.mo17888b(file.getName());
+                                mediaFileInfo.mo17884a(file.getAbsolutePath());
+                                mediaFileInfo.mo17881a(1);
+                                mediaFileInfo.mo17882a(0L);
+                                mediaFileInfo.f10496a = file.length();
+                                mediaFileInfo.f10497b = file.getAbsolutePath();
+                                mediaFileInfo.mo17887b(file.lastModified());
+                                if (!additionalDirectories.contains(mediaFileInfo.mo17890d())) {
+                                    if (includeRecent && m12189a(recentMediaStorage, mediaFileInfo)) {
+                                        if (folder.f10550f == null) {
+                                            folder.f10550f = new ArrayList<>(1);
+                                        }
+                                        folder.f10550f.add(mediaFileInfo);
+                                        isRecentAdded = true;
+                                    } else {
+                                        folder.f10547c.add(mediaFileInfo);
+                                    }
+                                }
+                            }
+                        }
+                        if (!isRecentAdded) {
+                            updateRecentMediaStorage(recentMediaStorage, folder);
+                        }
+                        if (folder.mo17924a() == 0) {
+                            finalVideoFolders.remove(folder);
+                        } else {
+                            folder.mo17928d();
+                        }
+                    }
+                }
+            }
+        }
+
+        if (includeRecent) {
+            ArrayList<String> additionalDirectoriesList = new ArrayList<>(additionalDirectories);
+            m12180a(externalStoragePath, externalStoragePath, scannedDirectories, additionalDirectories, finalVideoFolders, hiddenList, recentMediaStorage, new HashSet<>(), isHidden);
+            for (String additionalDir : additionalDirectoriesList) {
+                m12180a(additionalDir, externalStoragePath, scannedDirectories, additionalDirectories, finalVideoFolders, hiddenList, recentMediaStorage, new HashSet<>(), isHidden);
+            }
+            for (String dir : awr.m7190d()) {
+                if (dir != null && new File(dir).exists()) {
+                    m12180a(dir, externalStoragePath, scannedDirectories, additionalDirectories, finalVideoFolders, hiddenList, recentMediaStorage, new HashSet<>(), isHidden);
+                }
+            }
+            SharedPreferences folderDataPreferences = context.getSharedPreferences("FolderData", 0);
+            for (String additionDir : folderDataPreferences.getStringSet("additionDir", new HashSet<>())) {
+                m12180a(additionDir, externalStoragePath, scannedDirectories, additionalDirectories, finalVideoFolders, hiddenList, recentMediaStorage, new HashSet<>(), isHidden);
+            }
+            String u = bpj.m18578a(context).mo23414u();
+            if (!TextUtils.isEmpty(u)) {
+                m12180a(u, externalStoragePath, scannedDirectories, additionalDirectories, finalVideoFolders, hiddenList, recentMediaStorage, new HashSet<>(), isHidden);
+            }
+        }
+
+        boolean firstScan = PreferenceManager.getDefaultSharedPreferences(context).getBoolean("firstScan", true);
+        if (firstScan) {
+            int totalFolders = finalVideoFolders.size();
+            int totalFiles = 0;
+            for (MediaFolder folder : finalVideoFolders) {
+                totalFiles += folder.mo17924a();
+            }
+            TreeMap<String, String> scanStats = new TreeMap<>();
+            scanStats.put("dirCount", String.valueOf(totalFolders));
+            scanStats.put("fileCount", String.valueOf(totalFiles));
+            LogEvents.m18489a("FirstScan", scanStats);
+            SharedPreferences.Editor editor = PreferenceManager.getDefaultSharedPreferences(context).edit();
+            editor.putBoolean("firstScan", false).apply();
+        }
+        isScanning.set(false);
+        m12175a(293, (Object) null);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.remove("additionDir").commit();
+    }
+    private static void getAllVideoFoldermm(final boolean b, final boolean b2, final AtomicBoolean atomicBoolean) {
+        final boolean boolean1 = SharedPrefrence.getSharedPrefrence(MyApplication.getApplicationContext_()).getBoolean("lH9wboin", false);
+        final String absolutePath = Environment.getExternalStorageDirectory().getAbsolutePath();
+        final ArrayList<String> list = new ArrayList<>();
+        final Set b3 = C2636d.m12150b();
+        final Set a = HideListFragment.m12284a();
+        RecentMediaStorage recentMediaStorage = new RecentMediaStorage(MyApplication.getApplicationContext_());
+        final HashSet<String> set = new HashSet<>();
+        Object a2 = null;
+        if (!b2) {
+            a2 = m12173a(boolean1, absolutePath, list, b3, a, recentMediaStorage, set, null);
+            if (a2 != null && !((List) a2).isEmpty() && b) {
+                final ArrayList list2 = new ArrayList<MediaFolder>(((List) a2).size() + 1);
+                list2.add(0, recentAddedVideos((Collection<MediaFolder>) a2));
+                list2.addAll((Collection<?>) a2);
+                m12175a(291, list2);
+            }
+        }
+        final List<MediaFolder> a3 = extractMediaFoldersFromMediaFiles(MyApplication.getApplicationContext_(), b3, a, set);
+        List<MediaFolder> list3;
+        if (a2 == null) {
+            int size;
+            if (a3 == null) {
+                size = 0;
+            } else {
+                size = a3.size();
+            }
+            list3 = new ArrayList<MediaFolder>(size);
+        } else {
+            list3 = (List<MediaFolder>) a2;
+        }
+        int n = R.string.internal_sd;
+        String s2;
+        RecentMediaStorage recentMediaStorage6;
+        boolean b6;
+        if (a3 != null) {
+            final int size2 = list3.size();
+            for (final MediaFolder a4 : a3) {
+                final String a5 = a4.f10545a;
+                if (a5 != null) {
+                    list.add(a5);
+                }
+                if (a != null && a5 != null && a.contains(a5.toLowerCase(Locale.ENGLISH))) {
+                    continue;
+                }
+                String s;
+                if (absolutePath.equals(a5)) {
+                    s = MyApplication.myApplication().getString(n);
+                } else {
+                    s = axy.m7460a(a5);
+                }
+                list3.add(new MediaFolder(a5, s, a4.f10547c, a4.mo17930f()));
+                n = R.string.internal_sd;
+            }
+            final Iterator<MediaFolder> iterator2 = list3.iterator();
+            int n2 = 0;
+            boolean b4 = false;
+            s2 = absolutePath;
+            while (iterator2.hasNext()) {
+                final MediaFolder a6 = (MediaFolder) iterator2.next();
+                final boolean b5 = n2 < size2;
+                final int n3 = n2 + 1;
+                RecentMediaStorage recentMediaStorage2;
+                String s4;
+                if (a6.f10547c != null && a6.f10545a != null) {
+                    final File[] listFiles = new File(a6.f10545a).listFiles((FilenameFilter) new FilenameFilter() {
+                        public boolean accept(File file, String str) {
+                            return axi.m7358a(str);
+                        }
+                    });
+                    if (listFiles != null) {
+                        final HashSet<String> set2 = new HashSet<String>();
+                        for (final MediaFileInfo mediaFileInfo : a6.f10547c) {
+                            if (mediaFileInfo.mo17892e() != null) {
+                                set2.add(mediaFileInfo.mo17892e().toLowerCase(Locale.ENGLISH));
+                            }
+                        }
+                        final int length = listFiles.length;
+                        int i = 0;
+                        final File[] array = listFiles;
+                        while (i < length) {
+                            final File file = array[i];
+                            if (file.isFile()) {
+                                if (!set2.contains(file.getName().toLowerCase(Locale.ENGLISH))) {
+                                    final MediaFileInfo mediaFileInfo2 = new MediaFileInfo();
+                                    mediaFileInfo2.mo17888b(file.getName());
+                                    mediaFileInfo2.mo17884a(file.getAbsolutePath());
+                                    mediaFileInfo2.mo17881a(1);
+                                    mediaFileInfo2.mo17882a(0L);
+                                    mediaFileInfo2.f10496a = file.length();
+                                    mediaFileInfo2.f10497b = file.getAbsolutePath();
+                                    mediaFileInfo2.mo17887b(file.lastModified());
+                                    if (!b3.contains(mediaFileInfo2.mo17890d())) {
+                                        if (b5) {
+                                            if (m12189a(recentMediaStorage, mediaFileInfo2)) {
+                                                if (a6.f10550f == null) {
+                                                    a6.f10550f = new ArrayList(1);
+                                                }
+                                                a6.f10550f.add(mediaFileInfo2);
+                                                b4 = true;
+                                            }
+                                        } else {
+                                            a6.f10547c.add(mediaFileInfo2);
+                                        }
+                                    }
+                                }
+                            }
+                            ++i;
+                        }
+                        final String s3 = s2;
+                        recentMediaStorage2 = recentMediaStorage;
+                        s4 = s3;
+                    } else {
+                        final RecentMediaStorage recentMediaStorage3 = recentMediaStorage;
+                        s4 = s2;
+                        recentMediaStorage2 = recentMediaStorage3;
+                    }
+                    if (!b5) {
+                        updateRecentMediaStorage(recentMediaStorage2, a6);
+                    }
+                    if (a6.mo17924a() == 0) {
+                        iterator2.remove();
+                    } else {
+                        a6.mo17928d();
+                    }
+                } else {
+                    final RecentMediaStorage recentMediaStorage4 = recentMediaStorage;
+                    s4 = s2;
+                    recentMediaStorage2 = recentMediaStorage4;
+                }
+                final RecentMediaStorage recentMediaStorage5 = recentMediaStorage2;
+                n2 = n3;
+                s2 = s4;
+                recentMediaStorage = recentMediaStorage5;
+            }
+            recentMediaStorage6 = recentMediaStorage;
+            b6 = b4;
+        } else {
+            s2 = absolutePath;
+            b6 = false;
+            recentMediaStorage6 = recentMediaStorage;
+        }
+        for (final String s5 : list) {
+            if (s5 != null) {
+                set.add(s5.toLowerCase(Locale.ENGLISH));
+            }
+        }
+        List<MediaFolder> list4 = list3;
+        HashSet<String> set3 = set;
+        Set<String> set4 = (Set<String>) a;
+        if (!b2) {
+            final List<String> b7 = m12192b();
+            list4 = list3;
+            set3 = set;
+            set4 = (Set<String>) a;
+            if (b7 != null) {
+                final Iterator<String> iterator5 = b7.iterator();
+                while (true) {
+                    list4 = list3;
+                    set3 = set;
+                    set4 = (Set<String>) a;
+                    if (!iterator5.hasNext()) {
+                        break;
+                    }
+                    m12180a(iterator5.next(), s2, list, b3, list3, a, recentMediaStorage6, set, boolean1);
+                }
+            }
+        }
+        m12180a(s2, s2, list, b3, list4, set4, recentMediaStorage6, set3, boolean1);
+        final ArrayList<String> d = awr.m7190d();
+        for (String pathname : d) {
+            if (pathname != null && new File(pathname).exists()) {
+                m12180a(pathname, s2, list, b3, list4, set4, recentMediaStorage6, set3, boolean1);
+            }
+        }
+        final SharedPreferences sharedPreferences = MyApplication.getApplicationContext_().getSharedPreferences("FolderData", 0);
+        final Iterator<String> iterator7 = sharedPreferences.getStringSet("additionDir", (Set) new HashSet(0)).iterator();
+        while (iterator7.hasNext()) {
+            m12180a(iterator7.next(), s2, list, b3, list4, set4, recentMediaStorage6, set3, boolean1);
+        }
+        final String u = bpj.m18578a(MyApplication.getApplicationContext_()).mo23414u();
+        if (!TextUtils.isEmpty((CharSequence) u)) {
+            m12180a(u, s2, list, b3, list4, set4, recentMediaStorage6, set3, boolean1);
+        }
+        final boolean boolean2 = PreferenceManager.getDefaultSharedPreferences(MyApplication.getApplicationContext_()).getBoolean("firstScan", true);
+        int j;
+        int n6;
+        if (boolean2) {
+            final List<MediaFolder> list5 = list4;
+            final int n4 = list5.size() + 0;
+            final Iterator<MediaFolder> iterator8 = list5.iterator();
+            int n5 = 0;
+            while (true) {
+                j = n4;
+                n6 = n5;
+                if (!iterator8.hasNext()) {
+                    break;
+                }
+                n5 += ((MediaFolder) iterator8.next()).mo17924a();
+            }
+        } else {
+            j = 0;
+            n6 = 0;
+        }
+        final Iterator<MediaFolder> iterator9 = list4.iterator();
+        final String prefix = s2;
+        while (iterator9.hasNext()) {
+            final MediaFolder a7 = (MediaFolder) iterator9.next();
+            if (a7 != null && a7.f10545a != null) {
+                a7.mo17925a(a7.f10545a.startsWith(prefix) ^ true);
+            }
+        }
+        Collections.sort(list4, new Comparator<MediaFolder>() {
+            public int compare(MediaFolder aVar, MediaFolder aVar2) {
+                return VideoManager.m12164a(aVar.f10545a, aVar2.f10545a);
+            }
+        });
+        final ArrayList list6 = new ArrayList<MediaFolder>(list4);
+        if (b) {
+            list4.add(0, recentAddedVideos((Collection<MediaFolder>) list4));
+            if (b6) {
+                m12195b(291, list4, 1, 0);
+            } else {
+                m12175a(291, list4);
+            }
+        }
+        final HashSet set5 = new HashSet();
+        set5.add(prefix);
+        set5.addAll(d);
+        final List<Pair<C2671d, String[]>> a8 = m12172a(list, set3, set4, set5, boolean1);
+        int l = 0;
+        Label_2214:
+        {
+            int n8;
+            if (a8 != null && !a8.isEmpty()) {
+                final ArrayList<MediaFolder> list7 = new ArrayList<MediaFolder>(a8.size());
+                Object iterator10 = a8.iterator();
+                while (((Iterator) iterator10).hasNext()) {
+                    final Pair pair = (Pair) ((Iterator<Pair>) iterator10).next();
+                    final C2671d d2 = (C2671d) pair.first;
+                    if (d2 != null) {
+                        if (((C2671d) d2).f10648a == null) {
+                            continue;
+                        }
+                        final File parent = new File(((C2671d) d2).f10648a);
+                        if (!parent.isDirectory()) {
+                            continue;
+                        }
+                        final String[] array2 = (String[]) pair.second;
+                        Iterator<Pair> iterator11;
+                        int n7;
+                        if (array2 != null && array2.length > 0) {
+                            final ArrayList list8 = new ArrayList<MediaFileInfo>(array2.length);
+                            for (int length2 = array2.length, k = 0; k < length2; ++k) {
+                                final File file2 = new File(parent, array2[k]);
+                                if (file2.isFile()) {
+                                    final MediaFileInfo mediaFileInfo3 = new MediaFileInfo();
+                                    mediaFileInfo3.mo17888b(file2.getName());
+                                    mediaFileInfo3.mo17884a(file2.getAbsolutePath());
+                                    mediaFileInfo3.mo17881a(1);
+                                    mediaFileInfo3.mo17882a(0L);
+                                    mediaFileInfo3.f10496a = file2.length();
+                                    mediaFileInfo3.f10497b = file2.getAbsolutePath();
+                                    mediaFileInfo3.mo17887b(file2.lastModified());
+                                    if (!b3.contains(mediaFileInfo3.mo17890d())) {
+                                        list8.add(mediaFileInfo3);
+                                    }
+                                }
+                            }
+                            iterator11 = (Iterator<Pair>) iterator10;
+                            n7 = n6;
+                            if (!list8.isEmpty()) {
+                                final String absolutePath2 = parent.getAbsolutePath();
+                                String s6;
+                                if (prefix.equals(parent.getAbsolutePath())) {
+                                    s6 = MyApplication.myApplication().getString(R.string.internal_sd);
+                                } else {
+                                    s6 = parent.getName();
+                                }
+                                final MediaFolder a9 = new MediaFolder(absolutePath2, s6, (List) list8, ((C2671d) d2).f10649b);
+                                updateRecentMediaStorage(recentMediaStorage6, a9);
+                                iterator11 = (Iterator<Pair>) iterator10;
+                                n7 = n6;
+                                if (a9.mo17924a() > 0) {
+                                    list7.add(a9);
+                                    a9.mo17928d();
+                                    iterator11 = (Iterator<Pair>) iterator10;
+                                    n7 = n6;
+                                }
+                            }
+                        } else {
+                            n7 = n6;
+                            iterator11 = (Iterator<Pair>) iterator10;
+                        }
+                        iterator10 = iterator11;
+                        n6 = n7;
+                    }
+                }
+                n8 = n6;
+                if (!list7.isEmpty()) {
+                    int n9 = j;
+                    int n10 = n6;
+                    if (boolean2) {
+                        final int n11 = j + list7.size();
+                        final Iterator<MediaFolder> iterator12 = list7.iterator();
+                        while (true) {
+                            n9 = n11;
+                            n10 = n6;
+                            if (!iterator12.hasNext()) {
+                                break;
+                            }
+                            n6 += ((MediaFolder) iterator12.next()).mo17924a();
+                        }
+                    }
+                    for (MediaFolder a10 : list7) {
+                        if (a10 != null) {
+                            a10.mo17925a(a10.f10545a.startsWith(prefix) ^ true);
+                        }
+                    }
+                    list6.addAll((Collection<?>) list7);
+                    j = n9;
+                    l = n10;
+                    if (b) {
+                        m12196b((List) list6);
+                        m12175a(292, new Pair((Object) list7, (Object) recentAddedVideos((Collection<MediaFolder>) list6)));
+                        j = n9;
+                        l = n10;
+                    }
+                    break Label_2214;
+                }
+            } else {
+                n8 = n6;
+            }
+            l = n8;
+        }
+        if (!b) {
+            m12196b((List<MediaFolder>) list6);
+            Collections.sort((List) list6, new Comparator<MediaFolder>() {
+                public int compare(MediaFolder aVar, MediaFolder aVar2) {
+                    return VideoManager.m12164a(aVar.f10545a, aVar2.f10545a);
+                }
+            });
+            list6.add(0, recentAddedVideos((Collection<MediaFolder>) list6));
+            m12175a(291, list6);
+        }
+        atomicBoolean.set(false);
+        m12175a(293, null);
+        sharedPreferences.edit().remove("additionDir").commit();
+        if (boolean2) {
+            final TreeMap<String, String> treeMap = new TreeMap<String, String>();
+            treeMap.put("dirCount", String.valueOf(j));
+            treeMap.put("fileCount", String.valueOf(l));
+            LogEvents.m18489a("FirstScan", (Map) treeMap);
+            PreferenceManager.getDefaultSharedPreferences(MyApplication.getApplicationContext_()).edit().putBoolean("firstScan", false).apply();
+        }
+    }
+
     /* renamed from: a */
-    private static C2624a recentAddedVideos(Collection<C2624a> collection) {
-        C2624a aVar = new C2624a((String) null, MyApplication.getApplicationContext_().getString(R.string.recent_added), new ArrayList());
+    private static MediaFolder recentAddedVideos(Collection<MediaFolder> collection) {
+        MediaFolder aVar = new MediaFolder((String) null, MyApplication.getApplicationContext_().getString(R.string.recent_added), new ArrayList());
         aVar.f10548d = true;
-        for (C2624a aVar2 : collection) {
+        for (MediaFolder aVar2 : collection) {
             aVar.f10547c.addAll(aVar2.f10547c);
         }
         aVar.f10549e = 0;
@@ -1708,7 +2187,7 @@ public class VideoManager {
     }
 
     /* renamed from: a */
-    private static void m12180a(String str, String str2, List<String> list, Set<String> set, List<C2624a> list2, Set<String> set2, RecentMediaStorage recentMediaStorage, Set<String> set3, boolean z) {
+    private static void m12180a(String str, String str2, List<String> list, Set<String> set, List<MediaFolder> list2, Set<String> set2, RecentMediaStorage recentMediaStorage, Set<String> set3, boolean z) {
         if (z || !axe.m7325f(str)) {
             String lowerCase = str.toLowerCase(Locale.ENGLISH);
             if (!set3.contains(lowerCase)) {
@@ -1740,8 +2219,8 @@ public class VideoManager {
                             }
                         }
                         if (!arrayList.isEmpty()) {
-                            C2624a aVar = new C2624a(file.getAbsolutePath(), str2.equals(file.getAbsolutePath()) ? MyApplication.myApplication().getString(R.string.internal_sd) : file.getName(), arrayList, lastModified);
-                            m12178a(recentMediaStorage, aVar);
+                            MediaFolder aVar = new MediaFolder(file.getAbsolutePath(), str2.equals(file.getAbsolutePath()) ? MyApplication.myApplication().getString(R.string.internal_sd) : file.getName(), arrayList, lastModified);
+                            updateRecentMediaStorage(recentMediaStorage, aVar);
                             if (aVar.mo17924a() > 0) {
                                 list2.add(aVar);
                                 aVar.mo17928d();
@@ -1758,7 +2237,7 @@ public class VideoManager {
     /* JADX WARNING: Removed duplicated region for block: B:62:0x012c A[SYNTHETIC] */
     /* renamed from: a */
     /* Code decompiled incorrectly, please refer to instructions dump. */
-    private static C2624a m12168a_(String r16, String r17, List<String> r18, Set<String> r19, Set<String> r20, RecentMediaStorage r21, Set<String> r22, C2668a r23, boolean r24) {
+    private static MediaFolder m12168a_(String r16, String r17, List<String> r18, Set<String> r19, Set<String> r20, RecentMediaStorage r21, Set<String> r22, C2668a r23, boolean r24) {
         /*
             r0 = r16
             r1 = r20
@@ -1803,7 +2282,7 @@ public class VideoManager {
             boolean r5 = r4.hasNext()
             if (r5 == 0) goto L_0x0077
             java.lang.Object r5 = r4.next()
-            com.inshot.xplayer.content.f$b r5 = (com.inshot.xplayer.content.C2651f.C2669b) r5
+            com.inshot.xplayer.content.f$b r5 = (com.inshot.xplayer.content.C2651f.VideoFile) r5
             java.lang.String r6 = r5.f10639a
             r2.put(r6, r5)
             goto L_0x0063
@@ -1837,7 +2316,7 @@ public class VideoManager {
             if (r2 == 0) goto L_0x00e8
             java.lang.String r11 = r10.getName()
             java.lang.Object r11 = r2.get(r11)
-            com.inshot.xplayer.content.f$b r11 = (com.inshot.xplayer.content.C2651f.C2669b) r11
+            com.inshot.xplayer.content.f$b r11 = (com.inshot.xplayer.content.C2651f.VideoFile) r11
             if (r11 == 0) goto L_0x00e8
             long r12 = r11.f10642d
             r14 = -1
@@ -1854,7 +2333,7 @@ public class VideoManager {
             long r14 = r10.length()
             int r12 = (r12 > r14 ? 1 : (r12 == r14 ? 0 : -1))
             if (r12 != 0) goto L_0x00e8
-            com.inshot.xplayer.content.MediaFileInfo r11 = m12166a((java.lang.String) r4, (com.inshot.xplayer.content.C2651f.C2669b) r11)
+            com.inshot.xplayer.content.MediaFileInfo r11 = createMediaFileInfo((java.lang.String) r4, (com.inshot.xplayer.content.C2651f.VideoFile) r11)
             goto L_0x00e9
         L_0x00e8:
             r11 = r3
@@ -1910,7 +2389,7 @@ public class VideoManager {
             r4 = r0
             r4.<init>(r5, r6, r7, r8)
             r1 = r21
-            m12178a((com.inshot.xplayer.content.RecentMediaStorage) r1, (com.inshot.xplayer.content.C2624a) r0)
+            updateRecentMediaStorage((com.inshot.xplayer.content.RecentMediaStorage) r1, (com.inshot.xplayer.content.MediaFolder) r0)
             int r1 = r0.mo17924a()
             if (r1 <= 0) goto L_0x016d
             r0.mo17928d()
@@ -1920,11 +2399,12 @@ public class VideoManager {
         */
         throw new UnsupportedOperationException("Method not decompiled: com.inshot.xplayer.content.C2651f.m12168a(java.lang.String, java.lang.String, java.util.List, java.util.Set, java.util.Set, com.inshot.xplayer.content.RecentMediaStorage, java.util.Set, com.inshot.xplayer.content.f$a, boolean):com.inshot.xplayer.content.a");
     }
-    private static C2624a m12168a(String str, String str2, List<String> list, Set<String> set, Set<String> set2, RecentMediaStorage recentMediaStorage, Set<String> set3, C2668a aVar, boolean z) {
+
+    private static MediaFolder m12168aa(String str, String str2, List<String> list, Set<String> set, Set<String> set2, RecentMediaStorage recentMediaStorage, Set<String> set3, C2668a aVar, boolean z) {
         String str3;
         HashMap hashMap;
         MediaFileInfo mediaFileInfo;
-        C2669b bVar;
+        VideoFile bVar;
         if (!z && axe.m7325f(str)) {
             return null;
         }
@@ -1944,24 +2424,24 @@ public class VideoManager {
                 });
                 if (listFiles != null) {
                     ArrayList arrayList = new ArrayList(listFiles.length);
-                    if (aVar.f10638c != null) {
-                        hashMap = new HashMap(aVar.f10638c.size());
-                        for (C2669b bVar2 : aVar.f10638c) {
-                            hashMap.put(bVar2.f10639a, bVar2);
+                    if (aVar.videoFiles != null) {
+                        hashMap = new HashMap(aVar.videoFiles.size());
+                        for (VideoFile bVar2 : aVar.videoFiles) {
+                            hashMap.put(bVar2.name, bVar2);
                         }
-                        str3 = aVar.f10636a.endsWith("/") ? aVar.f10636a : aVar.f10636a + '/';
+                        str3 = aVar.path.endsWith("/") ? aVar.path : aVar.path + '/';
                     } else {
                         hashMap = null;
                         str3 = null;
                     }
                     for (File file2 : listFiles) {
                         if (file2.isFile()) {
-                            if (!(hashMap == null || (bVar = (C2669b) hashMap.get(file2.getName())) == null)) {
-                                if (bVar.f10642d == -1) {
-                                    bVar.f10642d = file2.length();
+                            if (!(hashMap == null || (bVar = (VideoFile) hashMap.get(file2.getName())) == null)) {
+                                if (bVar.size == -1) {
+                                    bVar.size = file2.length();
                                 }
-                                if (bVar.f10640b == file2.lastModified() && bVar.f10642d == file2.length()) {
-                                    mediaFileInfo = m12166a(str3, bVar);
+                                if (bVar.type == file2.lastModified() && bVar.size == file2.length()) {
+                                    mediaFileInfo = createMediaFileInfo(str3, bVar);
                                     if (mediaFileInfo == null) {
                                         mediaFileInfo = new MediaFileInfo();
                                         mediaFileInfo.mo17888b(file2.getName());
@@ -1985,8 +2465,8 @@ public class VideoManager {
                         }
                     }
                     if (!arrayList.isEmpty()) {
-                        C2624a aVar2 = new C2624a(file.getAbsolutePath(), str2.equals(file.getAbsolutePath()) ? MyApplication.myApplication().getString(R.string.internal_sd) : file.getName(), arrayList, lastModified);
-                        m12178a(recentMediaStorage, aVar2);
+                        MediaFolder aVar2 = new MediaFolder(file.getAbsolutePath(), str2.equals(file.getAbsolutePath()) ? MyApplication.myApplication().getString(R.string.internal_sd) : file.getName(), arrayList, lastModified);
+                        updateRecentMediaStorage(recentMediaStorage, aVar2);
                         if (aVar2.mo17924a() > 0) {
                             aVar2.mo17928d();
                             return aVar2;
@@ -1997,6 +2477,78 @@ public class VideoManager {
         }
         return null;
     }
+
+    private static MediaFolder m12168a(String str, String str2, List<String> list, Set<String> set, Set<String> set2, RecentMediaStorage recentMediaStorage, Set<String> set3, C2668a aVar, boolean z) {
+        String str3;
+        HashMap<String, VideoFile> hashMap;
+        MediaFileInfo mediaFileInfo;
+        VideoFile bVar;
+        if (!z && axe.m7325f(str)) {
+            return null;
+        }
+        String lowerCase = str.toLowerCase(Locale.ENGLISH);
+        if (!set3.contains(lowerCase)) {
+            list.add(str);
+            set3.add(lowerCase);
+            if (set2 == null || !set2.contains(lowerCase)) {
+                File file = new File(str);
+                long lastModified = file.lastModified();
+                File[] listFiles = file.listFiles(new FilenameFilter() {
+                    public boolean accept(File file, String str) {
+                        return axi.m7358a(str);
+                    }
+                });
+                if (listFiles != null) {
+                    ArrayList<MediaFileInfo> arrayList = new ArrayList<>(listFiles.length);
+                    if (aVar.videoFiles != null) {
+                        hashMap = new HashMap<>(aVar.videoFiles.size());
+                        for (VideoFile bVar2 : aVar.videoFiles) {
+                            hashMap.put(bVar2.name, bVar2);
+                        }
+                        str3 = aVar.path.endsWith("/") ? aVar.path : aVar.path + '/';
+                    } else {
+                        hashMap = null;
+                        str3 = null;
+                    }
+                    for (File file2 : listFiles) {
+                        if (file2.isFile()) {
+                            if (!(hashMap == null || (bVar = hashMap.get(file2.getName())) == null)) {
+                                if (bVar.size == -1) {
+                                    bVar.size = file2.length();
+                                }
+                                if (bVar.type == file2.lastModified() && bVar.size == file2.length()) {
+                                    mediaFileInfo = createMediaFileInfo(str3, bVar);
+                                    if (mediaFileInfo == null) {
+                                        mediaFileInfo = new MediaFileInfo();
+                                        mediaFileInfo.mo17888b(file2.getName());
+                                        mediaFileInfo.mo17884a(file2.getAbsolutePath());
+                                        mediaFileInfo.mo17881a(1);
+                                        mediaFileInfo.mo17882a(0L);
+                                        mediaFileInfo.f10496a = file2.length();
+                                        mediaFileInfo.f10497b = file2.getAbsolutePath();
+                                        mediaFileInfo.mo17887b(file2.lastModified());
+                                    }
+                                    if (set.contains(mediaFileInfo.mo17890d())) {
+                                        arrayList.add(mediaFileInfo);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    if (!arrayList.isEmpty()) {
+                        MediaFolder aVar2 = new MediaFolder(file.getAbsolutePath(), str2.equals(file.getAbsolutePath()) ? MyApplication.myApplication().getString(R.string.internal_sd) : file.getName(), arrayList, lastModified);
+                        updateRecentMediaStorage(recentMediaStorage, aVar2);
+                        if (aVar2.mo17924a() > 0) {
+                            aVar2.mo17928d();
+                            return aVar2;
+                        }
+                    }
+                }
+            }
+        }
+        return null;
+    }
+
 
     /* renamed from: b */
     public static List<String> m12192b() {
@@ -2025,9 +2577,9 @@ public class VideoManager {
     }
 
     /* renamed from: e */
-    private static List<C2668a> m12202e() {
+    private static List<C2668a> loadAndParseVideoData() {
         String str;
-      //  C26521 r1 = null;
+        //  C26521 r1 = null;
         try {
             File file = new File(axc.createFolder(), ".data");
             str = axe.m7312a(/*(InputStream)*/ file.exists() ? new FileInputStream(file) : MyApplication.getApplicationContext_().openFileInput("VideoData"), "utf-8");
@@ -2047,29 +2599,29 @@ public class VideoManager {
                 JSONObject optJSONObject = jSONArray.optJSONObject(i);
                 if (optJSONObject != null) {
                     C2668a aVar = new C2668a();
-                    String unused = aVar.f10636a = optJSONObject.optString("p");
-                    if (aVar.f10636a != null) {
-                        long unused2 = aVar.f10637b = optJSONObject.optLong("ft", -1);
+                    String unused = aVar.path = optJSONObject.optString("p");
+                    if (aVar.path != null) {
+                        long unused2 = aVar.lastFetchedTime = optJSONObject.optLong("ft", -1);
                         arrayList.add(aVar);
                         JSONArray optJSONArray = optJSONObject.optJSONArray("m");
                         if (optJSONArray != null) {
                             int length2 = optJSONArray.length();
-                            List unused3 = aVar.f10638c = new ArrayList(length2);
+                            List unused3 = aVar.videoFiles = new ArrayList(length2);
                             int i2 = 0;
                             while (i2 < length2) {
                                 JSONObject jSONObject = optJSONArray.getJSONObject(i2);
-                                C2669b bVar = new C2669b();
+                                VideoFile bVar = new VideoFile();
                                 ArrayList arrayList2 = arrayList;
                                 int i3 = i;
-                                long unused4 = bVar.f10641c = jSONObject.optLong("d", 0);
-                                long unused5 = bVar.f10640b = jSONObject.optLong("t", 0);
-                                String unused6 = bVar.f10639a = jSONObject.optString("n");
-                                long unused7 = bVar.f10642d = jSONObject.optLong("l", -1);
-                                aVar.f10638c.add(bVar);
+                                long unused4 = bVar.duration = jSONObject.optLong("d", 0);
+                                long unused5 = bVar.type = jSONObject.optLong("t", 0);
+                                String unused6 = bVar.name = jSONObject.optString("n");
+                                long unused7 = bVar.size = jSONObject.optLong("l", -1);
+                                aVar.videoFiles.add(bVar);
                                 i2++;
                                 arrayList = arrayList2;
                                 i = i3;
-                               // r1 = null;
+                                // r1 = null;
                             }
                         }
                     }
@@ -2085,12 +2637,70 @@ public class VideoManager {
         }
     }
 
+
+    private static List<C2668a> loadAndParseVideoDataa() {
+        String jsonData = null;
+        try {
+            File dataFile = new File(axc.createFolder(), ".data");
+            InputStream inputStream = dataFile.exists() ? new FileInputStream(dataFile) : MyApplication.getApplicationContext_().openFileInput("VideoData");
+            jsonData = axe.m7312a(inputStream, "utf-8");
+        } catch (IOException e) {
+            e.printStackTrace();
+            return null;
+        }
+
+        if (jsonData == null) {
+            return null;
+        }
+
+        try {
+            JSONArray jsonArray = new JSONArray(jsonData);
+            List<C2668a> videoData = new ArrayList<>(); // Use the correct type
+
+            for (int i = 0; i < jsonArray.length(); i++) {
+                JSONObject folderObject = jsonArray.optJSONObject(i);
+                if (folderObject != null) {
+                    C2668a folderData = new C2668a();
+                    folderData.path = folderObject.optString("p"); // Assuming 'path' is a field in C2668a
+                    folderData.lastFetchedTime = folderObject.optLong("ft", -1);
+
+                    JSONArray videoFilesArray = folderObject.optJSONArray("m");
+                    if (videoFilesArray != null) {
+                        folderData.videoFiles = parseVideoFiles(videoFilesArray); // Assuming 'videoFiles' is a field
+                    }
+
+                    videoData.add(folderData);
+                }
+            }
+            return videoData;
+        } catch (JSONException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    private static List<VideoFile> parseVideoFiles(JSONArray videoFilesArray) {
+        List<VideoFile> videoFiles = new ArrayList<>();
+        for (int i = 0; i < videoFilesArray.length(); i++) {
+            JSONObject videoFileObject = videoFilesArray.optJSONObject(i);
+            if (videoFileObject != null) {
+                VideoFile videoFile = new VideoFile();
+                videoFile.duration = videoFileObject.optLong("d", 0);
+                videoFile.type = videoFileObject.optLong("t", 0);
+                videoFile.name = videoFileObject.optString("n");
+                videoFile.size = videoFileObject.optLong("l", -1);
+                videoFiles.add(videoFile);
+            }
+        }
+        return videoFiles;
+    }
+
     /* JADX WARNING: Removed duplicated region for block: B:34:0x00c6 A[SYNTHETIC, Splitter:B:34:0x00c6] */
     /* JADX WARNING: Removed duplicated region for block: B:38:0x00cc A[SYNTHETIC, Splitter:B:38:0x00cc] */
     /* JADX WARNING: Removed duplicated region for block: B:47:? A[RETURN, SYNTHETIC] */
     /* renamed from: b */
     /* Code decompiled incorrectly, please refer to instructions dump. */
-    private static void m12196b_(List<C2624a> r13) {
+    private static void m12196b_(List<MediaFolder> r13) {
         /*
             java.lang.String r0 = ""
             org.json.JSONArray r1 = new org.json.JSONArray
@@ -2102,7 +2712,7 @@ public class VideoManager {
             boolean r4 = r13.hasNext()     // Catch:{ JSONException -> 0x0085 }
             if (r4 == 0) goto L_0x0080
             java.lang.Object r4 = r13.next()     // Catch:{ JSONException -> 0x0085 }
-            com.inshot.xplayer.content.a r4 = (com.inshot.xplayer.content.C2624a) r4     // Catch:{ JSONException -> 0x0085 }
+            com.inshot.xplayer.content.a r4 = (com.inshot.xplayer.content.MediaFolder) r4     // Catch:{ JSONException -> 0x0085 }
             org.json.JSONArray r5 = new org.json.JSONArray     // Catch:{ JSONException -> 0x0085 }
             r5.<init>()     // Catch:{ JSONException -> 0x0085 }
             java.util.List<com.inshot.xplayer.content.MediaFileInfo> r6 = r4.f10547c     // Catch:{ JSONException -> 0x0085 }
@@ -2200,14 +2810,15 @@ public class VideoManager {
         */
         throw new UnsupportedOperationException("Method not decompiled: com.inshot.xplayer.content.C2651f.m12196b(java.util.List):void");
     }
-    private static void m12196b(List<C2624a> list) {
+
+    private static void m12196b(List<MediaFolder> list) {
         String str;
         Throwable th;
         IOException e;
         JSONArray jSONArray = new JSONArray();
         try {
             int i = 0;
-            for (C2624a aVar : list) {
+            for (MediaFolder aVar : list) {
                 JSONArray jSONArray2 = new JSONArray();
                 int i2 = 0;
                 for (MediaFileInfo mediaFileInfo : aVar.f10547c) {
@@ -2261,7 +2872,7 @@ public class VideoManager {
                         } catch (IOException unused2) {
                         }
                     }
-                 //   throw th;
+                    //   throw th;
                 }
             } catch (Throwable th3) {
                 th = th3;
@@ -2288,71 +2899,71 @@ public class VideoManager {
         /* access modifiers changed from: private */
 
         /* renamed from: a */
-        public String f10636a;
+        public String path;
         /* access modifiers changed from: private */
 
         /* renamed from: b */
-        public long f10637b;
+        public long lastFetchedTime;
         /* access modifiers changed from: private */
 
         /* renamed from: c */
-        public List<C2669b> f10638c;
+        public List<VideoFile> videoFiles;
 
         private C2668a() {
         }
     }
 
     /* renamed from: com.inshot.xplayer.content.f$b */
-    private static class C2669b {
+    private static class VideoFile {
         /* access modifiers changed from: private */
 
         /* renamed from: a */
-        public String f10639a;
+        public String name;
         /* access modifiers changed from: private */
 
         /* renamed from: b */
-        public long f10640b;
+        public long type;
         /* access modifiers changed from: private */
 
         /* renamed from: c */
-        public long f10641c;
+        public long duration;
         /* access modifiers changed from: private */
 
         /* renamed from: d */
-        public long f10642d;
+        public long size;
 
-        private C2669b() {
-            this.f10642d = -1;
+        private VideoFile() {
+            this.size = -1;
         }
     }
 
     /* renamed from: a */
-    private static C2624a m12167a(C2668a aVar, String str) {
+    private static MediaFolder m12167a(C2668a aVar, String str) {
         String str2;
-        if (aVar.f10638c == null || aVar.f10638c.isEmpty()) {
+        if (aVar.videoFiles == null || aVar.videoFiles.isEmpty()) {
             return null;
         }
-        if (aVar.f10636a.endsWith("/")) {
-            str2 = aVar.f10636a;
+        if (aVar.path.endsWith("/")) {
+            str2 = aVar.path;
         } else {
-            str2 = aVar.f10636a + '/';
+            str2 = aVar.path + '/';
         }
-        ArrayList arrayList = new ArrayList(aVar.f10638c.size());
-        for (C2669b a : aVar.f10638c) {
-            arrayList.add(m12166a(str2, a));
+        ArrayList arrayList = new ArrayList(aVar.videoFiles.size());
+        for (VideoFile a : aVar.videoFiles) {
+            arrayList.add(createMediaFileInfo(str2, a));
         }
-        return new C2624a(aVar.f10636a, str, arrayList, aVar.f10637b);
+        return new MediaFolder(aVar.path, str, arrayList, aVar.lastFetchedTime);
     }
 
     /* renamed from: a */
-    private static MediaFileInfo m12166a(String str, C2669b bVar) {
+    private static MediaFileInfo createMediaFileInfo(String str, VideoFile bVar) {
         MediaFileInfo mediaFileInfo = new MediaFileInfo();
-        mediaFileInfo.mo17887b(bVar.f10640b);
-        mediaFileInfo.mo17884a(str + bVar.f10639a);
+        mediaFileInfo.mo17887b(bVar.type);
+        mediaFileInfo.mo17884a(str + bVar.name);
         mediaFileInfo.mo17881a(1);
-        mediaFileInfo.mo17882a(bVar.f10641c);
-        mediaFileInfo.f10496a = bVar.f10642d;
-        mediaFileInfo.mo17887b(bVar.f10640b);
+        mediaFileInfo.mo17882a(bVar.duration);
+        mediaFileInfo.f10496a = bVar.size;
+        mediaFileInfo.mo17887b(bVar.type);
         return mediaFileInfo;
     }
 
@@ -2515,10 +3126,12 @@ public class VideoManager {
         */
         throw new UnsupportedOperationException("Method not decompiled: com.inshot.xplayer.content.C2651f.m12190b(com.inshot.xplayer.content.f$c, com.inshot.xplayer.content.f$c):int");
     }
+
     public static int m12190b(C2670c cVar, C2670c cVar2) {
         int a2 = m12165a(cVar.f10644b, cVar2.f10644b);
         return (a2 == 0 && (a2 = m12191b(cVar.f10646d, cVar2.f10646d)) == 0) ? m12191b(cVar.f10645c, cVar2.f10645c) : a2;
     }
+
     /* renamed from: b */
     private static int m12191b(String str, String str2) {
         if (str == null) {
@@ -2613,7 +3226,7 @@ public class VideoManager {
     }
 
     /* renamed from: a */
-    private static void m12178a(RecentMediaStorage recentMediaStorage, C2624a aVar) {
+    private static void updateRecentMediaStorage(RecentMediaStorage recentMediaStorage, MediaFolder aVar) {
         Iterator<MediaFileInfo> it = aVar.f10547c.iterator();
         while (it.hasNext()) {
             if (!m12189a(recentMediaStorage, it.next())) {
@@ -2791,8 +3404,8 @@ public class VideoManager {
     }
 
     /* renamed from: a */
-    private static List<C2624a> m12171a(Context context, Set<String> set, Set<String> set2, Set<String> set3) {
-        List<MediaFileInfo> b = m12193b(context, set, set2, set3);
+    private static List<MediaFolder> extractMediaFoldersFromMediaFiles(Context context, Set<String> set, Set<String> set2, Set<String> set3) {
+        List<MediaFileInfo> b = getMediaFileInfos(context, set, set2, set3);
         if (b == null || b.size() == 0) {
             return null;
         }
@@ -2801,9 +3414,9 @@ public class VideoManager {
         for (MediaFileInfo next : b) {
             String parent = new File(next.mo17890d()).getParent();
             if (parent != null) {
-                C2624a aVar = (C2624a) hashMap.get(parent.toLowerCase(Locale.ENGLISH));
+                MediaFolder aVar = (MediaFolder) hashMap.get(parent.toLowerCase(Locale.ENGLISH));
                 if (aVar == null) {
-                    aVar = new C2624a(parent, (String) null, new ArrayList(), new File(parent).lastModified());
+                    aVar = new MediaFolder(parent, (String) null, new ArrayList(), new File(parent).lastModified());
                     hashMap.put(parent.toLowerCase(Locale.ENGLISH), aVar);
                     arrayList.add(aVar);
                 }
@@ -2814,7 +3427,7 @@ public class VideoManager {
     }
 
     /* renamed from: b */
-    private static List<MediaFileInfo> m12193b(Context context, Set<String> set, Set<String> set2, Set<String> set3) {
+    private static List<MediaFileInfo> getMediaFileInfos(Context context, Set<String> set, Set<String> set2, Set<String> set3) {
         Cursor cursor;
         Exception e;
         ArrayList arrayList = new ArrayList();
@@ -2877,7 +3490,7 @@ public class VideoManager {
             cursor = null;
             th = th;
             axy.m7468a(cursor);
-           // throw th;
+            // throw th;
         }
         axy.m7468a(cursor);
         return arrayList;
@@ -2885,7 +3498,7 @@ public class VideoManager {
 
     /* renamed from: a */
     public static void m12181a(final String str, final boolean z) {
-        f10618a.execute(new Runnable() {
+        EXECUTOR.execute(new Runnable() {
             public void run() {
                 File file = new File(str);
                 String parent = file.isDirectory() ? str : file.getParent();
@@ -2907,8 +3520,8 @@ public class VideoManager {
     }
 
     /* renamed from: a */
-    public static void m12182a(List<C2624a> list) {
-        for (C2624a next : list) {
+    public static void m12182a(List<MediaFolder> list) {
+        for (MediaFolder next : list) {
             if (!(next == null || next.f10550f == null || next.f10547c == null)) {
                 next.f10547c.addAll(next.f10550f);
                 next.f10550f = null;

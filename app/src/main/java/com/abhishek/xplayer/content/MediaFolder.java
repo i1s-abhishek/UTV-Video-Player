@@ -3,7 +3,7 @@ package com.abhishek.xplayer.content;
 import java.util.List;
 
 /* renamed from: com.inshot.xplayer.content.a */
-public class C2624a {
+public class MediaFolder {
 
     /* renamed from: a */
     public String f10545a;
@@ -36,7 +36,7 @@ public class C2624a {
     private int f10554j = -1;
 
     /* renamed from: k */
-    private MediaFileInfo f10555k;
+    private MediaFileInfo mediaFileInfo;
 
     /* renamed from: l */
     private long f10556l;
@@ -44,13 +44,13 @@ public class C2624a {
     /* renamed from: m */
     private boolean f10557m;
 
-    public C2624a(String str, String str2, List<MediaFileInfo> list) {
+    public MediaFolder(String str, String str2, List<MediaFileInfo> list) {
         this.f10545a = str;
         this.f10546b = str2;
         this.f10547c = list;
     }
 
-    public C2624a(String str, String str2, List<MediaFileInfo> list, long j) {
+    public MediaFolder(String str, String str2, List<MediaFileInfo> list, long j) {
         this.f10545a = str;
         this.f10546b = str2;
         this.f10547c = list;
@@ -94,7 +94,7 @@ public class C2624a {
         long j = 0;
         if (this.f10553i < 0 || this.f10554j != mo17924a()) {
             this.f10553i = 0;
-            this.f10555k = null;
+            this.mediaFileInfo = null;
             this.f10554j = mo17924a();
             if (this.f10547c != null) {
                 for (MediaFileInfo next : this.f10547c) {
@@ -103,7 +103,7 @@ public class C2624a {
                         this.f10553i = Math.max(h, this.f10553i);
                     }
                     if (h > j) {
-                        this.f10555k = next;
+                        this.mediaFileInfo = next;
                         j = h;
                     }
                 }

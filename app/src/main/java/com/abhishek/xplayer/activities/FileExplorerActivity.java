@@ -19,7 +19,7 @@ import com.abhishek.inplayer.bean.VideoPlayListBean;
 import com.abhishek.xplayer.ad.FunnyAd;
 import com.abhishek.xplayer.application.AppActivity;
 import com.abhishek.xplayer.application.MyApplication;
-import com.abhishek.xplayer.content.C2624a;
+import com.abhishek.xplayer.content.MediaFolder;
 import com.abhishek.xplayer.content.VideoManager;
 import com.abhishek.xplayer.content.MediaFileInfo;
 import com.abhishek.xplayer.fragments.DirectoryPageFragment;
@@ -225,7 +225,7 @@ public class FileExplorerActivity extends AppActivity implements axh.C1349a {
     }
 
 
-    public void mo17664a(C2624a aVar, MediaFileInfo mediaFileInfo, Fragment fragment, int i) {
+    public void mo17664a(MediaFolder aVar, MediaFileInfo mediaFileInfo, Fragment fragment, int i) {
         int indexOf;
         //Toast.makeText(this, "call2", Toast.LENGTH_SHORT).show();
         Intent intent = new Intent();
@@ -288,7 +288,7 @@ public class FileExplorerActivity extends AppActivity implements axh.C1349a {
     }
 
 
-    public void mo17663a(C2624a aVar) {
+    public void mo17663a(MediaFolder aVar) {
         VideoListPrivateVideoListFragment a = VideoListPrivateVideoListFragment.m12406a(aVar, false);
         FragmentTransaction customAnimations = getSupportFragmentManager().beginTransaction().setCustomAnimations(R.anim.fragment_bottom_in, 0, 0, R.anim.fragment_bottom_out);
         customAnimations.replace(R.id.body, a);

@@ -37,6 +37,7 @@ import androidx.appcompat.widget.PopupMenu;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.fragment.app.Fragment;
 
+import com.abhishek.xplayer.content.MediaFolder;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.ResourceDecoder;
 import com.bumptech.glide.load.model.ImageVideoWrapper;
@@ -45,7 +46,6 @@ import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.abhishek.xplayer.activities.FileExplorerActivity;
 import com.abhishek.xplayer.application.AppActivity;
 import com.abhishek.xplayer.application.MyApplication;
-import com.abhishek.xplayer.content.C2624a;
 import com.abhishek.xplayer.content.C2625b;
 import com.abhishek.xplayer.content.MediaFileInfo;
 import com.abhishek.xplayer.content.RecentMediaStorage;
@@ -101,7 +101,7 @@ public class SearchPageFragment extends FragmentLifecycle implements AdapterView
     /* access modifiers changed from: private */
 
     /* renamed from: e */
-    public C2624a f10752e;
+    public MediaFolder f10752e;
 
     /* renamed from: f */
     private ArrayList<MediaFileInfo> f10753f;
@@ -111,7 +111,7 @@ public class SearchPageFragment extends FragmentLifecycle implements AdapterView
     public C2713b f10754g;
 
     /* renamed from: h */
-    private List<C2624a> f10755h;
+    private List<MediaFolder> f10755h;
     /* access modifiers changed from: private */
 
     /* renamed from: i */
@@ -483,12 +483,12 @@ public class SearchPageFragment extends FragmentLifecycle implements AdapterView
     }
 
     /* renamed from: a */
-    public void mo18015a(C2624a aVar) {
+    public void mo18015a(MediaFolder aVar) {
         this.f10752e = aVar;
     }
 
     /* renamed from: a */
-    public void mo18016a(List<C2624a> list) {
+    public void mo18016a(List<MediaFolder> list) {
         this.f10755h = list;
     }
 
@@ -527,7 +527,7 @@ public class SearchPageFragment extends FragmentLifecycle implements AdapterView
         if (adapterView.getAdapter() != null) {
             if (!(adapterView.getAdapter() instanceof C2711a)) {
                 MediaFileInfo mediaFileInfo = this.f10752e.f10547c.get(i);
-                C2624a a = m12302a(mediaFileInfo);
+                MediaFolder a = m12302a(mediaFileInfo);
                 FileExplorerActivity fileExplorerActivity = (FileExplorerActivity) getActivity();
                 if (a == null) {
                     a = this.f10752e;
@@ -544,11 +544,11 @@ public class SearchPageFragment extends FragmentLifecycle implements AdapterView
     }
 
     /* renamed from: a */
-    private C2624a m12302a(MediaFileInfo mediaFileInfo) {
+    private MediaFolder m12302a(MediaFileInfo mediaFileInfo) {
         if (this.f10755h == null || this.f10752e == null) {
             return null;
         }
-        for (C2624a next : this.f10755h) {
+        for (MediaFolder next : this.f10755h) {
             Iterator<MediaFileInfo> it = next.f10547c.iterator();
             while (true) {
                 if (it.hasNext()) {
@@ -734,8 +734,8 @@ public class SearchPageFragment extends FragmentLifecycle implements AdapterView
     }
 
     /* renamed from: c */
-    private C2624a m12325c(MediaFileInfo mediaFileInfo) {
-        C2624a aVar = null;
+    private MediaFolder m12325c(MediaFileInfo mediaFileInfo) {
+        MediaFolder aVar = null;
         if (this.f10755h == null) {
             return null;
         }
