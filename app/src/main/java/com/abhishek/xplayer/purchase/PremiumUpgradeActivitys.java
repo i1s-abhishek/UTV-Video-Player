@@ -7,6 +7,7 @@ import android.content.DialogInterface;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.Looper;
 import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
@@ -42,9 +43,9 @@ public class PremiumUpgradeActivitys extends BaseActivity implements PurchasesUp
 
     private PremiumUpgradeActivitys.C4491a f14602b;
 
-    public Handler handler = new Handler();
+    public Handler handler = new Handler(Looper.getMainLooper());
 
-    private  boolean f14608hh;
+    private boolean f14608hh;
     public ProgressDialog progressDialog;
     public Button premiumUpgradeMonthlyBtn;
     public Button premiumUpgradeAnnualyBtn;
@@ -60,7 +61,7 @@ public class PremiumUpgradeActivitys extends BaseActivity implements PurchasesUp
                 Toast.makeText(PremiumUpgradeActivitys.this, PremiumUpgradeActivitys.this.getString(R.string.purchased_success), 1).show();
                 atd.adRemoved("adRemoved", true);
                 //   User.getInstance(PremiumUpgradeActivitys.this).setRemoveAd(true);
-             //   User.getInstance(PremiumUpgradeActivitys.this).save(PremiumUpgradeActivitys.this);
+                //   User.getInstance(PremiumUpgradeActivitys.this).save(PremiumUpgradeActivitys.this);
                 m18595g();
             }
         }
@@ -83,8 +84,8 @@ public class PremiumUpgradeActivitys extends BaseActivity implements PurchasesUp
             public void onClick(View v) {
                 SkuDetails kVar = (SkuDetails) premiumUpgradeLifetimeBtn.getTag();
                 if (kVar != null) {
-                    Log.e("abhipurches","calllb");
-                    m1925a( PremiumUpgradeActivitys.this, kVar);
+                    Log.e("abhipurches", "calllb");
+                    m1925a(PremiumUpgradeActivitys.this, kVar);
                 }
             }
         });
@@ -94,7 +95,7 @@ public class PremiumUpgradeActivitys extends BaseActivity implements PurchasesUp
             public void onClick(View v) {
                 SkuDetails kVar = (SkuDetails) premiumUpgradeAnnualyBtn.getTag();
                 if (kVar != null) {
-                    Log.e("abhipurches","calllc");
+                    Log.e("abhipurches", "calllc");
                     m1925a(PremiumUpgradeActivitys.this, kVar);
                 }
             }
@@ -105,37 +106,39 @@ public class PremiumUpgradeActivitys extends BaseActivity implements PurchasesUp
             public void onClick(View v) {
                 SkuDetails kVar = (SkuDetails) premiumUpgradeMonthlyBtn.getTag();
                 if (kVar != null) {
-                    Log.e("abhipurches","callld");
+                    Log.e("abhipurches", "callld");
                     m1925a((Activity) PremiumUpgradeActivitys.this, kVar);
                 }
             }
         });
         premiumUpgradeButtonEnable(false);
-        Log.e("abhipurches","oncreate1");
+        Log.e("abhipurches", "oncreate1");
         // ((Button) findViewById(R.id.premium_upgrade_old_paid_btn)).setOnClickListener(new C0630ei(this));
         startPurches();
     }
+
     public void startPurches() {
         m18585a((Runnable) new C4489N(PremiumUpgradeActivitys.this));
     }
 
     private void m18585a(Runnable runnable) {
-        Log.e("abhipurches","premium_4");
+        Log.e("abhipurches", "premium_4");
         if (f14608hh) {
-            Log.e("abhipurches","premium_4_");
+            Log.e("abhipurches", "premium_4_");
             runnable.run();
             return;
         }
         if (this.billingClient == null) {
-            Log.e("abhipurches","premium_5");
+            Log.e("abhipurches", "premium_5");
             BillingClient.Builder a = BillingClient.newBuilder((Context) this);
             a.enablePendingPurchases();
             a.setListener(this);
             this.billingClient = a.build();
         }
-        Log.e("abhipurches","premium_6");
-        this.billingClient.startConnection( new BillingClientListener(this, runnable));
+        Log.e("abhipurches", "premium_6");
+        this.billingClient.startConnection(new BillingClientListener(this, runnable));
     }
+
     class BillingClientListener implements BillingClientStateListener {
 
         /* renamed from: a */
@@ -151,20 +154,21 @@ public class PremiumUpgradeActivitys extends BaseActivity implements PurchasesUp
 
         /* renamed from: a */
         public void onBillingSetupFinished(BillingResult g) {
-            Log.e("abhipurches","premium_6");
+            Log.e("abhipurches", "premium_6");
             if (g.getResponseCode() == 0) {
-                Log.e("abhipurches","premium_7");
-               f14608hh = true;
+                Log.e("abhipurches", "premium_7");
+                f14608hh = true;
                 this.f14594a.run();
             }
         }
 
         /* renamed from: a */
         public void onBillingServiceDisconnected() {
-            Log.e("abhipurches","premium_8");
-          f14608hh = false;
+            Log.e("abhipurches", "premium_8");
+            f14608hh = false;
         }
     }
+
     class C4489N implements Runnable {
 
         /* renamed from: a */
@@ -185,10 +189,11 @@ public class PremiumUpgradeActivitys extends BaseActivity implements PurchasesUp
                 j.setSkuDetails(this.f14600a.skuDetails);
                 this.f14600a.billingClient.launchBillingFlow(PremiumUpgradeActivitys.this, j.build());
             } catch (Exception e) {
-      //          C4529n.m18804a(PremiumUpgradeActivitys.this, "BillingClient", e.getMessage());
+                //          C4529n.m18804a(PremiumUpgradeActivitys.this, "BillingClient", e.getMessage());
             }
         }
     }
+
     public void getSku() {
         handler.post(new C0634em());
         m18585a((Runnable) new C4487L(this));
@@ -197,7 +202,7 @@ public class PremiumUpgradeActivitys extends BaseActivity implements PurchasesUp
     class C0634em implements Runnable {
 
         public void run() {
-           progressDialog = ProgressDialog.show(PremiumUpgradeActivitys.this, (CharSequence) null, PremiumUpgradeActivitys.this.getString(R.string.premium_upgrade_loading_info), true, false);
+            progressDialog = ProgressDialog.show(PremiumUpgradeActivitys.this, (CharSequence) null, PremiumUpgradeActivitys.this.getString(R.string.premium_upgrade_loading_info), true, false);
         }
     }
 
@@ -214,26 +219,26 @@ public class PremiumUpgradeActivitys extends BaseActivity implements PurchasesUp
             try {
                 // Toast.makeText(PremiumUpgradeActivitys.this, "onSkuDetailsResponse2", Toast.LENGTH_SHORT).show();
                 if (this.f14598a.billingClient == null && f14608hh) {
-                    Log.e("abhipurches","calllaaa1");
+                    Log.e("abhipurches", "calllaaa1");
                     this.f14598a.mo23201c();
                 }
-                Log.e("abhipurches","calllaaa2");
+                Log.e("abhipurches", "calllaaa2");
                 SkuDetailsParams.Builder c = SkuDetailsParams.newBuilder();
                 ArrayList arrayList = new ArrayList();
                 arrayList.add("lifetime_subscription");
                 c.setSkusList((List<String>) arrayList);
                 c.setType(BillingClient.SkuType.INAPP);
-                this.f14598a.billingClient.querySkuDetailsAsync(c.build(),  new C4486K(this));
-                 arrayList.clear();
+                this.f14598a.billingClient.querySkuDetailsAsync(c.build(), new C4486K(this));
+                arrayList.clear();
                 arrayList.add("monthly_subscription");
                 arrayList.add("yearly_subscription");
                 SkuDetailsParams.Builder d2 = SkuDetailsParams.newBuilder();
                 d2.setSkusList((List<String>) arrayList).setType("subs");
-                this.f14598a.billingClient.querySkuDetailsAsync(d2.build(),  new C4486K(this));
+                this.f14598a.billingClient.querySkuDetailsAsync(d2.build(), new C4486K(this));
 
 
             } catch (Exception e) {
-            //    C4529n.m18804a(PremiumUpgradeActivitys.this, "BillingClient", e.getMessage());
+                //    C4529n.m18804a(PremiumUpgradeActivitys.this, "BillingClient", e.getMessage());
             }
         }
     }
@@ -249,54 +254,62 @@ public class PremiumUpgradeActivitys extends BaseActivity implements PurchasesUp
 
         /* renamed from: a */
         public void onSkuDetailsResponse(BillingResult g, List<SkuDetails> list) {
-            Log.e("abhipurches","calllaaa3");
-            if (g.getResponseCode() == 0) {
-                Log.e("abhipurches","calllaaa4a");
-                for (SkuDetails next : list) {
-                    Log.e("abhipurches","calllaaa4");
-                    String a = next.getSku();
-                    String d = next.getPrice();
-                    Log.e("abhipurches_list","list="+String.valueOf(list));
+            Log.e("abhipurches", "calllaaa3");
+            handler.post(new Runnable() {
+                @Override
+                public void run() {
+                    if (g.getResponseCode() == 0) {
+                        Log.e("abhipurches", "calllaaa4a");
+                        for (SkuDetails next : list) {
+                            Log.e("abhipurches", "calllaaa4");
+                            String a = next.getSku();
+                            String d = next.getPrice();
+                            Log.e("abhipurches_list", "list=" + String.valueOf(list));
 
-                    if ("lifetime_subscription".equals(a)) {
-                        Log.e("abhipurches","lifetime_subscription"+String.valueOf(next));
-                        this.f14597a.f14598a.skuDetails = next;
-                        String plainString = new BigDecimal((double) ((((float) next.getPriceAmountMicros()) / 0.2f) / 1000000.0f)).setScale(2, 4).toPlainString();
-                      //  User.getInstance(PremiumUpgradeActivitys.this).setRemoveAdPrice(d);
-                      //  User.getInstance(PremiumUpgradeActivitys.this).setRemoveAdOriginalPrice(plainString);
-                 //       User.getInstance(PremiumUpgradeActivitys.this).save(PremiumUpgradeActivitys.this);
-                        this.f14597a.f14598a.m18595g();
-                       premiumUpgradeLifetimeBtn.setVisibility(0);
-                        premiumUpgradeLifetimeBtn.setEnabled(true);
-                        premiumUpgradeLifetimeBtn.setText(String.valueOf(getString(R.string.premium_upgrade_lifetime_btn_text)) + " " + d);
-                        premiumUpgradeLifetimeBtn.setTag(next);
+                            if ("lifetime_subscription".equals(a)) {
+                                Log.e("abhipurches", "lifetime_subscription" + String.valueOf(next));
+                                f14597a.f14598a.skuDetails = next;
+                                String plainString = new BigDecimal((double) ((((float) next.getPriceAmountMicros()) / 0.2f) / 1000000.0f)).setScale(2, 4).toPlainString();
+                                //  User.getInstance(PremiumUpgradeActivitys.this).setRemoveAdPrice(d);
+                                //  User.getInstance(PremiumUpgradeActivitys.this).setRemoveAdOriginalPrice(plainString);
+                                //       User.getInstance(PremiumUpgradeActivitys.this).save(PremiumUpgradeActivitys.this);
+                                f14597a.f14598a.m18595g();
+                                premiumUpgradeLifetimeBtn.setVisibility(0);
+                                premiumUpgradeLifetimeBtn.setEnabled(true);
+                                premiumUpgradeLifetimeBtn.setText(String.valueOf(getString(R.string.premium_upgrade_lifetime_btn_text)) + " " + d);
+                                premiumUpgradeLifetimeBtn.setTag(next);
+                            } else if ("monthly_subscription".equals(a)) {
+                                Log.e("abhipurches", "monthly_subscription");
+                                premiumUpgradeAnnualyBtn.setVisibility(0);
+                                premiumUpgradeAnnualyBtn.setEnabled(true);
+                                premiumUpgradeAnnualyBtn.setText(String.valueOf(getString(R.string.premium_upgrade_monthly_btn_text)) + " " + d);
+                                premiumUpgradeAnnualyBtn.setTag(next);
+                            } else if ("yearly_subscription".equals(a)) {
+                                Log.e("abhipurches", "yearly_subscription");
+                                premiumUpgradeMonthlyBtn.setVisibility(0);
+                                premiumUpgradeMonthlyBtn.setEnabled(true);
+                                premiumUpgradeMonthlyBtn.setText(String.valueOf(getString(R.string.premium_upgrade_annually_btn_text)) + " " + d);
+                                premiumUpgradeMonthlyBtn.setTag(next);
+                            }
+                        }
+                        if (list.isEmpty()) {
+                            Runnable runnable = new Runnable() {
+                                @Override
+                                public void run() {
+                                    Toast.makeText(PremiumUpgradeActivitys.this, R.string.premium_upgrade_error_msg, Toast.LENGTH_SHORT).show();
+                                    onBackPressed();
+                                }
+                            };
+                            new Handler(Looper.getMainLooper()).postDelayed(runnable, 500);
+                        }
                     }
-                    else if ("monthly_subscription".equals(a)) {
-                        Log.e("abhipurches","monthly_subscription");
-                        premiumUpgradeAnnualyBtn.setVisibility(0);
-                        premiumUpgradeAnnualyBtn.setEnabled(true);
-                        premiumUpgradeAnnualyBtn.setText(String.valueOf(getString(R.string.premium_upgrade_monthly_btn_text)) + " " + d);
-                        premiumUpgradeAnnualyBtn.setTag(next);
-                    }
-                    else if ("yearly_subscription".equals(a)) {
-                        Log.e("abhipurches","yearly_subscription");
-                        premiumUpgradeMonthlyBtn.setVisibility(0);
-                        premiumUpgradeMonthlyBtn.setEnabled(true);
-                        premiumUpgradeMonthlyBtn.setText(String.valueOf(getString(R.string.premium_upgrade_annually_btn_text)) + " " + d);
-                        premiumUpgradeMonthlyBtn.setTag(next);
+                    try {
+                        progressDialog.cancel();
+                    } catch (Exception e) {
                     }
                 }
-                if(list.isEmpty()){
-            Runnable runnable= new Runnable(){
-                       @Override
-                       public void run() {
-                           Toast.makeText(PremiumUpgradeActivitys.this, R.string.premium_upgrade_error_msg, Toast.LENGTH_SHORT).show();
-                           onBackPressed();
-                       }
-                   };
-                   new Handler().postDelayed(runnable,500);
-                }
-            }
+            });
+
             try {
                 progressDialog.cancel();
             } catch (Exception e) {
@@ -312,9 +325,11 @@ public class PremiumUpgradeActivitys extends BaseActivity implements PurchasesUp
             }
         });
     }
+
     public void mo23202d() {
         m18585a((Runnable) new C4485J(this));
     }
+
     public void m1925a(Activity activity, SkuDetails kVar) {
         this.billingClient.launchBillingFlow(activity, BillingFlowParams.newBuilder().setSkuDetails(kVar).build());
     }
@@ -421,9 +436,11 @@ public class PremiumUpgradeActivitys extends BaseActivity implements PurchasesUp
         findViewById(R.id.premium_upgrade_monthly_btn).setEnabled(z);
         findViewById(R.id.premium_upgrade_annually_btn).setEnabled(z);
     }
+
     public interface C4491a {
         void mo20988a();
     }
+
     public void m18595g() {
         PremiumUpgradeActivitys.C4491a aVar = this.f14602b;
         if (aVar != null) {
@@ -465,19 +482,21 @@ public class PremiumUpgradeActivitys extends BaseActivity implements PurchasesUp
             e.printStackTrace();
         }
     }
+
     public static String m1937b(String str) {
         return str.equals("lifetime_subscription") ? "inapp" : "subs";
     }
 
     public void onDestroy() {
         super.onDestroy();
-        Log.e("abhipurches","ondistroy1");
+        Log.e("abhipurches", "ondistroy1");
         if (this.billingClient != null) {
-            Log.e("abhipurches","ondistroy2");
+            Log.e("abhipurches", "ondistroy2");
             this.billingClient.endConnection();
             this.billingClient = null;
         }
     }
+
     private void m18584a(Purchase m) {
         if (m.getPurchaseState() == 1 && !m.isAcknowledged()) {
             AcknowledgePurchaseParams.Builder c = AcknowledgePurchaseParams.newBuilder();
